@@ -89,14 +89,14 @@ export default function Home() {
       <div className="content">
         <h1>Kai Perez</h1>
         <h2>Cloud Architect / Full-Stack Developer</h2>
-        <button onClick={() => window.location.href = 'mailto:kai@example.com'}>Contact Me</button>
+        <button onClick={() => window.location.href = 'https://calendly.com/kaiperez/30min'}>Contact Me</button>
       </div>
 
       <div className={`sidebar ${sidebarActive ? 'active' : ''}`}>
         <ul>
           <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">About Me</a></li>
           <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">Projects</a></li>
-          <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">Contact</a></li>
+          <li><a href="https://calendly.com/kaiperez/30min" target="_blank" rel="noopener noreferrer">Contact</a></li>
         </ul>
       </div>
 
