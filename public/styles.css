@@ -1,0 +1,189 @@
+/* Base Styles */
+body {
+    -webkit-user-select: none; /* Chrome, Safari, and Opera */
+    -moz-user-select: none;    /* Firefox */
+    -ms-user-select: none;     /* Internet Explorer/Edge */
+    user-select: none;         /* Standard */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+}
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, #3494E6, #FF9A8B, #FFD89B, #EC6EAD);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+.content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    text-align: center;
+    z-index: 10;
+    animation: fadeIn 2s ease forwards;
+    opacity: 0;
+}
+h1 {
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+}
+h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
+}
+button {
+    background-color: #FF9A8B;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 25px;
+    margin-top: 20px;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 2px 4px 8px rgba(0, 0, 0, 0.2); /* Subtle box shadow */
+}
+
+button:hover {
+    background-color: #3494E6;
+    transform: scale(1.05);
+    box-shadow: 3px 6px 12px rgba(0, 0, 0, 0.25); /* Slightly stronger shadow on hover */
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 250px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 20;
+}
+.sidebar.active {
+    transform: translateX(0);
+}
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+}
+.sidebar ul li {
+    margin: 20px 0;
+}
+.sidebar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 10px;
+    display: block;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.sidebar ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #FF9A8B;
+    border-radius: 5px;
+}
+
+/* Toggle Menu */
+.toggle-menu {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 30;
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+.toggle-menu div {
+    width: 100%;
+    height: 4px;
+    background: white;
+    border-radius: 2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+.toggle-menu.active div:nth-child(1) {
+    transform: rotate(45deg) translateY(10px);
+}
+.toggle-menu.active div:nth-child(2) {
+    background: transparent;
+}
+.toggle-menu.active div:nth-child(3) {
+    transform: rotate(-45deg) translateY(-10px);
+}
+
+/* Social Icons */
+.social-icons {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 10;
+    display: flex; /* Use flexbox to align items and remove inline gaps */
+    gap: 30px; /* Add spacing between the icons */
+}
+
+.social-icons a {
+    text-decoration: none; /* Remove underline */
+}
+
+.social-icons img {
+    width: 40px;
+    height: 40px;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.3));
+    transition: transform 0.3s ease;
+}
+
+.social-icons img:hover {
+    transform: scale(1.2);
+}
+/* Animations */
+@keyframes gradientBG {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+    h2 {
+        font-size: 1rem;
+    }
+    button {
+        font-size: 0.9rem;
+    }
+    .social-icons img {
+        width: 30px;
+    }
+}

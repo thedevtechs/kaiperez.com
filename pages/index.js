@@ -1,0 +1,157 @@
+import Head from 'next/head'
+import Image from 'next/image'
+import { useState, useEffect } from 'react'
+
+export default function Home() {
+  // State to manage sidebar and toggle menu active state
+  const [sidebarActive, setSidebarActive] = useState(false)
+  const [toggleActive, setToggleActive] = useState(false)
+
+  // Function to handle the sidebar and toggle menu
+  const toggleMenu = () => {
+    setSidebarActive(!sidebarActive)
+    setToggleActive(!toggleActive)
+  }
+
+  // Load particles.js dynamically in the useEffect hook
+  useEffect(() => {
+    // Dynamically add the particles.js script to the document
+    const script = document.createElement('script')
+    script.src = 'https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js'
+    script.onload = () => {
+      particlesJS('particles-js', {
+        particles: {
+          number: { value: 80, density: { enable: true, value_area: 800 } },
+          color: { value: ['#3494E6', '#EC6EAD', '#FF9A8B', '#FFD89B'] },
+          shape: { type: 'circle' },
+          opacity: { value: 0.5 },
+          size: { value: 3, random: true },
+          line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+          move: { enable: true, speed: 0.8 }
+        },
+        interactivity: {
+          detect_on: 'canvas',
+          events: {
+            onhover: { enable: true, mode: 'repulse' },
+            onclick: { enable: true, mode: 'push' }
+          }
+        },
+        retina_detect: true
+      })
+    }
+    document.body.appendChild(script)
+
+    // Clean up by removing the script when the component is unmounted
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
+
+  return (
+    <>
+      <Head>
+        <meta charSet="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Portfolio of Kai Perez - Cloud Architect / Full-Stack Developer" />
+        <meta name="author" content="Kai Perez" />
+        <title>Kai Perez - Portfolio</title>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        {/* Importing styles.css */}
+        <link rel="stylesheet" href="/styles.css" />
+      </Head>
+
+      <div id="particles-js" style={{ position: 'absolute', width: '100%', height: '100%' }} />
+      <div className="content">
+        <h1>Kai Perez</h1>
+        <h2>Cloud Architect / Full-Stack Developer</h2>
+        <button onClick={() => window.location.href = 'mailto:kai@example.com'}>Contact Me</button>
+      </div>
+
+      <div className={`sidebar ${sidebarActive ? 'active' : ''}`}>
+        <ul>
+          <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">About Me</a></li>
+          <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">Projects</a></li>
+          <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">Contact</a></li>
+        </ul>
+      </div>
+
+      <div
+        className={`toggle-menu ${toggleActive ? 'active' : ''}`}
+        aria-label="Toggle navigation"
+        onClick={toggleMenu}
+      >
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+
+      <div className="social-icons">
+        <a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+          <Image src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width={30} height={30} />
+        </a>
+        <a href="https://github.com/thedevtechs" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+          <Image src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" width={30} height={30} />
+        </a>
+      </div>
+
+      <style jsx>{`
+        .content {
+          text-align: center;
+        }
+        .sidebar {
+          position: fixed;
+          top: 0;
+          right: 0;
+          height: 100%;
+          width: 250px;
+          background: rgba(255, 255, 255, 0.1);
+          backdrop-filter: blur(10px);
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+          transform: translateX(100%);
+          transition: transform 0.3s ease;
+          z-index: 20;
+        }
+        .sidebar.active {
+          transform: translateX(0);
+        }
+        .social-icons a {
+          margin: 0 10px;
+        }
+        .toggle-menu {
+          position: fixed;
+          top: 20px;
+          right: 20px;
+          z-index: 30;
+          cursor: pointer;
+          width: 35px;
+          height: 35px;
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          align-items: center;
+        }
+        .toggle-menu div {
+          width: 100%;
+          height: 4px;
+          background: white;
+          border-radius: 2px;
+          transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .toggle-menu.active div:nth-child(1) {
+          transform: rotate(45deg) translateY(10px);
+        }
+        .toggle-menu.active div:nth-child(2) {
+          background: transparent;
+        }
+        .toggle-menu.active div:nth-child(3) {
+          transform: rotate(-45deg) translateY(-10px);
+        }
+      `}</style>
+    </>
+  )
+}
