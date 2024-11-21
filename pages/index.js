@@ -52,13 +52,37 @@ export default function Home() {
       <Head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <meta name="description" content="Portfolio of Kai Perez - Cloud Architect / Full-Stack Developer" />
+        <meta name="description" content="Explore the portfolio of Kai Perez, a Cloud Architect and Full-Stack Developer. View projects, skills, and connect for collaboration." />
         <meta name="author" content="Kai Perez" />
-        <title>Kai Perez - Portfolio</title>
+        <meta property="og:title" content="Kai Perez - Cloud Architect & Full-Stack Developer Portfolio" />
+        <meta property="og:description" content="Discover innovative projects by Kai Perez, a Cloud Architect and Full-Stack Developer. Contact Kai to build modern tech solutions." />
+        <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/733/733553.png" />
+        <meta property="og:image:alt" content="GitHub logo linking to Kai Perez's GitHub profile showcasing full-stack development projects" />
+        <meta property="og:url" content="https://yourwebsite.com" />
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Kai Perez - Cloud Architect & Full-Stack Developer Portfolio" />
+        <meta name="twitter:description" content="Explore Kai Perez's innovative projects in cloud architecture and full-stack development. Connect now for collaboration." />
+        <meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/733/733553.png" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.ico" type="image/x-icon" />
-        {/* Importing styles.css */}
+        <title>Kai Perez - Cloud Architect & Full-Stack Developer Portfolio</title>
+        <script type="application/ld+json">
+          {`{
+            "@context": "https://schema.org",
+            "@type": "Person",
+            "name": "Kai Perez",
+            "jobTitle": "Cloud Architect & Full-Stack Developer",
+            "url": "https://yourwebsite.com",
+            "sameAs": [
+              "https://linkedin.com/in/kaiperez",
+              "https://github.com/thedevtechs"
+            ],
+            "email": "kai@example.com"
+          }`}
+        </script>
         <link rel="stylesheet" href="/styles.css" />
+
       </Head>
 
       <div id="particles-js" style={{ position: 'absolute', width: '100%', height: '100%' }} />
@@ -88,10 +112,10 @@ export default function Home() {
 
       <div className="social-icons">
         <a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <Image src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="LinkedIn" width={30} height={30} />
+          <Image src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Kai Perez LinkedIn Profile Icon" width={30} height={30} />
         </a>
         <a href="https://github.com/thedevtechs" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <Image src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub" width={30} height={30} />
+          <Image src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub Icon for Kai Perez" width={30} height={30} />
         </a>
       </div>
 

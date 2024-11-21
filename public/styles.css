@@ -144,14 +144,18 @@ button:hover {
     bottom: 10px;
     right: 10px;
     z-index: 10;
-    display: flex; /* Use flexbox to align items and remove inline gaps */
-    gap: 30px; /* Add spacing between the icons */
+    display: flex; /* Use flexbox to align items */
+    gap: 15px; /* Reduce spacing for mobile friendliness */
+    flex-wrap: wrap; /* Ensure icons wrap on smaller screens */
+    justify-content: center; /* Center the icons on smaller screens */
 }
 
+/* Social Icons Links */
 .social-icons a {
     text-decoration: none; /* Remove underline */
 }
 
+/* Social Icons Images */
 .social-icons img {
     width: 40px;
     height: 40px;
@@ -161,6 +165,22 @@ button:hover {
 
 .social-icons img:hover {
     transform: scale(1.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .social-icons {
+        bottom: 20px; /* Adjust positioning for better visibility */
+        right: 0; /* Center icons horizontally */
+        left: 0; /* Center icons horizontally */
+    }
+    .social-icons img {
+        width: 30px; /* Reduce icon size for smaller screens */
+        height: 30px;
+    }
+    .social-icons {
+        gap: 10px; /* Reduce spacing further on smaller screens */
+    }
 }
 /* Animations */
 @keyframes gradientBG {
