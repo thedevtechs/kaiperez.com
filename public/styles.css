@@ -29,11 +29,11 @@ body, html {
     color: white;
     text-align: center;
     z-index: 10;
-    animation: fadeIn 2s ease forwards;
+    animation: fadeIn 4s ease forwards;
     opacity: 0;
 }
 h1 {
-    font-size: 3rem;
+    font-size: 4rem;
     margin: 0;
     text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
 }
@@ -207,3 +207,62 @@ button:hover {
         width: 30px;
     }
 }
+
+.light {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  
+  .customCursor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    pointer-events: none;
+    z-index: 10;
+    transition: opacity 0.3s ease;
+  }
+  
+  .hideCursor {
+    opacity: 0;
+  }
+  
+  .hideLight {
+    opacity: 0;
+  }
+  
+  .content {
+    transition: background-color 0.3s ease;
+  }
+  
+  .lightBackground {
+    background-color: white;
+    color: black;
+  }
+  
+  .toggleButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #3494e6;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    z-index: 50;
+  }
+  
+  .toggleButton:hover {
+    background: #ffd89b;
+  }
+  

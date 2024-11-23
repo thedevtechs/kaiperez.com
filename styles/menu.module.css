@@ -1,0 +1,106 @@
+/* styles/menu.module.css */
+
+/* Sidebar Styles */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 250px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 20;
+}
+
+.sidebar.active {
+  transform: translateX(0);
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar ul li {
+  margin: 20px 0;
+}
+
+/* Style for Link components */
+.link {
+  text-decoration: none;
+  color: #333;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.link:hover {
+  color: #0070f3;
+}
+
+/* Toggle Menu Button Styles */
+.toggleMenu {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 30;
+  cursor: pointer;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.toggleMenu div {
+  width: 100%;
+  height: 4px;
+  background: #000;
+  border-radius: 2px;
+  transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.toggleMenu.active div:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+
+.toggleMenu.active div:nth-child(2) {
+  background: transparent;
+}
+
+.toggleMenu.active div:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
+}
+
+/* Social Icons Styles */
+.socialIcons {
+  position: fixed;
+  bottom: 20px;
+  left: 20px;
+  display: flex;
+  gap: 10px;
+  z-index: 20;
+}
+
+.socialLink {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.socialLink:hover {
+  background: rgba(255, 255, 255, 0.2);
+}

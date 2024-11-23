@@ -1,0 +1,134 @@
+/* Container */
+.container {
+    margin: 0 auto;
+    padding: 2rem 6rem;
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    background: #f9f9f9;
+    border-radius: 15px;
+    /* Removed drop shadow */
+  }
+  
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+  
+  .title {
+    font-size: 2.5rem;
+    color: #111;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    color: #555;
+    margin-top: 10px;
+  }
+  
+  /* Content Layout */
+  .contentLayout {
+    display: flex;
+    gap: 40px;
+  }
+  
+  /* Left Column (Gallery) */
+  .leftColumn {
+    flex: 3; /* 60% */
+  }
+  
+  .gallery {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .mainImageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .mainImage {
+    width: 100%;
+    max-height: 500px;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .thumbnailContainer {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .thumbnail {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.2s ease, border 0.2s ease;
+  }
+  
+  .thumbnail:hover {
+    transform: scale(1.1);
+  }
+  
+  .activeThumbnail {
+    border: 2px solid #0070f3; /* Highlight active thumbnail */
+  }
+  
+  /* Right Column (Details) */
+  .rightColumn {
+    flex: 2; /* 40% */
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    color: #222;
+  }
+  
+  .description {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #555;
+  }
+  
+  .list {
+    list-style-type: disc;
+    margin-left: 20px;
+  }
+  
+  .listItem {
+    margin-bottom: 10px;
+  }
+  
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    border-top: 1px solid #eee;
+    font-size: 0.9rem;
+    color: #666;
+  }
+  
+  /* Loading State */
+  .loadingContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80vh;
+  }
+  
+  .loadingText {
+    font-size: 1.5rem;
+    color: #888;
+  }
+  

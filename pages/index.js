@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Link from 'next/link' // Import Next.js Link component
 import Image from 'next/image'
 import { useState, useEffect } from 'react'
 
@@ -27,7 +28,7 @@ export default function Home() {
           opacity: { value: 0.5 },
           size: { value: 3, random: true },
           line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
-          move: { enable: true, speed: 0.8 }
+          move: { enable: true, speed: 0.4}
         },
         interactivity: {
           detect_on: 'canvas',
@@ -65,7 +66,7 @@ export default function Home() {
         <meta name="twitter:description" content="Explore Kai Perez's innovative projects in cloud architecture and full-stack development. Connect now for collaboration." />
         <meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/733/733553.png" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
-        <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+        <link rel="icon" href="/favicon.png" type="image/x-icon" />
         <title>Kai Perez - Cloud Architect & Full-Stack Developer Portfolio</title>
         <script type="application/ld+json">
           {`{
@@ -87,15 +88,55 @@ export default function Home() {
 
       <div id="particles-js" style={{ position: 'absolute', width: '100%', height: '100%' }} />
       <div className="content">
-        <h1>Kai Perez</h1>
-        <h2>Cloud Architect / Full-Stack Developer</h2>
-        <button onClick={() => window.location.href = 'https://calendly.com/kaiperez/30min'}>Contact Me</button>
-      </div>
+  <h1>Kai Perez</h1>
+  <h2>Cloud Architect / Full-Stack Developer</h2>
+  <div className="button-group">
+    <button onClick={() => window.open('https://calendly.com/kaiperez/30min', '_blank')}>Contact Me</button>
+    <Link href="/portfolio" passHref>
+      <button>Portfolio</button>
+    </Link>  </div>
+</div>
+
+<style jsx>{`
+  .content {
+    text-align: center;
+    margin-top: 50px;
+  }
+  .button-group {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 20px;
+}
+.button-group button {
+  padding: 10px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.button-group button:first-child {
+  background-color: #3494E6;
+  color: #fff;
+}
+.button-group button:last-child {
+  background-color: #3494E6; /* Prussian Blue for a palette-matching darker tone */
+  color: #fff;
+}
+.button-group button:hover {
+  background-color: #FFD89B;
+  transform: scale(1.05);
+}
+
+`}</style>
+
 
       <div className={`sidebar ${sidebarActive ? 'active' : ''}`}>
         <ul>
           <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">About Me</a></li>
-          <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">Projects</a></li>
+          <li><a href="/portfolio" rel="noopener noreferrer">Portfolio</a></li>
           <li><a href="https://calendly.com/kaiperez/30min" target="_blank" rel="noopener noreferrer">Contact</a></li>
         </ul>
       </div>

@@ -1,0 +1,273 @@
+/* Core styles */
+.content {
+  margin: 0 auto;
+  padding: 4rem;
+  transition: opacity 0.3s ease, background-color 0.3s ease;
+  overflow: hidden;
+  background: #000;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  cursor: none;
+}
+
+/* Lights On Mode - Updated with modern palette */
+.lightBackground {
+  background-color: #ffffff;
+  color: #2d3436;
+
+  cursor: auto;
+}
+
+/* Custom light effect */
+.light {
+  position: fixed;
+  pointer-events: none;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0.3) 0%,
+    rgba(255, 255, 255, 0.1) 30%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  transform: translate(-50%, -50%);
+  z-index: 999;
+  mix-blend-mode: screen;
+  transition: opacity 0.3s ease;
+}
+
+.customCursor {
+  width: 20px;
+  height: 20px;
+  border: 2px solid #00b894;
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transition: opacity 0.3s ease;
+}
+
+.hideCursor, .hideLight {
+  opacity: 0;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+  z-index: 1000;
+}
+
+.nav a {
+  color: #fff;
+  text-decoration: none;
+  margin-left: 2rem;
+  position: relative;
+}
+
+.nav a::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #00b894;
+  transition: width 0.3s ease;
+}
+
+.nav a:hover::after {
+  width: 100%;
+}
+
+.lightBackground .nav a {
+  color: #2d3436;
+}
+
+/* Hero section */
+.hero {
+  min-height: 60vh;
+  display: flex;
+
+  flex: 1; /* Takes up equal space as the slider */
+  max-width: 50%; /* Limits the width of the hero section */
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+
+.title {
+  font-size: 1.5rem;
+  color: #00b894;
+  margin-bottom: 2rem;
+}
+
+/* Skills section */
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.skillTag {
+  background: rgba(0, 184, 148, 0.1);
+  color: #00b894;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.lightBackground .skillTag {
+  background: rgba(0, 184, 148, 0.1);
+  color: #00b894;
+}
+
+/* Projects section */
+.projects {
+  margin-top: 4rem;
+}
+
+.projectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.projectCard {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  border-radius: 8px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 184, 148, 0.2);
+}
+
+.lightBackground .projectCard {
+  background: #ffffff;
+  border: 1px solid #dfe6e9;
+  box-shadow: 0 4px 6px rgba(45, 52, 54, 0.1);
+}
+
+.lightBackground .projectCard:hover {
+  box-shadow: 0 6px 15px rgba(45, 52, 54, 0.15);
+}
+
+/* Project Showcase */
+.projectShowcase {
+  margin-top: 6rem;
+  padding: 4rem 0;
+}
+
+.showcaseTitle {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 6rem;
+  color: #00b894;
+}
+
+.projectItem {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+  background-color: #1a1a1a;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.projectItem:hover {
+  transform: translateY(-5px);
+}
+
+.projectItem img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.projectInfo {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  color: #fff;
+  backdrop-filter: blur(5px);
+}
+
+.projectCategory {
+  font-size: 0.8rem;
+  color: #00b894;
+}
+
+.lightBackground .projectShowcase {
+  background-color: #ffffff;
+  color: #2d3436;
+}
+
+.lightBackground .projectItem {
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px rgba(45, 52, 54, 0.1);
+}
+
+.lightBackground .projectInfo {
+  background: rgba(255, 255, 255, 0.9);
+  color: #2d3436;
+}
+
+@media (max-width: 768px) {
+  .light {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .showcaseTitle {
+    font-size: 2rem;
+  }
+}
+
+.heroSection {
+  display: flex;
+  align-items: center; /* Aligns items vertically within the row */
+  justify-content: space-between; /* Adds spacing between the hero and slider */
+  gap: 2rem; /* Optional: Adds spacing between the columns */
+  margin-top: 2rem; /* Adds some top margin */
+}
+
+
+.slider {
+  flex: 1; /* Takes up equal space as the hero */
+  max-width: 50%; /* Limits the width of the slider */
+  display: flex;
+  align-items: center; /* Centers the slider vertically */
+}
+
+.sliderImage {
+  width: 100%;
+  border-radius: 8px;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sliderCaption {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.sliderCaption h3 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.sliderCaption p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
