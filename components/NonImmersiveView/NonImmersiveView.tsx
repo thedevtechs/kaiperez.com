@@ -43,7 +43,12 @@ const NonImmersiveView: React.FC = () => {
       {/* Intro Section */}
       <section className={styles.introSection}>
         <div className={styles.introContent}>
-          <p className={styles.description}>{project.overview}</p>
+
+          <h2 className={styles.sectionTitle}>Project Overview</h2>
+          <p
+            className={styles.description}
+            dangerouslySetInnerHTML={{ __html: project.overview }}
+          ></p>
         </div>
         <div className={styles.introImage}>
           <img
@@ -93,7 +98,10 @@ const NonImmersiveView: React.FC = () => {
       <section className={styles.resultsSection}>
         <div className={styles.resultsContent}>
           <h2 className={styles.sectionTitle}>The Results</h2>
-          <p className={styles.description}>{project.results}</p>
+          <p className={styles.description}
+              dangerouslySetInnerHTML={{ __html: project.results }}
+
+          ></p>
         </div>
         <div className={styles.resultsImage}>
           <img

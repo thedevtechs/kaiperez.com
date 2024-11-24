@@ -51,7 +51,7 @@ export const showcaseProjects: Project[] = [
     subtitle: 'Real-time AI-powered chat application',
     overview:
       `Kai played a pivotal role in revolutionizing the real estate industry. His work on Rayse resulted in a groundbreaking app that put the power of transparency directly into the hands of homebuyers. This project wasn't just about building an app – it was about fundamentally changing the way people interact with their real estate agents.
-       Kai's ability to combine his technical expertise with a deep understanding of user needs was crucial to the project's success. The result is an app that's both powerful and incredibly user-friendly. With Rayse, homebuyers can now easily track their agent's activity, identify potential red flags, and make more informed decisions throughout the homebuying process.
+       Kai's ability to combine his technical expertise with a deep understanding of user needs was crucial to the project's success.<br><br>The result is an app that's both powerful and incredibly user-friendly. With Rayse, homebuyers can now easily track their agent's activity, identify potential red flags, and make more informed decisions throughout the homebuying process.
        This project demanded a unique blend of technical skill and an in-depth understanding of the real estate world. Kai's ability to learn the ins and outs of the industry was crucial to the project's success. He designed a system that not only tracked agent activity but also made that information easily understandable for homebuyers.`,
     technologies: ['React', 'Node.js', 'Socket.io', 'AI APIs'],
     features: [
@@ -63,7 +63,7 @@ export const showcaseProjects: Project[] = [
       'Responsive UI Design',
     ],
     results:
-      `Achieved a user base of 5,000 active users within the first three months, with high engagement rates and positive feedback on AI integrations enhancing user interactions. Kai's work on Rayse is a testament to his skills as a full-stack developer and his commitment to creating innovative solutions. His contributions to this project have had a significant impact on the real estate industry and will continue to shape the way people buy homes for years to come.`,
+      `Achieved a user base of 5,000 active users within the first three months, with high engagement rates and positive feedback on AI integrations enhancing user interactions.<br><br>Kai's work on Rayse is a testament to his skills as a full-stack developer and his commitment to creating innovative solutions. His contributions to this project have had a significant impact on the real estate industry and will continue to shape the way people buy homes for years to come.`,
     immersiveContent: [
       'Project Case Study: AI Chat Application',
       'Description: A real-time chat app with AI integration using Socket.io.',

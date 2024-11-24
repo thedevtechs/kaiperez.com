@@ -1,40 +1,55 @@
-// pages/project/[slug].tsx
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import styles from './projectsSingle.module.css';
-import { showcaseProjects, Project } from '../../data/data'; // Import updated data structure
-import Menu from '../../components/Menu/Menu'; // Import the Menu component
-const theme = 'dark'; // or 'dark' based on your logic
+import { showcaseProjects, Project } from '../../data/data';
+import Menu from '../../components/Menu/Menu';
+import Loading from '../../components/Loading/Loading'; // Import the Loading component
+
+const theme = 'dark';
 
 // Dynamically import NonImmersiveView
 const NonImmersiveView = dynamic(() => import('../../components/NonImmersiveView/NonImmersiveView'), {
-  ssr: false, // Only load this on the client-side
+  ssr: false,
 });
 
 const CaseStudyPage: React.FC = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const [project, setProject] = useState<Project | undefined>(undefined); // Updated to use Project interface
-  const [isImmersive, setIsImmersive] = useState(false); // Start in non-immersive mode
+  const [project, setProject] = useState<Project | undefined>(undefined);
+  const [isLoading, setIsLoading] = useState(true); // Loading state
+  const [isImmersive, setIsImmersive] = useState(false);
   const [terminalContent, setTerminalContent] = useState<string[]>([]);
   const [userInput, setUserInput] = useState('');
   const terminalRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  // Find the project by slug
+  // Simulate asynchronous data fetching
   useEffect(() => {
     if (slug) {
-      const foundProject = showcaseProjects.find((project) => project.slug === slug);
-      if (foundProject) {
-        setProject(foundProject);
-      } else {
-        // Handle case where the project is not found
-        router.push('/');
-      }
+      const fetchProject = async () => {
+        try {
+          // Simulate data fetching delay (remove if actual async fetching is used)
+          // await new Promise((resolve) => setTimeout(resolve, 1000));
+
+          const foundProject = showcaseProjects.find((proj) => proj.slug === slug);
+          if (foundProject) {
+            setProject(foundProject);
+          } else {
+            router.push('/'); // Redirect if project not found
+          }
+        } catch (error) {
+          console.error('Error fetching project:', error);
+          router.push('/'); // Redirect on error
+        } finally {
+          setIsLoading(false);
+        }
+      };
+
+      fetchProject();
     }
-  }, [slug]);
+  }, [slug, router]);
 
   const toggleView = () => {
     setIsImmersive((prev) => !prev);
@@ -127,7 +142,6 @@ const CaseStudyPage: React.FC = () => {
     }
   }, [terminalContent, isImmersive]);
 
-  // Toggle focus on input when clicking the terminal
   const handleTerminalClick = () => {
     if (document.activeElement !== inputRef.current) {
       inputRef.current?.focus();
@@ -136,13 +150,13 @@ const CaseStudyPage: React.FC = () => {
     }
   };
 
+  if (isLoading) {
+    // Display the animated Loading screen
+    return <Loading />;
+  }
+
   if (!project) {
-    return (
-      <div className={styles.notFound}>
-        <h1>Project Not Found</h1>
-        <p>The project you are looking for does not exist.</p>
-      </div>
-    );
+    return null; // Fallback in case the redirect logic doesn't fire
   }
 
   return (
@@ -154,7 +168,7 @@ const CaseStudyPage: React.FC = () => {
       </Head>
 
       {/* Include the Menu Component */}
-      <Menu theme={theme}/>
+      <Menu theme={theme} />
 
       {/* Easter Egg */}
       <div className={styles.easterEgg} onClick={toggleView}>
