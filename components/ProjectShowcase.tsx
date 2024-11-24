@@ -21,7 +21,7 @@ const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
         {projects.map((project, index) => (
           <Link href={`/projects/${project.slug}`} key={index} passHref>
             <span className={styles.projectItem}>
-              <img src={project.image} alt={project.title} className={styles.projectImage} />
+              <img src={project.img} alt={project.title} className={styles.projectImage} />
               <div className={styles.projectInfo}>
                 <span className={styles.projectCategory}>{project.category}</span>
                 <h3>{project.title}</h3>

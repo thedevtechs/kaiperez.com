@@ -13,7 +13,7 @@
 
 /* Lights On Mode - Updated with modern palette */
 .lightBackground {
-  background-color: #ffffff;
+  background-color: transparent;
   color: #2d3436;
 
   cursor: auto;
