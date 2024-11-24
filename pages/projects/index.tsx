@@ -7,7 +7,7 @@ import 'swiper/css/navigation';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { showcaseProjects } from './data';
+import { showcaseProjects } from '../../data/data';
 import ProjectShowcase from '../../components/ProjectShowcase/ProjectShowcase'; // Import the new component
 import Footer from '../../components/Footer/Footer';
 // Replace the existing button with:

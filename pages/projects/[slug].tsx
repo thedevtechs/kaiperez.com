@@ -4,7 +4,7 @@ import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
 import styles from './projectsSingle.module.css';
-import { showcaseProjects, Project } from '../projects/data'; // Import updated data structure
+import { showcaseProjects, Project } from '../../data/data'; // Import updated data structure
 import Menu from '../../components/Menu/Menu'; // Import the Menu component
 
 // Dynamically import NonImmersiveView

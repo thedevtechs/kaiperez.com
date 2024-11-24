@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import styles from './nonImmersiveView.module.css';
-import { showcaseProjects, Project } from '../../pages/projects/data'; // Import updated data structure
+import { showcaseProjects, Project } from '../../data/data'; // Import updated data structure
 import Link from 'next/link';
 import Footer from '../Footer/Footer'; // Adjust the path as needed
 

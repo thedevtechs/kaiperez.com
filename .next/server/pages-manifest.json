@@ -1,9 +1,1 @@
-{
-  "/": "pages/index.js",
-  "/projects/[slug]": "pages/projects/[slug].js",
-  "/projects": "pages/projects.js",
-  "/_app": "pages/_app.js",
-  "/_error": "pages/_error.js",
-  "/projects/data": "pages/projects/data.js",
-  "/_document": "pages/_document.js"
-}
+{"/_app":"pages/_app.js","/_error":"pages/_error.js","/":"pages/index.html","/projects/[slug]":"pages/projects/[slug].html","/projects":"pages/projects.html","/_document":"pages/_document.js","/404":"pages/404.html"}

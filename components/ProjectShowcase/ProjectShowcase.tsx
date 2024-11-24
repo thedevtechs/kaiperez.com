@@ -16,7 +16,7 @@ interface ProjectShowcaseProps {
 const ProjectShowcase: React.FC<ProjectShowcaseProps> = ({ projects }) => {
   return (
     <section className={styles.projectShowcase}>
-      <h2 className={styles.showcaseTitle}>A few cool projects I've been a part of</h2>
+      <h4 className={styles.showcaseTitle}>A few cool projects I've been a part of</h4>
       <div className={styles.projectGrid}>
         {projects.map((project, index) => (
           <Link href={`/projects/${project.slug}`} key={index} passHref>
