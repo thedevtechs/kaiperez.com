@@ -6,6 +6,7 @@ import Head from 'next/head';
 import styles from './projectsSingle.module.css';
 import { showcaseProjects, Project } from '../../data/data'; // Import updated data structure
 import Menu from '../../components/Menu/Menu'; // Import the Menu component
+const theme = 'dark'; // or 'dark' based on your logic
 
 // Dynamically import NonImmersiveView
 const NonImmersiveView = dynamic(() => import('../../components/NonImmersiveView/NonImmersiveView'), {
@@ -153,7 +154,7 @@ const CaseStudyPage: React.FC = () => {
       </Head>
 
       {/* Include the Menu Component */}
-      <Menu />
+      <Menu theme={theme}/>
 
       {/* Easter Egg */}
       <div className={styles.easterEgg} onClick={toggleView}>

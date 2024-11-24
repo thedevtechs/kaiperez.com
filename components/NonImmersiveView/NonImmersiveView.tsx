@@ -31,7 +31,7 @@ const NonImmersiveView: React.FC = () => {
       <div className={styles.headerContainer}>
         <Link href="/projects">
           <span className={styles.backButton}>
-            <span className={styles.backArrow}>←</span> Back to Projects
+            Back to Projects
           </span>
         </Link>
         <header className={styles.header}>

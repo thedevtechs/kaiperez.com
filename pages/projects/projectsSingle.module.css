@@ -195,6 +195,7 @@
   .section p,
   .section li {
     font-size: 1rem;
+    margin-bottom: 1em;
   }
 }
 

@@ -1,7 +1,9 @@
 import Head from 'next/head'
 import Link from 'next/link' // Import Next.js Link component
 import Image from 'next/image'
+import Menu from '../components/Menu/Menu'; // Import your Menu component
 import { useState, useEffect } from 'react'
+const theme = 'light'; // or 'dark' based on your logic
 
 export default function Home() {
   // State to manage sidebar and toggle menu active state
@@ -133,90 +135,8 @@ export default function Home() {
 `}</style>
 
 
-      <div className={`sidebar ${sidebarActive ? 'active' : ''}`}>
-        <ul>
-          <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">About Me</a></li>
-          <li><a href="/projects" rel="noopener noreferrer">Projects</a></li>
-          <li><a href="https://calendly.com/kaiperez/30min" target="_blank" rel="noopener noreferrer">Contact</a></li>
-        </ul>
-      </div>
+    <Menu theme={theme} />
 
-      <div
-        className={`toggle-menu ${toggleActive ? 'active' : ''}`}
-        aria-label="Toggle navigation"
-        onClick={toggleMenu}
-      >
-        <div></div>
-        <div></div>
-        <div></div>
-      </div>
-
-      <div className="social-icons">
-        <a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
-          <Image src="https://cdn-icons-png.flaticon.com/512/174/174857.png" alt="Kai Perez LinkedIn Profile Icon" width={30} height={30} />
-        </a>
-        <a href="https://github.com/thedevtechs" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
-          <Image src="https://cdn-icons-png.flaticon.com/512/733/733553.png" alt="GitHub Icon for Kai Perez" width={30} height={30} />
-        </a>
-      </div>
-
-      <style jsx>{`
-        .content {
-          text-align: center;
-        }
-        .sidebar {
-          position: fixed;
-          top: 0;
-          right: 0;
-          height: 100%;
-          width: 250px;
-          background: rgba(255, 255, 255, 0.1);
-          backdrop-filter: blur(10px);
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
-          align-items: center;
-          box-shadow: -4px 0 10px rgba(0, 0, 0, 0.2);
-          transform: translateX(100%);
-          transition: transform 0.3s ease;
-          z-index: 20;
-        }
-        .sidebar.active {
-          transform: translateX(0);
-        }
-        .social-icons a {
-          margin: 0 10px;
-        }
-        .toggle-menu {
-          position: fixed;
-          top: 20px;
-          right: 20px;
-          z-index: 30;
-          cursor: pointer;
-          width: 35px;
-          height: 35px;
-          display: flex;
-          flex-direction: column;
-          justify-content: space-between;
-          align-items: center;
-        }
-        .toggle-menu div {
-          width: 100%;
-          height: 4px;
-          background: white;
-          border-radius: 2px;
-          transition: transform 0.3s ease, background-color 0.3s ease;
-        }
-        .toggle-menu.active div:nth-child(1) {
-          transform: rotate(45deg) translateY(10px);
-        }
-        .toggle-menu.active div:nth-child(2) {
-          background: transparent;
-        }
-        .toggle-menu.active div:nth-child(3) {
-          transform: rotate(-45deg) translateY(-10px);
-        }
-      `}</style>
     </>
   )
 }

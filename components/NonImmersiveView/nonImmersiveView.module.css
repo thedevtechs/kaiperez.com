@@ -7,18 +7,16 @@
   .headerContainer {
     margin-bottom: 2rem;
     text-align: left; /* Aligns content to the left */
-    padding-left: 1rem; /* Optional: Add some padding for spacing */
   }
   
   .backButton {
     display: inline-flex;
     align-items: center;
-    gap: 8px;
     color: #ffffff;
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 500;
     text-decoration: none;
-    padding: 0.5rem 1rem;
+    padding: .8rem 1rem;
     background: linear-gradient(45deg, #ff9a8b, #ff6a88, #ffd89b);
     border-radius: 8px;
     transition: transform 0.2s ease, box-shadow 0.3s ease;
@@ -45,26 +43,19 @@
     box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
   }
   
-  
-  .backArrow {
-    font-size: 1.2rem;
-    font-weight: bold;
-  }
-  
-  
   .header {
     text-align: center;
   }
   
   .title {
     font-size: 2.5rem;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
     color: #333;
   }
   
   .subtitle {
     font-size: 1.2rem;
-    color: #666;
+    color: #00b894;
   }
   
   /* Intro Section */
@@ -72,9 +63,10 @@
     display: flex;
     gap: 2rem;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
+    margin-top: 6rem;
     font-size: 1.1em;
-    color: #666;
+    color: #000;
   }
   
   .introContent {
@@ -97,9 +89,10 @@
     display: flex;
     gap: 2rem;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-top: 12rem;
+    margin-bottom: 6rem;
     font-size: 1.1em;
-    color: #666;
+    color: #000;
   }
   
   .storyContent {
@@ -115,6 +108,7 @@
   .techSection {
     position: relative;
     padding: 4rem 2rem;
+    
     text-align: center;
     color: #fff;
     overflow: hidden;
@@ -124,7 +118,7 @@
     font-size: 2.5rem;
     margin-bottom: 2rem;
     color: #000;
-    font-weight: bold;
+    font-weight: 500;
   }
   
   .particlesCanvas {
@@ -166,7 +160,7 @@
   
   .techName {
     font-size: 1.1rem;
-    font-weight: 600;
+    font-weight: 500;
     color: #000;
   }
   
@@ -188,9 +182,10 @@
     display: flex;
     gap: 2rem;
     align-items: center;
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
+    margin-top: 6rem;
     font-size: 1.1em;
-    color: #666;
+    color: #000;
   }
   
   .resultsContent {
