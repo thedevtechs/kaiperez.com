@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import styles from '../styles/portfolio.module.css';
 import LightSwitch from '../components/LightSwitch';
-import { Swiper, SwiperSlide, Navigation } from 'swiper/react';
+import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { caseStudies, showcaseProjects } from './projects/data';
+import { showcaseProjects } from './projects/data';
 import ProjectShowcase from '../components/ProjectShowcase'; // Import the new component
 import Footer from '../components/Footer';
 // Replace the existing button with:
