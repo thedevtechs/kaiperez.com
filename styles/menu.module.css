@@ -48,7 +48,7 @@
 /* Toggle Menu Button Styles */
 .toggleMenu {
   position: fixed;
-  top: 20px;
+  top: 40px;
   right: 20px;
   z-index: 30;
   cursor: pointer;
@@ -84,7 +84,7 @@
 .socialIcons {
   position: fixed;
   bottom: 20px;
-  left: 20px;
+  left: 50px;
   display: flex;
   gap: 10px;
   z-index: 20;

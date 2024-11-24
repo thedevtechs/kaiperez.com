@@ -92,8 +92,8 @@ export default function Home() {
   <h2>Cloud Architect / Full-Stack Developer</h2>
   <div className="button-group">
     <button onClick={() => window.open('https://calendly.com/kaiperez/30min', '_blank')}>Contact Me</button>
-    <Link href="/portfolio" passHref>
-      <button>Portfolio</button>
+    <Link href="/projects" passHref>
+      <button>Projects</button>
     </Link>  </div>
 </div>
 
@@ -136,7 +136,7 @@ export default function Home() {
       <div className={`sidebar ${sidebarActive ? 'active' : ''}`}>
         <ul>
           <li><a href="https://linkedin.com/in/kaiperez" target="_blank" rel="noopener noreferrer">About Me</a></li>
-          <li><a href="/portfolio" rel="noopener noreferrer">Portfolio</a></li>
+          <li><a href="/projects" rel="noopener noreferrer">Projects</a></li>
           <li><a href="https://calendly.com/kaiperez/30min" target="_blank" rel="noopener noreferrer">Contact</a></li>
         </ul>
       </div>

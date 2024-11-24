@@ -1,134 +1,214 @@
-/* Container */
 .container {
+    padding: 2rem;
+    max-width: 1200px;
     margin: 0 auto;
-    padding: 2rem 6rem;
-    font-family: 'Inter', sans-serif;
-    color: #333;
-    background: #f9f9f9;
-    border-radius: 15px;
-    /* Removed drop shadow */
   }
   
-  /* Header */
+  .headerContainer {
+    margin-bottom: 2rem;
+    text-align: left; /* Aligns content to the left */
+    padding-left: 1rem; /* Optional: Add some padding for spacing */
+  }
+  
+  .backButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    background: linear-gradient(45deg, #ff9a8b, #ff6a88, #ffd89b);
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    background-size: 300% 300%; /* Needed for smooth gradient transition */
+    animation: shimmerButton 6s infinite; /* Slower shimmering effect */
+  }
+  
+  @keyframes shimmerButton {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  .backButton:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
+  }
+  
+  
+  .backArrow {
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  
+  
   .header {
     text-align: center;
-    margin-bottom: 40px;
   }
   
   .title {
     font-size: 2.5rem;
-    color: #111;
+    margin-bottom: 0.5rem;
+    color: #333;
   }
   
   .subtitle {
     font-size: 1.2rem;
-    color: #555;
-    margin-top: 10px;
-  }
-  
-  /* Content Layout */
-  .contentLayout {
-    display: flex;
-    gap: 40px;
-  }
-  
-  /* Left Column (Gallery) */
-  .leftColumn {
-    flex: 3; /* 60% */
-  }
-  
-  .gallery {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .mainImageContainer {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
-  
-  .mainImage {
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
-    border-radius: 10px;
-  }
-  
-  .thumbnailContainer {
-    display: flex;
-    gap: 10px;
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-  
-  .thumbnail {
-    width: 80px;
-    height: 80px;
-    object-fit: cover;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: transform 0.2s ease, border 0.2s ease;
-  }
-  
-  .thumbnail:hover {
-    transform: scale(1.1);
-  }
-  
-  .activeThumbnail {
-    border: 2px solid #0070f3; /* Highlight active thumbnail */
-  }
-  
-  /* Right Column (Details) */
-  .rightColumn {
-    flex: 2; /* 40% */
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-  
-  .sectionTitle {
-    font-size: 1.8rem;
-    margin-bottom: 10px;
-    color: #222;
-  }
-  
-  .description {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #555;
-  }
-  
-  .list {
-    list-style-type: disc;
-    margin-left: 20px;
-  }
-  
-  .listItem {
-    margin-bottom: 10px;
-  }
-  
-  /* Footer */
-  .footer {
-    text-align: center;
-    margin-top: 40px;
-    padding: 20px 0;
-    border-top: 1px solid #eee;
-    font-size: 0.9rem;
     color: #666;
   }
   
-  /* Loading State */
-  .loadingContainer {
+  /* Intro Section */
+  .introSection {
     display: flex;
-    justify-content: center;
+    gap: 2rem;
     align-items: center;
-    height: 80vh;
+    margin-bottom: 3rem;
+    font-size: 1.1em;
+    color: #666;
   }
   
-  .loadingText {
-    font-size: 1.5rem;
-    color: #888;
+  .introContent {
+    flex: 2;
+  }
+  
+  .introImage {
+    flex: 3;
+    text-align: center;
+  }
+  
+  .featuredImage {
+    max-width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Story Section */
+  .storySection {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    font-size: 1.1em;
+    color: #666;
+  }
+  
+  .storyContent {
+    flex: 1.5;
+  }
+  
+  .storyImage {
+    flex: 2;
+    text-align: center;
+  }
+  
+  /* Technologies Section */
+  .techSection {
+    position: relative;
+    padding: 4rem 2rem;
+    text-align: center;
+    color: #fff;
+    overflow: hidden;
+  }
+  
+  .sectionTitle {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  .particlesCanvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+  }
+  
+  .techGrid {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 2rem;
+    z-index: 1;
+  }
+  
+  .techItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  
+  .gradientIcon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff9a8b, #ff6a88, #ffd89b, #ff9a8b);
+    background-size: 300% 300%;
+    animation: shimmer 3s infinite;
+    margin-bottom: 1rem;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  }
+  
+  .techName {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #000;
+  }
+  
+  /* Shimmer animation */
+  @keyframes shimmer {
+    0% {
+      background-position: 0% 50%;
+    }
+    50% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  
+  /* Results Section */
+  .resultsSection {
+    display: flex;
+    gap: 2rem;
+    align-items: center;
+    margin-bottom: 3rem;
+    font-size: 1.1em;
+    color: #666;
+  }
+  
+  .resultsContent {
+    flex: 2;
+  }
+  
+  .resultsImage {
+    flex: 3;
+    text-align: center;
+  }
+  
+  /* Full-Width Final Image */
+  .finalImageSection {
+    margin-top: 3rem;
+  }
+  
+  .fullWidthImage {
+    width: 100%;
+    border-radius: 8px;
   }
   

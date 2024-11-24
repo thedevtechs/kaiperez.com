@@ -1,114 +1,113 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import dynamic from 'next/dynamic';
 import styles from '../styles/nonImmersiveView.module.css';
-import { caseStudies, CaseStudy } from '../pages/project/data';
+import { showcaseProjects, Project } from '../pages/projects/data'; // Import updated data structure
+import Link from 'next/link';
+import Footer from '../components/Footer'; // Adjust the path as needed
 
 const NonImmersiveView: React.FC = () => {
   const router = useRouter();
   const { slug } = router.query;
-  const [caseStudy, setCaseStudy] = useState<CaseStudy | undefined>(
-    undefined
-  );
-  const [activeImage, setActiveImage] = useState<string | null>(null);
+  const [project, setProject] = useState<Project | undefined>(undefined); // Updated to use Project interface
 
   useEffect(() => {
     if (slug) {
-      const foundCaseStudy = caseStudies.find((cs) => cs.slug === slug);
-      setCaseStudy(foundCaseStudy);
-      if (foundCaseStudy) {
-        setActiveImage(foundCaseStudy.screenshots[0]); // Set first image as the active image
-      }
+      const foundProject = showcaseProjects.find((proj) => proj.slug === slug); // Adjusted for showcaseProjects
+      setProject(foundProject);
     }
   }, [slug]);
 
-  if (!caseStudy) {
+  if (!project) {
     return (
       <div className={styles.loadingContainer}>
-        <p className={styles.loadingText}>Loading case study...</p>
+        <p className={styles.loadingText}>Loading project...</p>
       </div>
     );
   }
 
   return (
     <div className={styles.container}>
-      <header className={styles.header}>
-        <h1 className={styles.title}>{caseStudy.title}</h1>
-        <p className={styles.subtitle}>{caseStudy.subtitle}</p>
-      </header>
-
-      <div className={styles.contentLayout}>
-        {/* Left Column (Gallery) */}
-        <div className={styles.leftColumn}>
-          <div className={styles.gallery}>
-            {/* Main Image */}
-            <div className={styles.mainImageContainer}>
-              <img
-                src={activeImage || caseStudy.screenshots[0]}
-                alt="Active screenshot"
-                className={styles.mainImage}
-              />
-            </div>
-
-            {/* Thumbnail Images */}
-            <div className={styles.thumbnailContainer}>
-              {caseStudy.screenshots.map((screenshot, index) => (
-                <img
-                  key={index}
-                  src={screenshot}
-                  alt={`Screenshot ${index + 1}`}
-                  className={`${styles.thumbnail} ${
-                    activeImage === screenshot ? styles.activeThumbnail : ''
-                  }`}
-                  onClick={() => setActiveImage(screenshot)}
-                />
-              ))}
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column (Details) */}
-        <div className={styles.rightColumn}>
-          <section className={styles.overviewSection}>
-            <h2 className={styles.sectionTitle}>Overview</h2>
-            <p className={styles.description}>{caseStudy.overview}</p>
-          </section>
-
-          <section className={styles.detailsSection}>
-            <div>
-              <h2 className={styles.sectionTitle}>Technologies Used</h2>
-              <ul className={styles.list}>
-                {caseStudy.technologies.map((tech, index) => (
-                  <li key={index} className={styles.listItem}>
-                    {tech}
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <h2 className={styles.sectionTitle}>Features</h2>
-              <ul className={styles.list}>
-                {caseStudy.features.map((feature, index) => (
-                  <li key={index} className={styles.listItem}>
-                    {feature}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </section>
-
-          <section className={styles.resultsSection}>
-            <h2 className={styles.sectionTitle}>Results</h2>
-            <p className={styles.description}>{caseStudy.results}</p>
-          </section>
-        </div>
+      {/* Header Section */}
+      <div className={styles.headerContainer}>
+        <Link href="/projects">
+          <span className={styles.backButton}>
+            <span className={styles.backArrow}>←</span> Back to Projects
+          </span>
+        </Link>
+        <header className={styles.header}>
+          <h1 className={styles.title}>{project.title}</h1>
+          <p className={styles.subtitle}>{project.subtitle}</p>
+        </header>
       </div>
 
-      <footer className={styles.footer}>
-        <div>
-          <strong>Slug:</strong> {caseStudy.slug}
+      {/* Intro Section */}
+      <section className={styles.introSection}>
+        <div className={styles.introContent}>
+          <p className={styles.description}>{project.overview}</p>
         </div>
-      </footer>
+        <div className={styles.introImage}>
+          <img
+            src={project.image}
+            alt={`Main visual for ${project.title}`}
+            className={styles.featuredImage}
+          />
+        </div>
+      </section>
+
+      {/* Storytelling Section */}
+      <section className={styles.storySection}>
+        <div className={styles.storyImage}>
+          <img
+            src={project.screenshots[0]}
+            alt={`Screenshot for ${project.title}`}
+            className={styles.featuredImage}
+          />
+        </div>
+        <div className={styles.storyContent}>
+          <h2 className={styles.sectionTitle}>Key Features</h2>
+          <ul className={styles.list}>
+            {project.features.map((feature, index) => (
+              <li key={index} className={styles.listItem}>
+                {feature}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Technologies Section */}
+      <section className={styles.techSection}>
+        <h2 className={styles.sectionTitle}>Technologies Used</h2>
+        <div id="particles-js" className={styles.particlesCanvas}></div>
+        <div className={styles.techGrid}>
+            {project.technologies.map((tech, index) => (
+            <div key={index} className={styles.techItem}>
+                <div className={styles.gradientIcon}></div> {/* Shimmering gradient icon */}
+                <p className={styles.techName}>{tech}</p>
+            </div>
+            ))}
+        </div>
+        </section>
+
+      {/* Results Section */}
+      <section className={styles.resultsSection}>
+        <div className={styles.resultsContent}>
+          <h2 className={styles.sectionTitle}>The Results</h2>
+          <p className={styles.description}>{project.results}</p>
+        </div>
+        <div className={styles.resultsImage}>
+          <img
+            src={project.screenshots[1] || project.image}
+            alt={`Result screenshot for ${project.title}`}
+            className={styles.featuredImage}
+          />
+        </div>
+      </section>
+
+      {/* Full-Width Final Image */}
+      
+
+      <Footer />
     </div>
   );
 };

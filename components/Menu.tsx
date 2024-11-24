@@ -26,8 +26,8 @@ const Menu: React.FC = () => {
             </Link>
           </li>
           <li>
-            <Link href="/portfolio" className={styles.link}>
-              Portfolio
+            <Link href="/projects" className={styles.link}>
+              Projects
             </Link>
           </li>
           <li>

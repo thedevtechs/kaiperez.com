@@ -1,0 +1,75 @@
+.projectShowcase {
+    margin-top: 2rem;
+    padding: 4rem 0;
+  }
+  
+  .showcaseTitle {
+    font-size: 2.5rem;
+    text-align: center;
+    margin-bottom: 4rem;
+    color: #00b894;
+    font-weight: 500;
+  }
+  
+  .projectGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+  
+  .projectItem {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    background-color: #1a1a1a;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none; /* Prevent underline on links */
+    color: inherit; /* Inherit text color */
+  }
+  
+  .projectItem:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+  }
+  
+  .projectImage {
+    width: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+    height: auto;
+    transition: transform 0.3s ease;
+  }
+  
+  .projectItem:hover .projectImage {
+    transform: scale(1.05); /* Slight zoom on hover */
+  }
+  
+  .projectInfo {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 0 0 10px 10px;
+    color: #fff;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .projectCategory {
+    font-size: 0.9rem;
+    color: #00b894;
+    font-weight: bold;
+  }
+  
+  .projectInfo h3 {
+    font-size: 1.2rem;
+    margin: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  
