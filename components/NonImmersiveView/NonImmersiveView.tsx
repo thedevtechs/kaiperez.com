@@ -1,9 +1,9 @@
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import styles from '../styles/nonImmersiveView.module.css';
-import { showcaseProjects, Project } from '../pages/projects/data'; // Import updated data structure
+import styles from './nonImmersiveView.module.css';
+import { showcaseProjects, Project } from '../../pages/projects/data'; // Import updated data structure
 import Link from 'next/link';
-import Footer from '../components/Footer'; // Adjust the path as needed
+import Footer from '../Footer/Footer'; // Adjust the path as needed
 
 const NonImmersiveView: React.FC = () => {
   const router = useRouter();

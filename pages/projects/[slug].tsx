@@ -1,15 +1,14 @@
 // pages/project/[slug].tsx
-
 import { useState, useEffect, useRef } from 'react';
 import { useRouter } from 'next/router';
 import dynamic from 'next/dynamic';
 import Head from 'next/head';
-import styles from '../../styles/caseStudy.module.css';
+import styles from './projectsSingle.module.css';
 import { showcaseProjects, Project } from '../projects/data'; // Import updated data structure
-import Menu from '../../components/Menu'; // Import the Menu component
+import Menu from '../../components/Menu/Menu'; // Import the Menu component
 
 // Dynamically import NonImmersiveView
-const NonImmersiveView = dynamic(() => import('../../components/NonImmersiveView'), {
+const NonImmersiveView = dynamic(() => import('../../components/NonImmersiveView/NonImmersiveView'), {
   ssr: false, // Only load this on the client-side
 });
 

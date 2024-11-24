@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../styles/ProjectShowcase.module.css';
+import styles from './ProjectShowcase.module.css';
 import Link from 'next/link';
 
 interface ShowcaseProject {

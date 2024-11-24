@@ -1,15 +1,15 @@
 import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
-import styles from '../styles/portfolio.module.css';
-import LightSwitch from '../components/LightSwitch';
+import styles from './projectsArchive.module.css';
+import LightSwitch from '../../components/LightSwitch/LightSwitch';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import { showcaseProjects } from './projects/data';
-import ProjectShowcase from '../components/ProjectShowcase'; // Import the new component
-import Footer from '../components/Footer';
+import { showcaseProjects } from './data';
+import ProjectShowcase from '../../components/ProjectShowcase/ProjectShowcase'; // Import the new component
+import Footer from '../../components/Footer/Footer';
 // Replace the existing button with:
 interface Project {
   title: string;

@@ -3,7 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import styles from '../styles/menu.module.css'; // Corrected filename if it was a typo
+import styles from './menu.module.css'; // Corrected filename if it was a typo
 
 const Menu: React.FC = () => {
   const [sidebarActive, setSidebarActive] = useState(false);
