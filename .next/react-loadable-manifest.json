@@ -1,1 +1,9 @@
-{}
+{
+  "pages/projects/[slug].tsx -> ../../components/NonImmersiveView": {
+    "id": 2003,
+    "files": [
+      "static/css/f67fbced3fca62a4.css",
+      "static/chunks/3.60631bdb2338a348.js"
+    ]
+  }
+}
