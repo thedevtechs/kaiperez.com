@@ -69,7 +69,7 @@ export default function Home() {
         <meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/733/733553.png" />
         <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
         <link rel="icon" href="/favicon.png" type="image/x-icon" />
-        <title>Kai Perez - Cloud Architect & Full-Stack Developer Portfolio</title>
+        <title>Kai Perez - Cloud Architect & Full-Stack Developer</title>
         <script type="application/ld+json">
           {`{
             "@context": "https://schema.org",

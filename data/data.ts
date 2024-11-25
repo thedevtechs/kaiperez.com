@@ -17,8 +17,8 @@ export interface Project {
 
 export const showcaseProjects: Project[] = [
   {
-    slug: 'e-commerce-platform',
-    title: 'E-commerce Platform Case Study',
+    slug: 'PoS',
+    title: 'Point of Sales - iOS / Android',
     subtitle: 'A modern and scalable e-commerce solution',
     overview:
       'This project involved building a scalable e-commerce platform with user authentication, product management, and payment processing using Stripe. The application provides a seamless shopping experience with dynamic product listings, shopping cart functionality, and secure checkout.',
@@ -42,8 +42,8 @@ export const showcaseProjects: Project[] = [
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
     ],
-    category: 'Web Development',
-    isFeatured: true,
+    category: 'App Development',
+    isFeatured: false,
   },
   {
     slug: 'rayse',
@@ -68,13 +68,42 @@ export const showcaseProjects: Project[] = [
       'Project Case Study: AI Chat Application',
       'Description: A real-time chat app with AI integration using Socket.io.',
     ],
-    image: 'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+    image: 'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/rayse.com.jpg',
     screenshots: [
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/2.png',
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/3.png',
     ],
-    category: 'AI & Chatbots',
+    category: 'AI, Chatbots, & App Development',
+    isFeatured: true,
+  },
+  {
+    slug: 'makemyresume',
+    title: 'OptumCare',
+    subtitle: 'Real-time AI-powered chat application',
+    overview:
+      'Developed a real-time chat application integrated with AI capabilities using Socket.io. The application facilitates seamless communication between users with intelligent suggestions and automated responses.',
+    technologies: ['Next.js', 'Node.js', 'AI APIs & Chatbots', 'Augmented Reality'],
+    features: [
+      'Real-time Messaging',
+      'AI-Powered Suggestions',
+      'User Profiles and Authentication',
+      'Group Chat Functionality',
+      'Responsive UI Design',
+    ],
+    results:
+      'Achieved a user base of 5,000 active users within the first three months, with high engagement rates and positive feedback on AI integrations enhancing user interactions.',
+    immersiveContent: [
+      'Project Case Study: AI Chat Application',
+      'Description: A real-time chat app with AI integration using Socket.io.',
+    ],
+    image: 'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+    screenshots: [
+      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+    ],
+    category: 'Web Development',
     isFeatured: false,
   },
   {
@@ -103,8 +132,7 @@ export const showcaseProjects: Project[] = [
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
     ],
-    category: 'Web Development',
+    category: 'App Development',
     isFeatured: false,
   },
-  // ... Add more projects similarly
 ];

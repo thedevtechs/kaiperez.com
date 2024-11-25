@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import styles from './projectsArchive.module.css';
@@ -22,16 +23,16 @@ interface Skill {
 
 const projects: Project[] = [
   {
-    title: "E-commerce Platform",
+    title: "Point of Sale iOS / Android App",
     description: "A full-stack e-commerce solution built with Next.js and Stripe",
   },
   {
-    title: "AI Chat Application",
-    description: "Real-time chat app with AI integration using Socket.io",
+    title: "Resume / Cover Letter Generator",
+    description: "Dynamic portfolio generator with custom themes",
   },
   {
-    title: "Portfolio Generator",
-    description: "Dynamic portfolio generator with custom themes",
+    title: "AI Chat Bots",
+    description: "Real-time chat app with AI integration using Socket.io",
   },
 ];
 
@@ -84,13 +85,13 @@ const Portfolio = () => {
   return (
     <>
       <Head>
-        <title>Developer Portfolio - Flashlight Mode</title>
+        <title>Portfolio | Kai Perez</title>
         <meta
           name="description"
           content="Full-stack developer portfolio with interactive flashlight effect"
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
 
       {/* Custom Cursor */}
@@ -165,17 +166,27 @@ const Portfolio = () => {
               loop={true}
               centeredSlides={true} // Center the slide
             >
-              {showcaseProjects.map((project, index) => (
-                <SwiperSlide key={index}>
-                  <div className={styles.sliderContent}>
-                    <img src={project.image} alt={project.title} className={styles.sliderImage} />
-                    <div className={styles.sliderCaption}>
-                      <h3>{project.title}</h3>
-                      <p style={{color:'#00b894'}}>{project.category}</p>
-                    </div>
-                  </div>
-                </SwiperSlide>
-              ))}
+              {showcaseProjects
+                .filter((project) => project.isFeatured) // Only include featured projects
+                .map((project, index) => (
+                  <SwiperSlide key={index}>
+                    <Link href={`/projects/${project.slug}`} passHref>
+                      <span className={styles.sliderLink}> {/* Optional class for styling */}
+                        <div className={styles.sliderContent}>
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className={styles.sliderImage}
+                          />
+                          <div className={styles.sliderCaption}>
+                            <h3>{project.title}</h3>
+                            <p style={{ color: '#00b894' }}>{project.category}</p>
+                          </div>
+                        </div>
+                      </span>
+                    </Link>
+                  </SwiperSlide>
+                ))}
             </Swiper>
           </div>
         </section>
@@ -194,9 +205,14 @@ const Portfolio = () => {
         </section>
 
         {/* Project Showcase */}
-        <ProjectShowcase projects={showcaseProjects.map((project, index) => ({
-          ...project,
-        }))} />
+        <ProjectShowcase
+          projects={showcaseProjects
+            .filter((project) => !project.isFeatured)
+            .map((project, index) => ({
+              ...project,
+              // You can add or modify properties here if needed
+            }))}
+        />
         { isLightsOn && 
           <Footer/>
         }

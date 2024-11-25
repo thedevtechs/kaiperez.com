@@ -141,7 +141,6 @@
   font-size: 1.1em;
   outline: none;
   flex: 1;
-  border-right: 2px solid #0f0;
   animation: blink-caret 1s step-end infinite;
 }
 

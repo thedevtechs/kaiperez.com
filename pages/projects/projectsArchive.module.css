@@ -15,7 +15,6 @@
 .lightBackground {
   background-color: transparent;
   color: #2d3436;
-
   cursor: auto;
 }
 
@@ -270,5 +269,10 @@
   font-size: 0.9rem;
   color: #666;
 }
-
-/* Back button */
+.slider a {
+  display: block; /* Make the entire div block-level */
+  text-decoration: none !important; /* Remove text decoration */
+  color: inherit; /* Inherit text color */
+  cursor: pointer; /* Show pointer cursor on hover */
+  transition: opacity 0.3s ease-in-out; /* Smooth hover effect */
+}
