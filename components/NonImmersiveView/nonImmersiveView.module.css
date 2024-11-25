@@ -67,6 +67,11 @@
     margin-top: 6rem;
     color: #2d3436;
   }
+
+  .storyContent li {
+    margin-bottom: 20px;
+  }
+  
   
   @media (max-width: 768px) {
     .introSection, .resultsSection, .storySection {
@@ -94,6 +99,7 @@
   
   .featuredImage {
     max-width: 100%;
+    max-height: 600px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
@@ -114,7 +120,6 @@
   
   .storyImage {
     flex: 2;
-    text-align: center;
   }
   
   /* Technologies Section */

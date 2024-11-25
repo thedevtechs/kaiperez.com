@@ -70,8 +70,8 @@ export const showcaseProjects: Project[] = [
     ],
     image: 'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/rayse.com.jpg',
     screenshots: [
-      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
-      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/2.png',
+      'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/rayse.com-2.png',
+      'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/rayse.com-3.jpg',
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/3.png',
     ],
     category: 'AI, Chatbots, & App Development',

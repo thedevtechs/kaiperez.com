@@ -1,8 +1,9 @@
 {
   "pages/projects/[slug].tsx -> ../../components/NonImmersiveView/NonImmersiveView": {
-    "id": "pages/projects/[slug].tsx -> ../../components/NonImmersiveView/NonImmersiveView",
+    "id": 9969,
     "files": [
-      "static/chunks/components_NonImmersiveView_NonImmersiveView_tsx.js"
+      "static/css/3c08d22bc0c72d31.css",
+      "static/chunks/969.a9ab72c2890cb020.js"
     ]
   }
 }
