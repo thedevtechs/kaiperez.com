@@ -141,55 +141,55 @@ const Portfolio = () => {
         }`}
       >
         {/* Hero Section */}
-        <section className={styles.heroSection}>
-          <div className={styles.hero}>
-            <h1>Kai Perez</h1>
-            <div className={styles.title}>Cloud Architect / Full-Stack Developer</div>
-            <p>Building digital experiences with code and creativity</p>
+          <section className={styles.heroSection}>
+            <div className={styles.hero}>
+              <h1>Kai Perez</h1>
+              <div className={styles.title}>Cloud Architect / Full-Stack Developer</div>
+              <p>Building digital experiences with code and creativity</p>
 
-            <div className={styles.skills}>
-              {skills.map((skill, index) => (
-                <span key={index} className={styles.skillTag}>
-                  {skill.name}
-                </span>
-              ))}
-            </div>
-          </div>
-
-          {/* Image Slider */}
-          <div className={styles.slider}>
-            <Swiper
-              spaceBetween={20}
-              slidesPerView={1}
-              pagination={{ clickable: true }}
-              autoplay={true}
-              loop={true}
-              centeredSlides={true} // Center the slide
-            >
-              {showcaseProjects
-                .filter((project) => project.isFeatured) // Only include featured projects
-                .map((project, index) => (
-                  <SwiperSlide key={index}>
-                    <Link href={`/projects/${project.slug}`} passHref>
-                      <span className={styles.sliderLink}> {/* Optional class for styling */}
-                        <div className={styles.sliderContent}>
-                          <img
-                            src={project.image}
-                            alt={project.title}
-                            className={styles.sliderImage}
-                          />
-                          <div className={styles.sliderCaption}>
-                            <h3>{project.title}</h3>
-                            <p style={{ color: '#00b894' }}>{project.category}</p>
-                          </div>
-                        </div>
-                      </span>
-                    </Link>
-                  </SwiperSlide>
+              <div className={styles.skills}>
+                {skills.map((skill, index) => (
+                  <span key={index} className={styles.skillTag}>
+                    {skill.name}
+                  </span>
                 ))}
-            </Swiper>
-          </div>
-        </section>
+              </div>
+            </div>
+
+            {/* Image Slider */}
+            <div className={styles.slider}>
+              <Swiper
+                spaceBetween={20}
+                slidesPerView={1}
+                pagination={{ clickable: true }}
+                autoplay={true}
+                loop={true}
+                centeredSlides={true}
+              >
+                {showcaseProjects
+                  .filter((project) => project.isFeatured)
+                  .map((project, index) => (
+                    <SwiperSlide key={index}>
+                      <Link href={`/projects/${project.slug}`} passHref>
+                        <span className={styles.sliderLink}>
+                          <div className={styles.sliderContent}>
+                            <img
+                              src={project.image}
+                              alt={project.title}
+                              className={styles.sliderImage}
+                            />
+                            <div className={styles.sliderCaption}>
+                              <h3>{project.title}</h3>
+                              <p style={{ color: '#00b894' }}>{project.category}</p>
+                            </div>
+                          </div>
+                        </span>
+                      </Link>
+                    </SwiperSlide>
+                  ))}
+              </Swiper>
+            </div>
+          </section>
 
         {/* Projects Section */}
         <section className={styles.projects} id="projects">

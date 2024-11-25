@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST='{"pages/projects/[slug].tsx -> ../../components/NonImmersiveView/NonImmersiveView":{"id":9969,"files":["static/css/d7abb1140c3ddc0c.css","static/chunks/969.cc30d0c3adfd3d15.js"]}}';
+self.__REACT_LOADABLE_MANIFEST="{\"pages/projects/[slug].tsx -> ../../components/NonImmersiveView/NonImmersiveView\":{\"id\":\"pages/projects/[slug].tsx -> ../../components/NonImmersiveView/NonImmersiveView\",\"files\":[\"static/chunks/components_NonImmersiveView_NonImmersiveView_tsx.js\"]}}"
