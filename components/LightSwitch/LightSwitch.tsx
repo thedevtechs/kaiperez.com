@@ -52,9 +52,9 @@ const LightSwitch = ({ isOn, toggle }) => {
 
         .light-switch:checked ~ .light-switch-label .switch {
           box-shadow: 0 10px 10px -5px rgba(233,219,176,1), 
-                     0 0 0 1px rgba(0,0,0,.1), 
-                     0 0 0 4px #fff4d3,
-                     0 0 0 5px rgba(0,0,0,.1);
+                      0 0 0 1px rgba(0,0,0,.1), 
+                      0 0 0 4px #fff4d3,
+                      0 0 0 5px rgba(0,0,0,.1);
         }
 
         .light-switch:checked ~ .light-switch-label .switch:before {
@@ -99,9 +99,9 @@ const LightSwitch = ({ isOn, toggle }) => {
           border-radius: 5px;
           overflow: hidden;
           box-shadow: 0 10px 10px -5px rgba(233,219,176,0), 
-                     0 0 0 1px rgba(0,0,0,.1), 
-                     0 0 0 4px #fff4d3,
-                     0 0 0 5px rgba(0,0,0,.1);
+                      0 0 0 1px rgba(0,0,0,.1), 
+                      0 0 0 4px #fff4d3,
+                      0 0 0 5px rgba(0,0,0,.1);
         }
 
         .switch:before {
@@ -173,6 +173,13 @@ const LightSwitch = ({ isOn, toggle }) => {
           top: 0;
           left: 0;
           background-color: #132436;
+        }
+
+        /* Hide LightSwitch on mobile devices */
+        @media (max-width: 768px) {
+          .wrapper {
+            display: none;
+          }
         }
       `}</style>
     </div>

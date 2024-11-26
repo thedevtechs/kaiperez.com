@@ -134,9 +134,6 @@
 }
 
 /* Dark Theme Styles */
-.dark {
-  backdrop-filter: blur(10px);
-}
 
 .dark .link {
   color: #000;

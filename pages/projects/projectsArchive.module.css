@@ -222,15 +222,43 @@
 }
 
 @media (max-width: 768px) {
+  .content {
+    padding: 2rem;
+  }
+
   .light {
     width: 200px;
     height: 200px;
   }
-  
+  .title {
+    margin-bottom: 0rem;
+  }
   .showcaseTitle {
     font-size: 2rem;
+    margin-bottom: 0rem !important;
+  }
+  .hero {
+    max-width: 100%; /* Full width for smaller screens */
+  }
+  .heroSection {
+    display: block !important;
+  }
+  
+
+  .skills {
+    display: flex !important;       /* Explicitly enable Flexbox */
+    flex-direction: row !important; /* Force row alignment */
+    flex-wrap: wrap !important;     /* Allow items to wrap */
+    gap: 1rem;                      /* Add spacing between items */
+    margin-top: 2rem;      /* Adds space above the container */
+}
+
+  .slider {
+    max-width: 100% !important;
+    margin-top: 2em;
   }
 }
+
 
 .heroSection {
   display: flex;

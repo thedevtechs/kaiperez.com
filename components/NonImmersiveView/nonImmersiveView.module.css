@@ -82,9 +82,14 @@
     .introImage {
       order: -1;
     }
-  
-    .introContent {
-      text-align: center;
+
+    .introSection,.resultsSection {
+      margin-bottom: 0rem;
+      margin-top: 1rem !important;
+    }
+    .storySection {
+      margin-top: 2rem !important;
+      margin-bottom: 0rem !important;
     }
   }
   

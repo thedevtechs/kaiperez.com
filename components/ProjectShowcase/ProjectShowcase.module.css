@@ -89,3 +89,13 @@
     text-overflow: ellipsis;
   }
   
+
+  @media (max-width: 768px) {
+    .projectShowcase {
+      margin-top: 0rem;
+    }
+    .showcaseTitle {
+      font-size: 2rem;
+      margin-bottom: 2rem !important;
+    }
+  }
