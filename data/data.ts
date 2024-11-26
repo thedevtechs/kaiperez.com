@@ -115,10 +115,10 @@ Lack of customer engagement: There was no integration with loyalty programs or m
       'Project Case Study: AI Chat Application',
       'Description: A real-time chat app with AI integration using Socket.io.',
     ],
-    image: 'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/Screenshot+2024-11-25+at+7.52.36%E2%80%AFAM.png',
+    image: 'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/makemyresume-3',
     screenshots: [
-      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
-      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+      'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/Screenshot+2024-11-25+at+7.52.36%E2%80%AFAM.png',
+      'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/makemyresume-2',
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
     ],
     category: 'App Development',

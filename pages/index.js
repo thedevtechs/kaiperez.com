@@ -88,19 +88,23 @@ export default function Home() {
 
       </Head>
 
-      <div id="particles-js" style={{ position: 'absolute', width: '100%', height: '100%' }} />
+      <div
+        id="particles-js"
+        style={{ position: 'absolute', width: '100%', height: '100%', zIndex: -1 }}
+      />
       <div className="content">
-  <h1>Kai Perez</h1>
-  <h2>Cloud Architect / Full-Stack Developer</h2>
-  <div className="button-group">
-    <button onClick={() => window.open('https://calendly.com/kaiperez/30min', '_blank')}>Contact Me</button>
-    <Link href="/projects" passHref>
-      <button>Projects</button>
-    </Link>  </div>
-</div>
+        <h1>Kai Perez</h1>
+        <h2>Cloud Architect / Full-Stack Developer</h2>
+        <div className="button-group">
+          <button onClick={() => window.open('https://calendly.com/kaiperez/30min', '_blank')}>Contact</button>
+          <Link href="/projects" passHref>
+            <button>Projects</button>
+          </Link>  </div>
+      </div>
 
 <style jsx>{`
   .content {
+    z-index: 1;
     text-align: center;
     margin-top: 50px;
   }
