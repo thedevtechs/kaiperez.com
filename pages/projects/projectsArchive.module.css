@@ -87,7 +87,7 @@
 
 /* Hero section */
 .hero {
-  min-height: 60vh;
+  min-height: 40vh;
   display: flex;
 
   flex: 1; /* Takes up equal space as the slider */

@@ -1,17 +1,18 @@
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
-import { useEffect, useRef, useState } from 'react';
 import Head from 'next/head';
 import styles from './projectsArchive.module.css';
 import LightSwitch from '../../components/LightSwitch/LightSwitch';
+import Menu from '../../components/Menu/Menu'; // Import Menu component
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css/navigation';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import { showcaseProjects } from '../../data/data';
-import ProjectShowcase from '../../components/ProjectShowcase/ProjectShowcase'; // Import the new component
+import ProjectShowcase from '../../components/ProjectShowcase/ProjectShowcase';
 import Footer from '../../components/Footer/Footer';
-// Replace the existing button with:
+
 interface Project {
   title: string;
   description: string;
@@ -48,10 +49,29 @@ const Portfolio = () => {
   const lightRef = useRef<HTMLDivElement>(null);
   const cursorRef = useRef<HTMLDivElement>(null);
   const [isLightsOn, setIsLightsOn] = useState(true);
+  const [isMobile, setIsMobile] = useState(false); // State to track mobile devices
 
   const toggleLights = () => {
     setIsLightsOn((prev) => !prev);
   };
+
+  useEffect(() => {
+    // Function to check if the device is mobile
+    const checkIsMobile = () => {
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth <= 768);
+      }
+    };
+
+    // Initial check
+    checkIsMobile();
+
+    // Add event listener
+    window.addEventListener('resize', checkIsMobile);
+
+    // Cleanup event listener on component unmount
+    return () => window.removeEventListener('resize', checkIsMobile);
+  }, []);
 
   useEffect(() => {
     const handleMouseMove = (e: MouseEvent) => {
@@ -108,8 +128,10 @@ const Portfolio = () => {
         ref={lightRef}
       />
 
-      {/* Navigation */}
-      <nav
+        {isMobile ? (
+          <></>
+        ) : (
+          <nav
         className={`${styles.nav} ${isLightsOn ? styles.lightBackground : ''}`}
       >
         <a
@@ -127,13 +149,13 @@ const Portfolio = () => {
         <a
           href="https://calendly.com/kaiperez/30min"
           target="_blank"
+          rel="noopener noreferrer"
           style={{ color: isLightsOn ? '#000' : '#fff' }}
         >
           Contact
         </a>
       </nav>
-
-
+        )}
       {/* Main Content */}
       <div
         className={`${styles.content} ${
@@ -162,7 +184,7 @@ const Portfolio = () => {
                 spaceBetween={20}
                 slidesPerView={1}
                 pagination={{ clickable: true }}
-                autoplay={true}
+                autoplay={{ delay: 3000, disableOnInteraction: false }}
                 loop={true}
                 centeredSlides={true}
               >
@@ -208,7 +230,7 @@ const Portfolio = () => {
         <ProjectShowcase
           projects={showcaseProjects
             .filter((project) => !project.isFeatured)
-            .map((project, index) => ({
+            .map((project) => ({
               ...project,
               // You can add or modify properties here if needed
             }))}
@@ -216,8 +238,13 @@ const Portfolio = () => {
         { isLightsOn && 
           <Footer/>
         }
-{/* Toggle LightSwitch Button */}
-      <LightSwitch isOn={isLightsOn} toggle={toggleLights} />
+
+        {/* Toggle LightSwitch or Menu */}
+        {isMobile ? (
+          <Menu />
+        ) : (
+          <LightSwitch isOn={isLightsOn} toggle={toggleLights} />
+        )}
       </div>
     </>
   );
