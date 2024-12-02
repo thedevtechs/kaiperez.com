@@ -1,15 +1,15 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import styles from './menu.module.css';
 
 interface MenuProps {
   theme: 'light' | 'dark';
+  defaultOpen?: boolean; // New prop to default the menu to open
 }
 
-const Menu: React.FC<MenuProps> = ({ theme }) => {
-  const [sidebarActive, setSidebarActive] = useState(false);
-  const [toggleActive, setToggleActive] = useState(false);
+const Menu: React.FC<MenuProps> = ({ theme, defaultOpen = false }) => {
+  const [sidebarActive, setSidebarActive] = useState(defaultOpen); // Initialize with defaultOpen
+  const [toggleActive, setToggleActive] = useState(defaultOpen); // Sync with sidebar state
 
   const toggleMenu = () => {
     setSidebarActive(!sidebarActive);
@@ -22,7 +22,11 @@ const Menu: React.FC<MenuProps> = ({ theme }) => {
   return (
     <>
       {/* Sidebar Menu */}
-      <div className={`${styles.sidebar} ${themeStyles} ${sidebarActive ? styles.active : ''}`}>
+      <div
+        className={`${styles.sidebar} ${themeStyles} ${
+          sidebarActive ? styles.active : ''
+        }`}
+      >
         <ul>
           <li>
             <Link href="/" className={styles.link}>
@@ -49,45 +53,15 @@ const Menu: React.FC<MenuProps> = ({ theme }) => {
 
       {/* Toggle Menu Button */}
       <div
-        className={`${styles.toggleMenu} ${themeStyles} ${toggleActive ? styles.active : ''}`}
+        className={`${styles.toggleMenu} ${themeStyles} ${
+          toggleActive ? styles.active : ''
+        }`}
         aria-label="Toggle navigation"
         onClick={toggleMenu}
       >
         <div></div>
         <div></div>
         <div></div>
-      </div>
-
-      {/* Social Icons */}
-      <div className={styles.socialIcons}>
-        <a
-          href="https://linkedin.com/in/kaiperez"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="LinkedIn"
-          className={styles.socialLink}
-        >
-          <Image
-            src="https://cdn-icons-png.flaticon.com/512/174/174857.png"
-            alt="Kai Perez LinkedIn Profile Icon"
-            width={30}
-            height={30}
-          />
-        </a>
-        <a
-          href="https://github.com/thedevtechs"
-          target="_blank"
-          rel="noopener noreferrer"
-          aria-label="GitHub"
-          className={styles.socialLink}
-        >
-          <Image
-            src="https://cdn-icons-png.flaticon.com/512/733/733553.png"
-            alt="GitHub Icon for Kai Perez"
-            width={30}
-            height={30}
-          />
-        </a>
       </div>
     </>
   );

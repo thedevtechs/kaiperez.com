@@ -17,45 +17,6 @@ export interface Project {
 
 export const showcaseProjects: Project[] = [
   {
-    slug: 'PoS',
-    title: 'Point of Sales - iOS / Android',
-    subtitle: 'A modern and scalable e-commerce solution',
-    overview:
-      `In the fast-paced restaurant industry, efficiency and user experience are paramount. I had the opportunity to design and develop a modern Point of Sale (PoS) system that has been in production for over two years at a high-traffic restaurant. The solution streamlined operations, reduced onboarding complexity, and significantly boosted efficiency compared to traditional systems.
-      <br><br>
-      <h3>The Challenge</h3>
-      Traditional PoS systems often fall short when handling the unique challenges of high-volume restaurants. Key pain points included:
-
-Inefficient workflows: Legacy systems slowed order processing and created bottlenecks during peak hours.
-Complex employee onboarding: Training staff on cumbersome systems consumed valuable time.
-Lack of customer engagement: There was no integration with loyalty programs or mobile ordering.`,
-    technologies: ['Flutter: Delivered a fast, responsive, and visually engaging cross-platform application.',
-                    'Python: Provided a robust and scalable backend for managing transactions, customer data, and real-time analytics.',
-                    'Firebase: Ensured secure and reliable cloud-based data storage and synchronization.'],
-    features: [
-      `We developed a cutting-edge PoS system with a focus on simplicity, speed, and scalability, utilizing Flutter for the front end and Python for the backend. Our key features included:`,
-`Streamlined Order Management: Orders seamlessly integrated with the kitchen's ticketing system, eliminating delays.`,
-'Loyalty Program Integration: A feature inspired by the Starbucks app, allowing customers to earn and redeem rewards effortlessly.',
-'Online Ordering: Integrated directly into the PoS, enabling customers to place orders via a mobile app, which synchronized with the kitchen in real time.',
-'Effortless Onboarding: Intuitive UI/UX design made training new employees up to 40% faster, reducing the time spent onboarding by nearly half.'
-    ],
-    results:
-      `This project highlighted the importance of crafting solutions tailored to the specific needs of end-users. By leveraging modern technologies and prioritizing intuitive design, the PoS system not only addressed immediate operational challenges but also created a foundation for long-term growth. It was a rewarding experience to see the tangible impact of our work on both employees and customers.
-      <br><br>For a deeper dive into the technical implementation or collaboration opportunities, feel free to <a href="https://calendly.com/kaiperez/30min" target="_blank">connect with me.</a>`,
-    immersiveContent: [
-      'Project Case Study: E-commerce Platform',
-      'Description: A full-stack e-commerce solution built with Next.js and Stripe.',
-    ],
-    image: 'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/pos.png',
-    screenshots: [
-      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
-      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
-      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
-    ],
-    category: 'App Development',
-    isFeatured: false,
-  },
-  {
     slug: 'rayse',
     title: 'Rayse',
     subtitle: 'Real-time AI-powered chat application',
@@ -63,7 +24,7 @@ Lack of customer engagement: There was no integration with loyalty programs or m
       `Kai played a pivotal role in revolutionizing the real estate industry. His work on Rayse resulted in a groundbreaking app that put the power of transparency directly into the hands of homebuyers. This project wasn't just about building an app – it was about fundamentally changing the way people interact with their real estate agents.
        Kai's ability to combine his technical expertise with a deep understanding of user needs was crucial to the project's success.<br><br>The result is an app that's both powerful and incredibly user-friendly. With Rayse, homebuyers can now easily track their agent's activity, identify potential red flags, and make more informed decisions throughout the homebuying process.
        This project demanded a unique blend of technical skill and an in-depth understanding of the real estate world. Kai's ability to learn the ins and outs of the industry was crucial to the project's success. He designed a system that not only tracked agent activity but also made that information easily understandable for homebuyers.`,
-    technologies: ['React', 'Node.js', 'Socket.io', 'AI APIs'],
+    technologies: ['React', 'Node.js', 'iOS / Android Development', 'AI APIs'],
     features: [
       'Increased Transparency: Clients gained unprecedented visibility into agent activities, leading to a better understanding and appreciation of the services provided.',
       'Enhanced Trust: The platform fostered trust between clients and agents by clearly demonstrating the value delivered throughout the transaction process.',
@@ -164,13 +125,52 @@ Creating consistent, high-quality content for articles and social media presents
       'Project Case Study: AI Chat Application',
       'Description: A real-time chat app with AI integration using Socket.io.',
     ],
-    image: 'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/ai-flowise.png',
+    image: 'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/ai-social-media.jpeg',
     screenshots: [
-      'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/ai-social-media.jpeg',
-      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+      'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/ai-flowise.png',
+      'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/social-media-generator-2.png',
       'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
     ],
     category: 'AI / App Development',
+    isFeatured: false,
+  },
+  {
+    slug: 'PoS',
+    title: 'Point of Sales - iOS / Android',
+    subtitle: 'A modern and scalable e-commerce solution',
+    overview:
+      `In the fast-paced restaurant industry, efficiency and user experience are paramount. I had the opportunity to design and develop a modern Point of Sale (PoS) system that has been in production for over two years at a high-traffic restaurant. The solution streamlined operations, reduced onboarding complexity, and significantly boosted efficiency compared to traditional systems.
+      <br><br>
+      <h3>The Challenge</h3>
+      Traditional PoS systems often fall short when handling the unique challenges of high-volume restaurants. Key pain points included:
+
+Inefficient workflows: Legacy systems slowed order processing and created bottlenecks during peak hours.
+Complex employee onboarding: Training staff on cumbersome systems consumed valuable time.
+Lack of customer engagement: There was no integration with loyalty programs or mobile ordering.`,
+    technologies: ['Flutter: Delivered a fast, responsive, and visually engaging cross-platform application.',
+                    'Python: Provided a robust and scalable backend for managing transactions, customer data, and real-time analytics.',
+                    'Firebase: Ensured secure and reliable cloud-based data storage and synchronization.'],
+    features: [
+      `We developed a cutting-edge PoS system with a focus on simplicity, speed, and scalability, utilizing Flutter for the front end and Python for the backend. Our key features included:`,
+`Streamlined Order Management: Orders seamlessly integrated with the kitchen's ticketing system, eliminating delays.`,
+'Loyalty Program Integration: A feature inspired by the Starbucks app, allowing customers to earn and redeem rewards effortlessly.',
+'Online Ordering: Integrated directly into the PoS, enabling customers to place orders via a mobile app, which synchronized with the kitchen in real time.',
+'Effortless Onboarding: Intuitive UI/UX design made training new employees up to 40% faster, reducing the time spent onboarding by nearly half.'
+    ],
+    results:
+      `This project highlighted the importance of crafting solutions tailored to the specific needs of end-users. By leveraging modern technologies and prioritizing intuitive design, the PoS system not only addressed immediate operational challenges but also created a foundation for long-term growth. It was a rewarding experience to see the tangible impact of our work on both employees and customers.
+      <br><br>For a deeper dive into the technical implementation or collaboration opportunities, feel free to <a href="https://calendly.com/kaiperez/30min" target="_blank">connect with me.</a>`,
+    immersiveContent: [
+      'Project Case Study: E-commerce Platform',
+      'Description: A full-stack e-commerce solution built with Next.js and Stripe.',
+    ],
+    image: 'https://tdt-admin-bucket.s3.us-west-1.amazonaws.com/pos.png',
+    screenshots: [
+      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+      'https://gavi-nextjs.vercel.app/assets/imgs/works/project/1.png',
+    ],
+    category: 'App Development',
     isFeatured: false,
   },
 ];

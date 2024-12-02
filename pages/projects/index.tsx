@@ -241,7 +241,7 @@ const Portfolio = () => {
 
         {/* Toggle LightSwitch or Menu */}
         {isMobile ? (
-          <Menu />
+          <Menu theme={'dark'} defaultOpen={true} />
         ) : (
           <LightSwitch isOn={isLightsOn} toggle={toggleLights} />
         )}

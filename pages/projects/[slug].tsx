@@ -162,9 +162,23 @@ const CaseStudyPage: React.FC = () => {
   return (
     <>
       <Head>
-        <title>{project.title}</title>
-        <meta name="description" content={project.subtitle} />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <meta charSet="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta name="description" content="Explore the portfolio of Kai Perez, a Cloud Architect and Full-Stack Developer. View projects, skills, and connect for collaboration." />
+      <meta name="author" content="Kai Perez" />
+      <meta property="og:title" content="Kai Perez - Cloud Architect & Full-Stack Developer Portfolio" />
+      <meta property="og:description" content="Discover innovative projects by Kai Perez, a Cloud Architect and Full-Stack Developer. Contact Kai to build modern tech solutions." />
+      <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/733/733553.png" />
+      <meta property="og:image:alt" content="GitHub logo linking to Kai Perez's GitHub profile showcasing full-stack development projects" />
+      <meta property="og:url" content="https://yourwebsite.com" />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="Kai Perez - Cloud Architect & Full-Stack Developer Portfolio" />
+      <meta name="twitter:description" content="Explore Kai Perez's innovative projects in cloud architecture and full-stack development. Connect now for collaboration." />
+      <meta name="twitter:image" content="https://cdn-icons-png.flaticon.com/512/733/733553.png" />
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet" />
+      <link rel="icon" href="/favicon.png" type="image/x-icon" />
+      <title>Projects | {project.title}</title>
       </Head>
 
       {/* Include the Menu Component */}
