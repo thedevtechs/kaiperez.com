@@ -105,10 +105,10 @@ const Portfolio = () => {
   return (
     <>
       <Head>
-        <title>Portfolio | Kai Perez</title>
+        <title>Projects | Kai Perez</title>
         <meta
           name="description"
-          content="Full-stack developer portfolio with interactive flashlight effect"
+          content="Full-stack developer with over 10 years of experience. Get your project developed in less time."
         />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />

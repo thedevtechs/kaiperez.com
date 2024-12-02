@@ -19,7 +19,7 @@ export const showcaseProjects: Project[] = [
   {
     slug: 'rayse',
     title: 'Rayse',
-    subtitle: 'Real-time AI-powered chat application',
+    subtitle: 'Revolutionizing the real estate industry',
     overview:
       `Kai played a pivotal role in revolutionizing the real estate industry. His work on Rayse resulted in a groundbreaking app that put the power of transparency directly into the hands of homebuyers. This project wasn't just about building an app – it was about fundamentally changing the way people interact with their real estate agents.
        Kai's ability to combine his technical expertise with a deep understanding of user needs was crucial to the project's success.<br><br>The result is an app that's both powerful and incredibly user-friendly. With Rayse, homebuyers can now easily track their agent's activity, identify potential red flags, and make more informed decisions throughout the homebuying process.
@@ -50,7 +50,7 @@ export const showcaseProjects: Project[] = [
   {
     slug: 'makemyresume',
     title: 'Make My Resume',
-    subtitle: 'Real-time AI-powered chat application',
+    subtitle: 'The best way to make a resume  and land your dream job',
     overview:
       `Finding a job in today’s competitive market requires more than just a polished resume—it requires a tailored approach, actionable insights, and tools that empower candidates to shine. As the founder and lead developer, I designed and implemented MakeMyResume.io, a platform that leverages AI to craft tailored resumes, generate personalized cover letters, and prepare users with mock interviews. This project has helped countless users secure interviews faster and more effectively.
       <br><br>
@@ -88,7 +88,7 @@ export const showcaseProjects: Project[] = [
   {
     slug: 'social-media-manager',
     title: 'AI Social Media Manager',
-    subtitle: 'AI / App Development',
+    subtitle: 'Engaging and human-like content for Social Media, created in seconds',
     overview:
       `In the age of information, standing out requires engaging, relevant, and visually stunning content. To address this demand, I developed an AI Articles and Social Media Generator, an intelligent platform leveraging cutting-edge technologies like LangChain, CrewAI, and RAG (Retrieval-Augmented Generation). The tool simplifies content creation by generating unique, high-quality articles, photorealistic images, and social media drafts ready for user approval, revolutionizing how brands and individuals manage their online presence.
       <h3>The Challenge</h3>
