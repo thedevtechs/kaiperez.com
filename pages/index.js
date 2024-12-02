@@ -10,11 +10,32 @@ const theme = 'light'; // Set your theme dynamically if needed
 export default function Home() {
   const [sidebarActive, setSidebarActive] = useState(false);
   const [toggleActive, setToggleActive] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const toggleMenu = () => {
     setSidebarActive(!sidebarActive);
     setToggleActive(!toggleActive);
   };
+
+  useEffect(() => {
+    // Function to determine if the viewport width is for mobile
+    const checkIfMobile = () => {
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth <= 768); // Mobile breakpoint
+      }
+    };
+
+    // Run the check immediately on mount
+    checkIfMobile();
+
+    // Add event listener to handle window resize
+    window.addEventListener('resize', checkIfMobile);
+
+    return () => {
+      window.removeEventListener('resize', checkIfMobile);
+    };
+  }, []);
+
 
   useEffect(() => {
     // Check if the script already exists to prevent duplicates
@@ -121,7 +142,7 @@ export default function Home() {
         </div>
       </div>
 
-      <Menu theme={theme} defaultOpen={true} />
+      <Menu theme={theme} defaultOpen={isMobile} />
 
       <div className={styles.socialIcons}>
         <a
