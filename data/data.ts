@@ -138,7 +138,7 @@ Creating consistent, high-quality content for articles and social media presents
   {
     slug: 'PoS',
     title: 'Point of Sales - iOS / Android',
-    subtitle: 'A modern and scalable e-commerce solution',
+    subtitle: 'A flexible and intuitive Point of Sales system with a client facing interface.',
     overview:
       `In the fast-paced restaurant industry, efficiency and user experience are paramount. I had the opportunity to design and develop a modern Point of Sale (PoS) system that has been in production for over two years at a high-traffic restaurant. The solution streamlined operations, reduced onboarding complexity, and significantly boosted efficiency compared to traditional systems.
       <br><br>

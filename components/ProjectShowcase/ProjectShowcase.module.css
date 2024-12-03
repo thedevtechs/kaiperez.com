@@ -21,7 +21,7 @@
     position: relative;
     overflow: hidden;
     border-radius: 10px;
-    background-color: #1a1a1a;
+    background-color: #fff;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none; /* Prevent underline on links */
     color: inherit; /* Inherit text color */
@@ -40,7 +40,7 @@
 .projectImage {
     width: 100%;
     height: 100%;
-    object-fit: cover; /* Ensures the image fits within the container without distortion */
+    object-fit: contain; /* Ensures the image fits within the container without distortion */
     transition: transform 0.3s ease;
     border-radius: 10px 10px 0 0;
 }
