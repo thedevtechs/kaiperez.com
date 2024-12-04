@@ -170,7 +170,7 @@ const CaseStudyPage: React.FC = () => {
       <meta property="og:description" content="Discover innovative projects by Kai Perez, a Cloud Architect and Full-Stack Developer. Contact Kai to build modern tech solutions." />
       <meta property="og:image" content="https://cdn-icons-png.flaticon.com/512/733/733553.png" />
       <meta property="og:image:alt" content="GitHub logo linking to Kai Perez's GitHub profile showcasing full-stack development projects" />
-      <meta property="og:url" content="https://yourwebsite.com" />
+      <meta property="og:url" content="https://kaiperez.com" />
       <meta property="og:type" content="website" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:title" content="Kai Perez - Cloud Architect & Full-Stack Developer Portfolio" />

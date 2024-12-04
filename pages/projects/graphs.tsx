@@ -9,6 +9,8 @@ import HousingMarketChart from '../../components/Graphs/HousingMarketChart';
 import IncomeVsLifeExpectancyChart from '../../components/Graphs/IncomeVsLifeExpectancyChart'; // ← Import new component
 import Menu from '../../components/Menu/Menu';
 import Footer from '../../components/Footer/Footer';
+import styles from './projectsSingle.module.css';
+import Link from 'next/link';
 
 export default function DataDashboard() {
   const theme = useTheme();
@@ -25,13 +27,11 @@ export default function DataDashboard() {
       <Container maxWidth="lg" sx={{ py: 4 }}>
         {/* Back Button */}
         <Box sx={{ mb: 3 }}>
-          <Button
-            variant="outlined"
-            startIcon={<ArrowBackIcon />}
-            onClick={() => router.push('/projects')}
-          >
+        <Link href="/projects">
+          <span className={styles.backButton}>
             Back to Projects
-          </Button>
+          </span>
+        </Link>
         </Box>
         <Grid container spacing={3}>
           <Grid item xs={12}>

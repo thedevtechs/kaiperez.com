@@ -16,11 +16,37 @@
   border-radius: 5px;
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
+.backButton {
+  display: inline-flex;
+  align-items: center;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  padding: .8rem 1rem;
+  background: linear-gradient(45deg, #ff9a8b, #ff6a88, #ffd89b);
+  border-radius: 8px;
+  transition: transform 0.2s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  background-size: 300% 300%; /* Needed for smooth gradient transition */
+  animation: shimmerButton 6s infinite; /* Slower shimmering effect */
+}
+@keyframes shimmerButton {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 
-.toggleButton:hover,
-.toggleButton:focus {
-  background: #005bb5;
-  transform: scale(1.05);
+.backButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.3);
 }
 
 /* Non-Immersive Mode Styles */

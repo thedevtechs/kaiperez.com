@@ -77,6 +77,15 @@ export interface CityData {
     { name: "Livingston", country: "Belize", lat: 15.8307, lng: -88.7486, population: 17000 },
     { name: "Placencia", country: "Belize", lat: 16.5213, lng: -88.3668, population: 3600 },
     { name: "Hopkins", country: "Belize", lat: 16.8668, lng: -88.2776, population: 1500 },
-    { name: "Santa Ana", country: "El Salvador", lat: 13.9777, lng: -89.5632, population: 245421 }
+    { name: "Santa Ana", country: "El Salvador", lat: 13.9777, lng: -89.5632, population: 245421 },
+    { name: "Merida", country: "Mexico", lat: 20.9674, lng: -89.5926, population: 892363 },
+    { name: "Puerto Vallarta", country: "Mexico", lat: 20.6534, lng: -105.2253, population: 221200 },
+    { name: "Cancun", country: "Mexico", lat: 21.1619, lng: -86.8515, population: 888797 },
+    { name: "La Paz", country: "Mexico", lat: 24.1426, lng: -110.3128, population: 250141 },
+    { name: "Hermosillo", country: "Mexico", lat: 29.0727, lng: -110.9559, population: 936263 },
+    { name: "Acapulco", country: "Mexico", lat: 16.8531, lng: -99.8237, population: 687608 },
+    { name: "Tijuana", country: "Mexico", lat: 32.5149, lng: -117.0382, population: 2000504 },
+    { name: "San Diego", country: "USA", lat: 32.7157, lng: -117.1611, population: 1415000 },
+    { name: "Santa Barbara", country: "USA", lat: 34.4208, lng: -119.6982, population: 88120 }
   ];
   
