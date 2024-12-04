@@ -16,6 +16,7 @@ import Footer from '../../components/Footer/Footer';
 interface Project {
   title: string;
   description: string;
+  link: string;
 }
 
 interface Skill {
@@ -24,16 +25,19 @@ interface Skill {
 
 const projects: Project[] = [
   {
-    title: "Point of Sale iOS / Android App",
-    description: "A full-stack e-commerce solution built with Next.js and Stripe",
-  },
-  {
-    title: "Resume / Cover Letter Generator",
-    description: "Dynamic portfolio generator with custom themes",
+    title: "Data Visualizations",
+    description: "Utilizing D3.js to create interactive data visualizations",
+    link: "/projects/graphs",
   },
   {
     title: "AI Chat Bots",
     description: "Real-time chat app with AI integration using Socket.io",
+    link: "/projects/graphs",
+  },
+  {
+    title: "3D Data Visualizations",
+    description: "Utilizing D3.js to create interactive data visualizations",
+    link: "/projects/graphs",
   },
 ];
 
@@ -218,10 +222,12 @@ const Portfolio = () => {
           <h2>What I'm working on</h2>
           <div className={styles.projectGrid}>
             {projects.map((project, index) => (
-              <div key={index} className={styles.projectCard}>
-                <h3>{project.title}</h3>
-                <p>{project.description}</p>
-              </div>
+              <Link key={index} href={project.link} passHref>
+                <div className={styles.projectCard}>
+                  <h3>{project.title}</h3>
+                  <p>{project.description}</p>
+                </div>
+              </Link>
             ))}
           </div>
         </section>

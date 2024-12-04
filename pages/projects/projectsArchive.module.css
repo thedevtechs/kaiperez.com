@@ -136,6 +136,11 @@
   gap: 2rem;
 }
 
+.projectGrid a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .projectCard {
   background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
