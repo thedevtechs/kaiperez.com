@@ -27,7 +27,7 @@ export default function GlobeVisualization() {
     renderer.setPixelRatio(window.devicePixelRatio);
     mountRef.current.appendChild(renderer.domElement);
 
-    camera.position.set(0, 0, 150);
+    camera.position.set(0, 0, 200);
 
     const controls = new OrbitControls(camera, renderer.domElement);
     controls.enableDamping = true;

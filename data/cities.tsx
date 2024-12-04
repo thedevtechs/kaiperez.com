@@ -1,14 +1,12 @@
 // /data/cities.tsx
-import * as THREE from 'three';
 
 export interface CityData {
-  name: string;
-  country: string;
-  lat: number;
-  lng: number;
-  population: number;
-  __threeObj?: THREE.Object3D; // Add this line
-}
+    name: string;
+    country: string;
+    lat: number;
+    lng: number;
+    population: number;
+  }
   
   export const TRAVELED_CITIES: CityData[] = [
     { name: 'Phuket', country: 'Thailand', lat: 7.8804, lng: 98.3923, population: 89069 },
@@ -41,21 +39,44 @@ export interface CityData {
     { name: 'Hakodate', country: 'Japan', lat: 41.7687, lng: 140.7288, population: 264000 },
     { name: 'Krakow', country: 'Poland', lat: 50.0647, lng: 19.9450, population: 779115 },
     { name: "Krakow", country: "Poland", lat: 50.0647, lng: 19.9450, population: 779115 },
-  { name: "Istanbul", country: "Turkey", lat: 41.0082, lng: 28.9784, population: 15029231 },
-  { name: "Cappadocia", country: "Turkey", lat: 38.6431, lng: 34.8270, population: null },
-  { name: "Patzcuaro", country: "Mexico", lat: 19.5141, lng: -101.6091, population: 87000 },
-  { name: "Madrid", country: "Spain", lat: 40.4168, lng: -3.7038, population: 3223334 },
-  { name: "Sofia", country: "Bulgaria", lat: 42.6977, lng: 23.3219, population: 1241675 },
-  { name: "Athens", country: "Greece", lat: 37.9838, lng: 23.7275, population: 664046 },
-  { name: "Naxos", country: "Greece", lat: 37.1053, lng: 25.3766, population: 6872 },
-  { name: "Vienna", country: "Austria", lat: 48.2082, lng: 16.3738, population: 1921153 },
-  { name: "Belfast", country: "Northern Ireland", lat: 54.5973, lng: -5.9301, population: 343542 },
-  { name: "Dublin", country: "Ireland", lat: 53.3498, lng: -6.2603, population: 1173179 },
-  { name: "Osaka", country: "Japan", lat: 34.6937, lng: 135.5023, population: 2752000 },
-  { name: "Kobe", country: "Japan", lat: 34.6901, lng: 135.1956, population: 1513776 },
-  { name: "Hiroshima", country: "Japan", lat: 34.3853, lng: 132.4553, population: 1192000 },
-  { name: "Guadalajara", country: "Mexico", lat: 20.6597, lng: -103.3496, population: 1488203 },
-  { name: "San Cristobal", country: "Mexico", lat: 16.7371, lng: -92.6376, population: 158027 },
-  { name: "Tuxtla", country: "Mexico", lat: 16.7528, lng: -93.1167, population: 553374 }
+    { name: "Istanbul", country: "Turkey", lat: 41.0082, lng: 28.9784, population: 15029231 },
+    { name: "Cappadocia", country: "Turkey", lat: 38.6431, lng: 34.8270, population: null },
+    { name: "Patzcuaro", country: "Mexico", lat: 19.5141, lng: -101.6091, population: 87000 },
+    { name: "Madrid", country: "Spain", lat: 40.4168, lng: -3.7038, population: 3223334 },
+    { name: "Sofia", country: "Bulgaria", lat: 42.6977, lng: 23.3219, population: 1241675 },
+    { name: "Athens", country: "Greece", lat: 37.9838, lng: 23.7275, population: 664046 },
+    { name: "Naxos", country: "Greece", lat: 37.1053, lng: 25.3766, population: 6872 },
+    { name: "Vienna", country: "Austria", lat: 48.2082, lng: 16.3738, population: 1921153 },
+    { name: "Belfast", country: "Northern Ireland", lat: 54.5973, lng: -5.9301, population: 343542 },
+    { name: "Dublin", country: "Ireland", lat: 53.3498, lng: -6.2603, population: 1173179 },
+    { name: "Osaka", country: "Japan", lat: 34.6937, lng: 135.5023, population: 2752000 },
+    { name: "Kobe", country: "Japan", lat: 34.6901, lng: 135.1956, population: 1513776 },
+    { name: "Hiroshima", country: "Japan", lat: 34.3853, lng: 132.4553, population: 1192000 },
+    { name: "Guadalajara", country: "Mexico", lat: 20.6597, lng: -103.3496, population: 1488203 },
+    { name: "San Cristobal", country: "Mexico", lat: 16.7371, lng: -92.6376, population: 158027 },
+    { name: "Tuxtla", country: "Mexico", lat: 16.7528, lng: -93.1167, population: 553374 },
+    { name: "Vancouver", country: "Canada", lat: 49.2827, lng: -123.1207, population: 631486 },
+    { name: "Whistler", country: "Canada", lat: 50.1163, lng: -122.9574, population: 11954 },
+    { name: "Las Vegas", country: "United States", lat: 36.1699, lng: -115.1398, population: 646790 },
+    { name: "Tempe", country: "United States", lat: 33.4255, lng: -111.9400, population: 184118 },
+    { name: "New Orleans", country: "United States", lat: 29.9511, lng: -90.0715, population: 376971 },
+    { name: "Slidell", country: "United States", lat: 30.2752, lng: -89.7812, population: 27568 },
+    { name: "Reykjavik", country: "Iceland", lat: 64.1355, lng: -21.8954, population: 135688 },
+    { name: "Frankfurt", country: "Germany", lat: 50.1109, lng: 8.6821, population: 753056 },
+    { name: "Vancouver", country: "Canada", lat: 49.2827, lng: -123.1207, population: 631486 },
+    { name: "Whistler", country: "Canada", lat: 50.1163, lng: -122.9574, population: 11954 },
+    { name: "Las Vegas", country: "United States", lat: 36.1699, lng: -115.1398, population: 646790 },
+    { name: "Tempe", country: "United States", lat: 33.4255, lng: -111.9400, population: 184118 },
+    { name: "New Orleans", country: "United States", lat: 29.9511, lng: -90.0715, population: 376971 },
+    { name: "Slidell", country: "United States", lat: 30.2752, lng: -89.7812, population: 27568 },
+    { name: "Reykjavik", country: "Iceland", lat: 64.1355, lng: -21.8954, population: 135688 },
+    { name: "Frankfurt", country: "Germany", lat: 50.1109, lng: 8.6821, population: 753056 },
+    { name: "San Salvador", country: "El Salvador", lat: 13.6929, lng: -89.2182, population: 556400 },
+    { name: "Bitcoin Beach", country: "El Salvador", lat: 13.4885, lng: -89.3665, population: 3000 },
+    { name: "Suchitoto", country: "El Salvador", lat: 13.9351, lng: -89.0278, population: 24408 },
+    { name: "Livingston", country: "Belize", lat: 15.8307, lng: -88.7486, population: 17000 },
+    { name: "Placencia", country: "Belize", lat: 16.5213, lng: -88.3668, population: 3600 },
+    { name: "Hopkins", country: "Belize", lat: 16.8668, lng: -88.2776, population: 1500 },
+    { name: "Santa Ana", country: "El Salvador", lat: 13.9777, lng: -89.5632, population: 245421 }
   ];
   

@@ -1,5 +1,8 @@
 import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
+import Link from 'next/link';
+import styles from './globe.module.css';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 
 const GlobeVisualization = dynamic(() => import('../../components/globe'), {
   ssr: false,
@@ -8,8 +11,15 @@ const GlobeVisualization = dynamic(() => import('../../components/globe'), {
 
 export default function GlobePage() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-4">
-      
+    <main className={styles.main}>
+      {/* Back Button */}
+      <Link href="/projects">
+        <button className={styles.backButton}>
+          <ChevronLeftIcon /> Back
+        </button>
+      </Link>
+
+      {/* Globe Visualization */}
       <Suspense fallback={<div>Loading...</div>}>
         <GlobeVisualization />
       </Suspense>
