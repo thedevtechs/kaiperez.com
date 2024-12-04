@@ -1,12 +1,14 @@
 // /data/cities.tsx
+import * as THREE from 'three';
 
 export interface CityData {
-    name: string;
-    country: string;
-    lat: number;
-    lng: number;
-    population: number;
-  }
+  name: string;
+  country: string;
+  lat: number;
+  lng: number;
+  population: number;
+  __threeObj?: THREE.Object3D; // Add this line
+}
   
   export const TRAVELED_CITIES: CityData[] = [
     { name: 'Phuket', country: 'Thailand', lat: 7.8804, lng: 98.3923, population: 89069 },

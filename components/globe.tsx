@@ -98,14 +98,11 @@ export default function GlobeVisualization() {
       mouse.y = -((event.clientY - rect.top) / rect.height) * 2 + 1;
 
       raycaster.setFromCamera(mouse, camera);
-      const intersects = raycaster.intersectObjects(
-        globe.pointsData().map((point) => point.__threeObj),
-        true
-      );
+      const intersects = raycaster.intersectObjects(scene.children, true);
 
       const cityIntersect = intersects.find(
-        (intersect): boolean =>
-          intersect.object.userData && 'name' in intersect.object.userData
+        (intersect) =>
+          intersect.object.userData && intersect.object.userData.name
       );
 
       if (cityIntersect) {
