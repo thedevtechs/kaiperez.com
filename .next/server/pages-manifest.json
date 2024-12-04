@@ -1,1 +1,7 @@
-{"/_app":"pages/_app.js","/_error":"pages/_error.js","/":"pages/index.html","/projects/[slug]":"pages/projects/[slug].html","/projects/globe":"pages/projects/globe.html","/projects":"pages/projects.html","/projects/graphs":"pages/projects/graphs.html","/_document":"pages/_document.js","/404":"pages/404.html"}
+{
+  "/_app": "pages/_app.js",
+  "/_error": "pages/_error.js",
+  "/_document": "pages/_document.js",
+  "/": "pages/index.js",
+  "/projects": "pages/projects.js"
+}

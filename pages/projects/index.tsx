@@ -26,18 +26,18 @@ interface Skill {
 const projects: Project[] = [
   {
     title: "Data Visualizations",
-    description: "Utilizing D3.js to create interactive data visualizations",
+    description: "Empowering businesses with interactive data visualizations",
     link: "/projects/graphs",
   },
   {
     title: "AI Chat Bots",
-    description: "Real-time chat app with AI integration using Socket.io",
-    link: "/projects/graphs",
+    description: "Real-time chat app with AI integration using Langchain and CrewAI",
+    link: "/projects/social-media-manager",
   },
   {
     title: "3D Data Visualizations",
     description: "Utilizing D3.js to create interactive data visualizations",
-    link: "/projects/graphs",
+    link: "/projects/globe",
   },
 ];
 
