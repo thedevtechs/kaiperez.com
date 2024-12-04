@@ -65,7 +65,6 @@ export interface CityData {
     { name: "Frankfurt", country: "Germany", lat: 50.1109, lng: 8.6821, population: 753056 },
     { name: "Vancouver", country: "Canada", lat: 49.2827, lng: -123.1207, population: 631486 },
     { name: "Whistler", country: "Canada", lat: 50.1163, lng: -122.9574, population: 11954 },
-    { name: "Las Vegas", country: "United States", lat: 36.1699, lng: -115.1398, population: 646790 },
     { name: "Tempe", country: "United States", lat: 33.4255, lng: -111.9400, population: 184118 },
     { name: "New Orleans", country: "United States", lat: 29.9511, lng: -90.0715, population: 376971 },
     { name: "Slidell", country: "United States", lat: 30.2752, lng: -89.7812, population: 27568 },
@@ -86,6 +85,9 @@ export interface CityData {
     { name: "Acapulco", country: "Mexico", lat: 16.8531, lng: -99.8237, population: 687608 },
     { name: "Tijuana", country: "Mexico", lat: 32.5149, lng: -117.0382, population: 2000504 },
     { name: "San Diego", country: "USA", lat: 32.7157, lng: -117.1611, population: 1415000 },
-    { name: "Santa Barbara", country: "USA", lat: 34.4208, lng: -119.6982, population: 88120 }
+    { name: "Santa Barbara", country: "USA", lat: 34.4208, lng: -119.6982, population: 88120 },
+    { name: "San Francisco", country: "USA", lat: 37.7749, lng: -122.4194, population: 873965 },
+    { name: "Sacramento", country: "USA", lat: 38.5816, lng: -121.4944, population: 525398 },
+    { name: "Kona", country: "USA", lat: 19.6399, lng: -155.9969, population: 11700 }
   ];
   
