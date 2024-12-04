@@ -18,7 +18,7 @@ export default function DataDashboard() {
   return (
     <>
       <Head>
-        <title>Data Visualization Dashboard</title>
+        <title>Projects | 3D Data Visualization</title>
         <meta name="description" content="Interactive Data Visualizations" />
       </Head>
       <Menu theme={'dark'} />
