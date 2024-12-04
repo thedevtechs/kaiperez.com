@@ -20,8 +20,9 @@ export default function DataDashboard() {
   return (
     <>
       <Head>
-        <title>Projects | 3D Data Visualization</title>
+        <title>Projects | Data Visualizations</title>
         <meta name="description" content="Interactive Data Visualizations" />
+        <link rel="icon" href="/favicon.png" />
       </Head>
       <Menu theme={'dark'} />
       <Container maxWidth="lg" sx={{ py: 4 }}>

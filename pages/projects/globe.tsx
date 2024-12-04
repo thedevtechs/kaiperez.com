@@ -28,7 +28,7 @@ export default function GlobePage() {
             content="Showcasing Kai Perez's innovative web development skills using React and Next.js. Explore projects and connect with an experienced full-stack developer."
           />
           <meta property="og:image" content="/images/kai-perez-profile.jpg" />
-          <meta property="og:url" content="https://yourdomain.com/globe" />
+          <meta property="og:url" content="https://www.kaiperez.com/globe" />
           <meta property="og:type" content="website" />
           <meta name="twitter:card" content="summary_large_image" />
           <meta name="twitter:title" content="Kai Perez - Full-Stack Developer | React & Next.js Expertise" />
@@ -37,7 +37,9 @@ export default function GlobePage() {
             content="Explore Kai Perez's cutting-edge web development projects using React and Next.js. Elevate your digital presence with Kai's expertise."
           />
           <meta name="twitter:image" content="/images/kai-perez-profile.jpg" />
-          <link rel="canonical" href="https://yourdomain.com/globe" />
+          <link rel="canonical" href="https://www.kaiperez.com/globe" />
+          <link rel="icon" href="/favicon.png" />
+
         </Head>
   
         <main className={styles.main}>
