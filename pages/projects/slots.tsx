@@ -6,41 +6,152 @@ import {
   CardContent,
   Typography,
   IconButton,
-  Grid,
-  Paper,
 } from '@mui/material';
 import { Add as AddIcon, Remove as RemoveIcon, VolumeOff as VolumeOffIcon, VolumeUp as VolumeUpIcon } from '@mui/icons-material';
 import CasinoIcon from '@mui/icons-material/Casino';
 import { SOUNDS } from './sounds';
 import { SYMBOLS, WIN_PATTERNS, REEL_COUNT, ROW_COUNT, DEFAULT_BET, MAX_BET, MIN_BET, BET_INCREMENT } from './constants';
 import PayTable from '../../components/PayTable';
-import { StyledBackground } from '../../components/slots/StyledComponents';
 import { ReelsGrid } from '../../components/slots/ReelsGrid';
 import NearWinDisplay from '../../components/slots/NearWinDisplay';
 import WinDisplay from '../../components/WinDisplay';
+import NearWinsOverlay from '../../components/slots/NearWinsOverlay';
+
+interface WinResult {
+  winAmount: number;
+  matches: [number, number][];
+  patterns: {
+    pattern: [number, number][];
+    name: string;
+    amount: number;
+  }[];
+}
+
+const generateRandomSymbol = () => {
+  const weights = [1, 8, 12, 12, 10, 3, 5];
+  const totalWeight = weights.reduce((a, b) => a + b, 0);
+  let random = Math.random() * totalWeight;
+  
+  for (let i = 0; i < weights.length; i++) {
+    random -= weights[i];
+    if (random <= 0) {
+      return i;
+    }
+  }
+  return weights.length - 1;
+};
+
+const generateReelGrid = () => {
+  return Array(ROW_COUNT).fill(null).map(() =>
+    Array(REEL_COUNT).fill(null).map(() => generateRandomSymbol())
+  );
+};
+
+const checkWinPatterns = (grid: number[][]) => {
+  let totalWin = { winAmount: 0, matches: [] as number[][], patterns: [] as any[] };
+
+  WIN_PATTERNS.sort((a, b) => b.multiplier - a.multiplier);
+
+  WIN_PATTERNS.forEach((pattern) => {
+    const symbolsInPattern = pattern.pattern.map(([row, col]) => grid[row][col]);
+    const firstSymbol = symbolsInPattern[0];
+    const allSame = symbolsInPattern.every(symbol => symbol === firstSymbol);
+
+    if (allSame) {
+      const symbol = SYMBOLS[firstSymbol];
+      const winAmount = Math.floor(symbol.value * pattern.multiplier * (bet / DEFAULT_BET));
+      totalWin.winAmount += winAmount;
+      totalWin.matches = [...totalWin.matches, ...pattern.pattern];
+      totalWin.patterns.push({
+        pattern: pattern.pattern,
+        name: pattern.name,
+        amount: winAmount
+      });
+    }
+  });
+
+  return totalWin;
+};
+
+const checkAllNearWins = (grid: number[][], patterns: WinPattern[]) => {
+  const nearWins = [];
+  for (const pattern of patterns) {
+    const symbols = pattern.pattern.map(([r, c]) => grid[r][c]);
+    const firstSymbol = symbols[0];
+    const matchCount = symbols.filter(s => s === firstSymbol).length;
+    
+    // Only consider near wins for patterns that would have paid well
+    const potentialValue = SYMBOLS[firstSymbol].value * pattern.multiplier;
+    if (matchCount === pattern.pattern.length - 1 && potentialValue >= 30) {
+      nearWins.push({
+        name: pattern.name,
+        pattern: pattern.pattern,
+        missedValue: potentialValue
+      });
+    }
+  }
+  return nearWins;
+};
+
+const SOUND_VOLUMES = {
+  SPIN: 0.2,
+  WIN: 0.7,
+  JACKPOT: 1.0,
+  COIN: 0.6,
+  BUTTON: 1.0,
+  BG_MUSIC: 0.5,
+  MEGA_JACKPOT: 1.0,
+  MAJOR_JACKPOT: 1.0,
+  NEAR_WIN: 0.3,
+} as const;
+
+const SpinSoundManager = {
+  currentIndex: 0,
+  sounds: [] as HTMLAudioElement[],
+  initialize: (src: string) => {
+    SpinSoundManager.sounds = Array(2).fill(null).map(() => {
+      const audio = new Audio(src);
+      audio.preload = 'auto';
+      audio.volume = SOUND_VOLUMES.SPIN;
+      return audio;
+    });
+  },
+  play: () => {
+    const currentSound = SpinSoundManager.sounds[SpinSoundManager.currentIndex];
+    const nextSound = SpinSoundManager.sounds[(SpinSoundManager.currentIndex + 1) % 2];
+    
+    if (currentSound) {
+      currentSound.volume = SOUND_VOLUMES.SPIN;
+      currentSound.play();
+      setTimeout(() => {
+        if (nextSound) {
+          nextSound.currentTime = 0;
+          nextSound.volume = SOUND_VOLUMES.SPIN;
+          nextSound.play();
+          SpinSoundManager.currentIndex = (SpinSoundManager.currentIndex + 1) % 2;
+        }
+      }, (currentSound.duration * 1000) - 50);
+    }
+  },
+  stop: () => {
+    SpinSoundManager.sounds.forEach(sound => {
+      if (sound) {
+        sound.pause();
+        sound.currentTime = 0;
+      }
+    });
+  }
+};
 
 const SlotMachine: React.FC = () => {
-  const generateRandomSymbol = () => {
-    const weights = [1, 8, 12, 12, 10, 3, 5]; // Adjust these as needed
-    const totalWeight = weights.reduce((a, b) => a + b, 0);
-    let random = Math.random() * totalWeight;
-    for (let i = 0; i < weights.length; i++) {
-      random -= weights[i];
-      if (random <= 0) {
-        return i;
-      }
-    }
-    return weights.length - 1;
-  };
-  
-  const generateReelGrid = () => {
-    return Array(ROW_COUNT).fill(null).map(() =>
-      Array(REEL_COUNT).fill(null).map(() => generateRandomSymbol())
-    );
-  };
   const [isClient, setIsClient] = useState(false);
-  const [isFirstSpin, setIsFirstSpin] = useState(true);
   const [nearWin, setNearWin] = useState<string | null>(null);
+  const [nearWins, setNearWins] = useState<{
+    name: string;
+    pattern: [number, number][];
+    missedValue: number;
+  }[]>([]);
+  const [showNearWins, setShowNearWins] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
   const [reels, setReels] = useState<number[][]>(() => generateReelGrid());
   const [spinning, setSpinning] = useState(false);
@@ -52,13 +163,10 @@ const SlotMachine: React.FC = () => {
   const bgMusicRef = useRef<HTMLAudioElement | null>(null);
   const [showPaytable, setShowPaytable] = useState(false);
 
-  const [reelResults, setReelResults] = useState<number[][]>(
-    Array(ROW_COUNT).fill(Array(REEL_COUNT).fill(0))
-  );
   useEffect(() => {
     setIsClient(true);
     const savedMuted = localStorage.getItem('slotMachineMuted');
-    setIsMuted(savedMuted ? JSON.parse(savedMuted) : false);
+    setIsMuted(savedMuted ? JSON.parse(savedMuted) : true);
   }, []);
 
   useEffect(() => {
@@ -67,17 +175,20 @@ const SlotMachine: React.FC = () => {
     Object.entries(SOUNDS).forEach(([key, src]) => {
       const audio = new Audio(src);
       audio.preload = 'auto';
+      
+      const volume = SOUND_VOLUMES[key as keyof typeof SOUNDS] || 1.0;
+      audio.volume = volume;
+      
       if (key === 'BG_MUSIC') {
         audio.loop = true;
         bgMusicRef.current = audio;
         if (!isMuted) {
-          const playPromise = audio.play();
-          if (playPromise !== undefined) {
-            playPromise.catch(() => {
-              console.log('Autoplay prevented. User interaction required.');
-            });
-          }
+          audio.play().catch(error => {
+            console.warn('Background music autoplay prevented:', error);
+          });
         }
+      } else if (key === 'SPIN') {
+        SpinSoundManager.initialize(src);
       } else {
         audioRefs.current[key] = audio;
       }
@@ -92,57 +203,57 @@ const SlotMachine: React.FC = () => {
         bgMusicRef.current.pause();
         bgMusicRef.current.currentTime = 0;
       }
+      SpinSoundManager.stop();
     };
   }, [isClient, isMuted]);
 
-  const checkWinPatterns = (grid: number[][]) => {
-    let totalWin = { winAmount: 0, matches: [] as number[][], patterns: [] };
-
-    WIN_PATTERNS.forEach((pattern) => {
-      const symbolsInPattern = pattern.pattern.map(
-        ([row, col]) => grid[row][col]
-      );
-      const firstSymbol = symbolsInPattern[0];
-      const allSame = symbolsInPattern.every(symbol => symbol === firstSymbol);
-
-      if (allSame) {
-        const symbol = SYMBOLS[firstSymbol];
-        const winAmount = Math.floor(symbol.value * pattern.multiplier * (bet / DEFAULT_BET));
-
-        totalWin.winAmount += winAmount;
-        totalWin.matches = [...totalWin.matches, ...pattern.pattern];
-        totalWin.patterns.push({
-          pattern: pattern.pattern,
-          name: pattern.name,
-          amount: winAmount
+  // Add effect to handle background music when mute state changes
+  useEffect(() => {
+    if (bgMusicRef.current) {
+      if (isMuted) {
+        bgMusicRef.current.pause();
+      } else {
+        bgMusicRef.current.play().catch(error => {
+          console.warn('Background music play prevented:', error);
         });
       }
-    });
+    }
+  }, [isMuted]);
 
-    return totalWin;
-  };
-
-  const checkNearWin = (grid: number[][]) => {
-    for (const pattern of WIN_PATTERNS) {
-      const symbols = pattern.pattern.map(([row, col]) => grid[row][col]);
-      const firstSymbol = symbols[0];
-      const matchCount = symbols.filter(s => s === firstSymbol).length;
-      
-      if (matchCount === symbols.length - 1) {
-        return `Almost hit ${pattern.name}!`;
+  const playSound = (soundKey: keyof typeof SOUNDS) => {
+    if (isMuted) return;
+    
+    if (soundKey === 'SPIN') {
+      SpinSoundManager.play();
+    } else {
+      const audio = audioRefs.current[soundKey];
+      if (audio) {
+        audio.currentTime = 0;
+        const volume = SOUND_VOLUMES[soundKey] || 1.0;
+        audio.volume = volume;
+        audio.play().catch(error => {
+          console.warn(`Error playing sound ${soundKey}:`, error);
+        });
       }
     }
-    return null;
   };
 
-  const handleWinResult = async (winResult: any, finalGrid: number[][]) => {
+  const stopSpinSound = () => {
+    SpinSoundManager.stop();
+  };
+
+  const handleWinResult = async (winResult: WinResult, finalGrid: number[][]) => {
+    stopSpinSound();
+    
     if (winResult.winAmount > 0) {
-      if (!isMuted) {
-        if (winResult.winAmount >= bet * 20) {
-          playSound('JACKPOT');
-        } else if (winResult.winAmount >= bet * 5) {
-          playSound('WIN');
-        }
+      const winMultiple = winResult.winAmount / bet;
+      
+      if (winMultiple >= 20) {
+        playSound('JACKPOT');
+      } else if (winMultiple >= 5) {
+        playSound('WIN');
+      } else {
+        playSound('COIN');
       }
 
       setCredits(prev => {
@@ -153,19 +264,14 @@ const SlotMachine: React.FC = () => {
 
       setLastWin(winResult);
     } else {
-      const nearWinMessage = checkNearWin(finalGrid);
-      if (nearWinMessage) {
-        setNearWin(nearWinMessage);
-        setTimeout(() => setNearWin(null), 2000);
+      const nw = checkAllNearWins(finalGrid, WIN_PATTERNS);
+      console.log('Near wins detected:', nw);
+      if (nw.length > 0) {
+        console.log('Setting near wins state');
+        setNearWins(nw);
+        setShowNearWins(true);
+        playSound('NEAR_WIN');
       }
-    }
-  };
-
-  const playSound = (soundKey: keyof typeof SOUNDS) => {
-    const audio = audioRefs.current[soundKey];
-    if (audio) {
-      audio.currentTime = 0;
-      audio.play();
     }
   };
 
@@ -183,58 +289,55 @@ const SlotMachine: React.FC = () => {
     });
 
     const finalGrid = generateReelGrid();
-    setReelResults(finalGrid);
-
     setReelStates(Array(REEL_COUNT).fill('spinning'));
 
-    const baseSpinDuration = 1500;
-    const stopDelay = 200;
-
-    for (let reelIndex = 0; reelIndex < REEL_COUNT; reelIndex++) {
-      const reelStopTime = baseSpinDuration + (reelIndex * stopDelay);
-      
-      const spinInterval = setInterval(() => {
+    // Start all reels spinning simultaneously
+    const spinIntervals = Array(REEL_COUNT).fill(null).map((_, reelIndex) => {
+      return setInterval(() => {
         setReels(prev => {
-          return prev.map((row, rowIndex) => {
+          return prev.map((row) => {
             const newRow = [...row];
-            // Always show a random symbol for the current reel while spinning:
             newRow[reelIndex] = generateRandomSymbol();
             return newRow;
           });
         });
-      }, 100);
+      }, 50);
+    });
+
+    // Base timing configuration
+    const baseSpinDuration = 500;
+    const stopDelay = 100;
+
+    // Stop reels one by one
+    for (let reelIndex = 0; reelIndex < REEL_COUNT; reelIndex++) {
+      await new Promise(resolve => setTimeout(resolve, baseSpinDuration + (reelIndex * stopDelay)));
       
+      // Clear the spinning interval for this reel
+      clearInterval(spinIntervals[reelIndex]);
 
-      await new Promise(resolve => setTimeout(resolve, reelStopTime));
-clearInterval(spinInterval);
+      setReelStates(prev => {
+        const newStates = [...prev];
+        newStates[reelIndex] = 'stopping';
+        return newStates;
+      });
 
-// Now set final symbol:
-setReels(prev => {
-  return prev.map((row, rowIndex) => {
-    const newRow = [...row];
-    newRow[reelIndex] = finalGrid[rowIndex][reelIndex];
-    return newRow;
-  });
-});
+      setReels(prev => {
+        return prev.map((row, rowIndex) => {
+          const newRow = [...row];
+          newRow[reelIndex] = finalGrid[rowIndex][reelIndex];
+          return newRow;
+        });
+      });
 
-// Update reel state to stopping, then stopped:
-setReelStates(prev => {
-  const newStates = [...prev];
-  newStates[reelIndex] = 'stopping';
-  return newStates;
-});
-
-await new Promise(resolve => setTimeout(resolve, 500));
-
-setReelStates(prev => {
-  const newStates = [...prev];
-  newStates[reelIndex] = 'stopped';
-  return newStates;
-});
+      await new Promise(resolve => setTimeout(resolve, 200));
+      setReelStates(prev => {
+        const newStates = [...prev];
+        newStates[reelIndex] = 'stopped';
+        return newStates;
+      });
     }
 
     setSpinning(false);
-
     const winResult = checkWinPatterns(finalGrid);
     handleWinResult(winResult, finalGrid);
   };
@@ -247,7 +350,11 @@ setReelStates(prev => {
 
   const VolumeButton = () => (
     <IconButton
-      onClick={() => setIsMuted(!isMuted)}
+      onClick={() => {
+        const newMuted = !isMuted;
+        setIsMuted(newMuted);
+        localStorage.setItem('slotMachineMuted', JSON.stringify(newMuted));
+      }}
       sx={{ 
         position: 'absolute',
         top: 16,
@@ -401,6 +508,7 @@ setReelStates(prev => {
             patterns={WIN_PATTERNS}
           />
           {nearWin && <NearWinDisplay message={nearWin} />}
+          <NearWinsOverlay nearWins={nearWins} open={showNearWins} onClose={() => setShowNearWins(false)} />
         </CardContent>
       </Card>
     </Box>

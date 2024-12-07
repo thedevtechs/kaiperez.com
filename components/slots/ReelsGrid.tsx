@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Grid, Typography, Paper } from '@mui/material';
-import { SYMBOLS, REEL_COUNT, ROW_COUNT } from '../../pages/projects/constants';
+import { SYMBOLS } from '../../pages/projects/constants';
 import { StyledSlotSymbol } from './StyledComponents';
 
 interface ReelsGridProps {
@@ -21,7 +21,6 @@ export const ReelsGrid: React.FC<ReelsGridProps> = ({ reels, reelStates, lastWin
   }, []);
 
   if (!isClient) {
-    // Render a placeholder or nothing on the server
     return null;
   }
 
@@ -45,33 +44,32 @@ export const ReelsGrid: React.FC<ReelsGridProps> = ({ reels, reelStates, lastWin
                   <StyledSlotSymbol
                     key={colIndex}
                     state={reelStates[colIndex]}
-                    isWinning={lastWin?.matches.some(([r, c]) => r === rowIndex && c === colIndex)}
+                    className={
+                      lastWin?.matches.some(([r, c]) => r === rowIndex && c === colIndex) ? 'winning' : ''
+                    }
                   >
                     <Box className="symbol-content">
-                      {[...Array(SYMBOLS.length)].map((_, i) => (
-                        <Box
-                          key={i}
-                          className="symbol-wrapper"
+                      <Box
+                        className="symbol-wrapper"
+                        sx={{
+                          height: '90px',
+                          width: '90px',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                      >
+                        <Typography
+                          variant="h3"
                           sx={{
-                            height: '90px',
-                            width: '90px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
+                            color: SYMBOLS[symbol].color,
+                            userSelect: 'none',
+                            fontSize: '3rem'
                           }}
                         >
-                          <Typography
-                            variant="h3"
-                            sx={{
-                              color: SYMBOLS[(symbol + i) % SYMBOLS.length].color,
-                              userSelect: 'none',
-                              fontSize: '3rem'
-                            }}
-                          >
-                            {SYMBOLS[(symbol + i) % SYMBOLS.length].icon}
-                          </Typography>
-                        </Box>
-                      ))}
+                          {SYMBOLS[symbol].icon}
+                        </Typography>
+                      </Box>
                     </Box>
                   </StyledSlotSymbol>
                 ))}
@@ -82,4 +80,4 @@ export const ReelsGrid: React.FC<ReelsGridProps> = ({ reels, reelStates, lastWin
       </Box>
     </Paper>
   );
-}; 
+};

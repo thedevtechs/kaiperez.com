@@ -8,17 +8,6 @@ const blinkingBorder = keyframes`
   100% { box-shadow: 0 0 15px #ffd700; }
 `;
 
-const smoothSpinAnimation = keyframes`
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-${SYMBOLS.length * 90}px); }
-`;
-
-const bounceAnimation = keyframes`
-  0% { transform: translateY(-10px); }
-  50% { transform: translateY(5px); }
-  100% { transform: translateY(0); }
-`;
-
 export const StyledSlotSymbol = styled(Box)<{ state: 'spinning' | 'stopping' | 'stopped' }>(
   ({ theme, state }) => ({
     width: 90,
@@ -31,49 +20,43 @@ export const StyledSlotSymbol = styled(Box)<{ state: 'spinning' | 'stopping' | '
     border: '2px solid #444',
     position: 'relative',
     overflow: 'hidden',
-    
+
     '& .symbol-content': {
-      position: 'absolute',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
       width: '100%',
-      height: `${SYMBOLS.length * 90 * 2}px`,
-      
-      '&::before': {
-        content: '""',
-        display: 'block',
-        height: `${SYMBOLS.length * 90}px`,
-      },
-      
-      '&::after': {
-        content: '""',
-        display: 'block',
-        height: `${SYMBOLS.length * 90}px`,
-      }
+      height: '100%',
+      position: 'relative',
+      transition: 'transform 0.2s ease-out'
     },
-    
+
     ...(state === 'spinning' && {
       '& .symbol-content': {
-        animation: `${smoothSpinAnimation} 0.5s linear infinite`,
-        willChange: 'transform',
+        animation: 'spin 0.2s linear infinite',
       }
     }),
-    
+
     ...(state === 'stopping' && {
       '& .symbol-content': {
-        animation: 'none',
-        transition: 'transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)',
-        transform: 'translateY(0)',
+        animation: 'slowStop 0.2s ease-out',
       }
     }),
-    
-    ...(state === 'stopped' && {
-      '& .symbol-content': {
-        animation: 'none',
-        transform: 'translateY(0)',
+
+    '@keyframes spin': {
+      '0%': {
+        transform: 'translateY(-100%)'
+      },
+      '100%': {
+        transform: 'translateY(100%)'
       }
-    }),
+    },
+
+    '@keyframes slowStop': {
+      '0%': {
+        transform: 'translateY(-20%)'
+      },
+      '100%': {
+        transform: 'translateY(0)'
+      }
+    },
 
     '&.winning': {
       backgroundColor: '#3a2700',
@@ -82,16 +65,3 @@ export const StyledSlotSymbol = styled(Box)<{ state: 'spinning' | 'stopping' | '
     }
   })
 );
-
-export const StyledBackground = styled(Box)(({ theme }) => ({
-  minHeight: '100vh',
-  padding: theme.spacing(4),
-  background: 'linear-gradient(135deg, #1a1a1a 0%, #0a0a0a 100%)',
-  backgroundImage: `
-    linear-gradient(135deg, rgba(26,26,26,0.97) 0%, rgba(10,10,10,0.97) 100%),
-    url('/images/casino-bg.jpg')
-  `,
-  backgroundSize: 'cover',
-  backgroundAttachment: 'fixed',
-  backgroundPosition: 'center',
-})); 

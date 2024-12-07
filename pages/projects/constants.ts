@@ -30,6 +30,10 @@ export interface Symbol {
   ] as const;
   
   export const WIN_PATTERNS = [
+
+    { pattern: [[0, 1], [1, 1], [2, 1]], multiplier: 2, name: 'Column Match' }, // Vertical win
+
+    { pattern: [[0, 0], [1, 1], [2, 2]], multiplier: 3, name: 'Mini V' }, // New smaller pattern
     {
       pattern: [[0,0], [0,1], [0,2], [0,3], [0,4]],
       multiplier: 5,
@@ -45,6 +49,8 @@ export interface Symbol {
       multiplier: 10,
       name: 'Middle Line'
     },
+    { pattern: [[2, 0], [1, 1], [0, 2], [1, 3], [2, 4]], multiplier: 12, name: 'Zigzag' }, // Engaging mid-range win
+
     {
       pattern: [[0,0], [1,1], [2,2], [1,3], [0,4]],
       multiplier: 15,
@@ -74,7 +80,7 @@ export interface Symbol {
       pattern: [[0,0], [0,1], [1,1], [2,1], [2,2]],
       multiplier: 35,
       name: 'Lightning'
-    }
+    },
   ] as const;
   
   export const REEL_COUNT = 5;
