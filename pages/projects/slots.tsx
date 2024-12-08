@@ -92,6 +92,7 @@ const checkAllNearWins = (
     const firstSymbol = symbols[0];
     const matchCount = symbols.filter((s) => s === firstSymbol).length;
 
+    // Only consider near wins for patterns that would have paid well
     const potentialValue = SYMBOLS[firstSymbol].value * pattern.multiplier;
     if (matchCount === pattern.pattern.length - 1 && potentialValue >= 30) {
       nearWins.push({
@@ -451,7 +452,9 @@ const SlotMachine: React.FC = () => {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        padding: 2
+        padding: 0,
+        margin: 0,
+        overflow: 'hidden',
       }}
     >
       <Card 

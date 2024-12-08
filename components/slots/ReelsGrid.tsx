@@ -31,10 +31,10 @@ export const ReelsGrid: React.FC<ReelsGridProps> = ({ reels, reelStates, lastWin
   return (
     <Paper
       sx={{
-        p: 3,
-        mb: 3,
+        p: 2,
+        mb: 2,
         backgroundColor: '#000',
-        borderRadius: 3,
+        borderRadius: 2,
         border: '3px solid #333',
         boxShadow: 'inset 0 0 20px rgba(0,0,0,0.8)'
       }}
@@ -58,8 +58,8 @@ export const ReelsGrid: React.FC<ReelsGridProps> = ({ reels, reelStates, lastWin
                         <Box
                           className="symbol-wrapper"
                           sx={{
-                            height: '90px',
-                            width: '90px',
+                            height: '100%',
+                            width: '100%',
                             display: 'flex',
                             alignItems: 'center',
                             justifyContent: 'center',
@@ -70,7 +70,7 @@ export const ReelsGrid: React.FC<ReelsGridProps> = ({ reels, reelStates, lastWin
                             sx={{
                               color: SYMBOLS[symbol].color,
                               userSelect: 'none',
-                              fontSize: '3rem'
+                              fontSize: '2rem',
                             }}
                           >
                             {SYMBOLS[symbol].icon}

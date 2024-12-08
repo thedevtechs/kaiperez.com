@@ -10,8 +10,10 @@ const blinkingBorder = keyframes`
 
 export const StyledSlotSymbol = styled(Box)<{ state: 'spinning' | 'stopping' | 'stopped' }>(
   ({ theme, state }) => ({
-    width: 90,
-    height: 90,
+    width: '20vw',
+    height: '20vw',
+    maxWidth: 90,
+    maxHeight: 90,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -68,6 +70,13 @@ export const StyledSlotSymbol = styled(Box)<{ state: 'spinning' | 'stopping' | '
       backgroundColor: '#2a2a2a',
       border: '2px solid #ff9100',
       animation: `${blinkingBorder} 1.5s infinite`,
+    },
+
+    [theme.breakpoints.up('md')]: {
+      width: '15vw',
+      height: '15vw',
+      maxWidth: 120,
+      maxHeight: 120,
     }
   })
 );
