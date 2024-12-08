@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
 import { styled, keyframes } from '@mui/material/styles';
-import { SYMBOLS } from '../../pages/projects/constants';
+import { SYMBOLS } from '../../constants';
 
 const blinkingBorder = keyframes`
   0% { box-shadow: 0 0 15px #ffd700; }

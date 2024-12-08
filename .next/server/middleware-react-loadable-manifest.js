@@ -1,1 +1,1 @@
-self.__REACT_LOADABLE_MANIFEST="{\"pages/projects/[slug].tsx -> ../../components/NonImmersiveView/NonImmersiveView\":{\"id\":\"pages/projects/[slug].tsx -> ../../components/NonImmersiveView/NonImmersiveView\",\"files\":[\"static/chunks/components_NonImmersiveView_NonImmersiveView_tsx.js\"]}}"
+self.__REACT_LOADABLE_MANIFEST="{}"

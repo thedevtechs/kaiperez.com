@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Grid, Typography, Paper } from '@mui/material';
-import { SYMBOLS } from '../../pages/projects/constants';
+import { SYMBOLS } from '../../constants';
 import { StyledSlotSymbol } from './StyledComponents';
 
 interface ReelsGridProps {
@@ -11,9 +11,13 @@ interface ReelsGridProps {
     winAmount: number;
     patterns: any[];
   } | null;
+  nearWins: {
+    pattern: [number, number][];
+    winAmount: number;
+  }[];
 }
 
-export const ReelsGrid: React.FC<ReelsGridProps> = ({ reels, reelStates, lastWin }) => {
+export const ReelsGrid: React.FC<ReelsGridProps> = ({ reels, reelStates, lastWin, nearWins }) => {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
@@ -40,39 +44,42 @@ export const ReelsGrid: React.FC<ReelsGridProps> = ({ reels, reelStates, lastWin
           {reels.map((row, rowIndex) => (
             <Grid item xs={12} key={rowIndex}>
               <Box sx={{ display: 'flex', justifyContent: 'space-between', gap: 1 }}>
-                {row.map((symbol, colIndex) => (
-                  <StyledSlotSymbol
-                    key={colIndex}
-                    state={reelStates[colIndex]}
-                    className={
-                      lastWin?.matches.some(([r, c]) => r === rowIndex && c === colIndex) ? 'winning' : ''
-                    }
-                  >
-                    <Box className="symbol-content">
-                      <Box
-                        className="symbol-wrapper"
-                        sx={{
-                          height: '90px',
-                          width: '90px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                        }}
-                      >
-                        <Typography
-                          variant="h3"
+                {row.map((symbol, colIndex) => {
+                  const isWinning = lastWin?.matches.some(([r, c]) => r === rowIndex && c === colIndex);
+                  const isNearWinning = nearWins?.some(nw => nw.pattern.some(([r, c]) => r === rowIndex && c === colIndex));
+
+                  return (
+                    <StyledSlotSymbol
+                      key={colIndex}
+                      state={reelStates[colIndex]}
+                      className={isWinning ? 'winning' : isNearWinning ? 'near-winning' : ''}
+                    >
+                      <Box className="symbol-content">
+                        <Box
+                          className="symbol-wrapper"
                           sx={{
-                            color: SYMBOLS[symbol].color,
-                            userSelect: 'none',
-                            fontSize: '3rem'
+                            height: '90px',
+                            width: '90px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            justifyContent: 'center',
                           }}
                         >
-                          {SYMBOLS[symbol].icon}
-                        </Typography>
+                          <Typography
+                            variant="h3"
+                            sx={{
+                              color: SYMBOLS[symbol].color,
+                              userSelect: 'none',
+                              fontSize: '3rem'
+                            }}
+                          >
+                            {SYMBOLS[symbol].icon}
+                          </Typography>
+                        </Box>
                       </Box>
-                    </Box>
-                  </StyledSlotSymbol>
-                ))}
+                    </StyledSlotSymbol>
+                  );
+                })}
               </Box>
             </Grid>
           ))}

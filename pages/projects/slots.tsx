@@ -9,8 +9,8 @@ import {
 } from '@mui/material';
 import { Add as AddIcon, Remove as RemoveIcon, VolumeOff as VolumeOffIcon, VolumeUp as VolumeUpIcon } from '@mui/icons-material';
 import CasinoIcon from '@mui/icons-material/Casino';
-import { SOUNDS } from './sounds';
-import { SYMBOLS, WIN_PATTERNS, REEL_COUNT, ROW_COUNT, DEFAULT_BET, MAX_BET, MIN_BET, BET_INCREMENT } from './constants';
+import { SOUNDS } from '../../utils/sounds';
+import { SYMBOLS, WIN_PATTERNS, REEL_COUNT, ROW_COUNT, DEFAULT_BET, MAX_BET, MIN_BET, BET_INCREMENT } from '../../constants';
 import PayTable from '../../components/PayTable';
 import { ReelsGrid } from '../../components/slots/ReelsGrid';
 import NearWinDisplay from '../../components/slots/NearWinDisplay';
@@ -28,6 +28,13 @@ interface WinResult {
     amount: number;
   }[];
 }
+
+interface WinPattern {
+  pattern: readonly [number, number][]; // Updated to readonly
+  name: string;
+  multiplier: number;
+}
+
 
 const generateRandomSymbol = () => {
   const weights = [1, 8, 12, 12, 10, 3, 5];
@@ -52,9 +59,9 @@ const generateReelGrid = () => {
 const checkWinPatterns = (grid: number[][], bet: number) => {
   let totalWin = { winAmount: 0, matches: [] as [number, number][], patterns: [] as any[] };
 
-  WIN_PATTERNS.sort((a, b) => b.multiplier - a.multiplier);
+  const sortedWinPatterns = [...WIN_PATTERNS].sort((a, b) => b.multiplier - a.multiplier);
 
-  WIN_PATTERNS.forEach((pattern) => {
+  sortedWinPatterns.forEach((pattern) => {
     const symbolsInPattern = pattern.pattern.map(([row, col]) => grid[row][col]);
     const firstSymbol = symbolsInPattern[0];
     const allSame = symbolsInPattern.every(symbol => symbol === firstSymbol);
@@ -63,7 +70,7 @@ const checkWinPatterns = (grid: number[][], bet: number) => {
       const symbol = SYMBOLS[firstSymbol];
       const winAmount = Math.floor(symbol.value * pattern.multiplier * (bet / DEFAULT_BET));
       totalWin.winAmount += winAmount;
-      totalWin.matches.push(...pattern.pattern);
+      totalWin.matches.push(...pattern.pattern.map(([row, col]) => [row, col] as [number, number]));
       totalWin.patterns.push({
         pattern: pattern.pattern,
         name: pattern.name,
@@ -75,25 +82,29 @@ const checkWinPatterns = (grid: number[][], bet: number) => {
   return totalWin;
 };
 
-const checkAllNearWins = (grid: number[][], patterns: WinPattern[]) => {
+const checkAllNearWins = (
+  grid: number[][],
+  patterns: readonly WinPattern[]
+) => {
   const nearWins = [];
   for (const pattern of patterns) {
     const symbols = pattern.pattern.map(([r, c]) => grid[r][c]);
     const firstSymbol = symbols[0];
-    const matchCount = symbols.filter(s => s === firstSymbol).length;
-    
-    // Only consider near wins for patterns that would have paid well
+    const matchCount = symbols.filter((s) => s === firstSymbol).length;
+
     const potentialValue = SYMBOLS[firstSymbol].value * pattern.multiplier;
     if (matchCount === pattern.pattern.length - 1 && potentialValue >= 30) {
       nearWins.push({
         name: pattern.name,
         pattern: pattern.pattern,
-        missedValue: potentialValue
+        missedValue: potentialValue,
+        winAmount: 0
       });
     }
   }
   return nearWins;
 };
+
 
 const SOUND_VOLUMES = {
   SPIN: 0.2,
@@ -184,6 +195,7 @@ const SlotMachine: React.FC = () => {
     name: string;
     pattern: [number, number][];
     missedValue: number;
+    winAmount: number;
   }[]>([]);
   const [showNearWins, setShowNearWins] = useState(false);
   const [isMuted, setIsMuted] = useState(true);
@@ -337,7 +349,6 @@ const SlotMachine: React.FC = () => {
   const spin = async () => {
     if (spinning || credits < bet) return;
 
-    stopSpinSound();
     setSpinning(true);
     setLastWin(null);
     playSound('SPIN');
@@ -502,7 +513,12 @@ const SlotMachine: React.FC = () => {
             </Typography>
           </Box>
 
-          <ReelsGrid reels={reels} reelStates={reelStates} lastWin={lastWin} />
+          <ReelsGrid 
+            reels={reels} 
+            reelStates={reelStates} 
+            lastWin={lastWin} 
+            nearWins={nearWins}
+          />
 
           <Box sx={{ 
             display: 'flex', 
@@ -587,7 +603,10 @@ const SlotMachine: React.FC = () => {
             open={showPaytable}
             onClose={() => setShowPaytable(false)}
             symbols={SYMBOLS}
-            patterns={WIN_PATTERNS}
+            patterns={WIN_PATTERNS.map(pattern => ({
+              ...pattern,
+              pattern: pattern.pattern.map(coord => [...coord] as [number, number])
+            }))}
           />
           {nearWin && <NearWinDisplay message={nearWin} />}
           <NearWinsOverlay nearWins={nearWins} open={showNearWins} onClose={() => setShowNearWins(false)} />

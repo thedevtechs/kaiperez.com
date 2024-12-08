@@ -1,8 +1,1 @@
-{
-  "pages/projects/[slug].tsx -> ../../components/NonImmersiveView/NonImmersiveView": {
-    "id": "pages/projects/[slug].tsx -> ../../components/NonImmersiveView/NonImmersiveView",
-    "files": [
-      "static/chunks/components_NonImmersiveView_NonImmersiveView_tsx.js"
-    ]
-  }
-}
+{}

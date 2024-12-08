@@ -10,13 +10,13 @@ import {
   Tooltip,
 } from '@mui/material';
 import { styled, keyframes } from '@mui/material/styles';
-import { Symbol, WinPattern } from '../pages/projects/types';
+import { Symbol, WinPattern } from '../types';
 
 interface PayTableProps {
+  symbols: readonly Symbol[];
+  patterns: readonly WinPattern[];
   open: boolean;
   onClose: () => void;
-  symbols: Symbol[];
-  patterns: WinPattern[];
 }
 
 const shimmer = keyframes`
@@ -150,15 +150,15 @@ const PayTable: React.FC<PayTableProps> = ({ open, onClose, symbols, patterns })
             <Typography variant="h6" sx={{ color: '#ffd700', mb: 2 }}>
               Symbols & Values
             </Typography>
-            <SymbolsDisplay symbols={symbols} />
-          </Grid>
+            <SymbolsDisplay symbols={[...symbols]} />
+            </Grid>
 
           {/* Patterns Section */}
           <Grid item xs={12}>
             <Typography variant="h6" sx={{ color: '#ffd700', mb: 2 }}>
               Winning Patterns
             </Typography>
-            <PatternsDisplay patterns={patterns} />
+            <PatternsDisplay patterns={[...patterns]} />
           </Grid>
         </Grid>
       </DialogContent>
