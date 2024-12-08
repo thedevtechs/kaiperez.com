@@ -62,6 +62,12 @@ export const StyledSlotSymbol = styled(Box)<{ state: 'spinning' | 'stopping' | '
       backgroundColor: '#3a2700',
       border: '2px solid #ffd700',
       animation: `${blinkingBorder} 1.5s infinite`,
+    },
+
+    '&.near-winning': {
+      backgroundColor: '#2a2a2a',
+      border: '2px solid #ff9100',
+      animation: `${blinkingBorder} 1.5s infinite`,
     }
   })
 );

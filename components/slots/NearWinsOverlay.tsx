@@ -20,14 +20,21 @@ const fadeInOutAnimation = keyframes`
 `;
 
 const NearWinsOverlay: React.FC<NearWinsOverlayProps> = ({ nearWins, open, onClose }) => {
-  console.log('NearWinsOverlay props:', { nearWins, open });
-  
   useEffect(() => {
     if (open && nearWins.length > 0) {
+      // Play sound when overlay opens
+      const audio = new Audio('/sounds/near_win.mp3');
+      audio.volume = 0.3;
+      audio.play().catch(error => console.warn('Error playing near win sound:', error));
+      
       const timer = setTimeout(() => {
         onClose();
-      }, 3000);
-      return () => clearTimeout(timer);
+      }, 4000);
+      return () => {
+        clearTimeout(timer);
+        audio.pause();
+        audio.currentTime = 0;
+      };
     }
   }, [open, onClose, nearWins]);
 

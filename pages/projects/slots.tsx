@@ -16,6 +16,8 @@ import { ReelsGrid } from '../../components/slots/ReelsGrid';
 import NearWinDisplay from '../../components/slots/NearWinDisplay';
 import WinDisplay from '../../components/WinDisplay';
 import NearWinsOverlay from '../../components/slots/NearWinsOverlay';
+import PreLoader from '../../components/slots/PreLoader';
+import { keyframes } from '@emotion/react';
 
 interface WinResult {
   winAmount: number;
@@ -47,8 +49,8 @@ const generateReelGrid = () => {
   );
 };
 
-const checkWinPatterns = (grid: number[][]) => {
-  let totalWin = { winAmount: 0, matches: [] as number[][], patterns: [] as any[] };
+const checkWinPatterns = (grid: number[][], bet: number) => {
+  let totalWin = { winAmount: 0, matches: [] as [number, number][], patterns: [] as any[] };
 
   WIN_PATTERNS.sort((a, b) => b.multiplier - a.multiplier);
 
@@ -61,7 +63,7 @@ const checkWinPatterns = (grid: number[][]) => {
       const symbol = SYMBOLS[firstSymbol];
       const winAmount = Math.floor(symbol.value * pattern.multiplier * (bet / DEFAULT_BET));
       totalWin.winAmount += winAmount;
-      totalWin.matches = [...totalWin.matches, ...pattern.pattern];
+      totalWin.matches.push(...pattern.pattern);
       totalWin.patterns.push({
         pattern: pattern.pattern,
         name: pattern.name,
@@ -106,42 +108,74 @@ const SOUND_VOLUMES = {
 } as const;
 
 const SpinSoundManager = {
-  currentIndex: 0,
-  sounds: [] as HTMLAudioElement[],
+  currentSound: null as HTMLAudioElement | null,
+  fadeInterval: null as NodeJS.Timeout | null,
+  
   initialize: (src: string) => {
-    SpinSoundManager.sounds = Array(2).fill(null).map(() => {
+    if (!SpinSoundManager.currentSound) {
       const audio = new Audio(src);
       audio.preload = 'auto';
       audio.volume = SOUND_VOLUMES.SPIN;
-      return audio;
-    });
-  },
-  play: () => {
-    const currentSound = SpinSoundManager.sounds[SpinSoundManager.currentIndex];
-    const nextSound = SpinSoundManager.sounds[(SpinSoundManager.currentIndex + 1) % 2];
-    
-    if (currentSound) {
-      currentSound.volume = SOUND_VOLUMES.SPIN;
-      currentSound.play();
-      setTimeout(() => {
-        if (nextSound) {
-          nextSound.currentTime = 0;
-          nextSound.volume = SOUND_VOLUMES.SPIN;
-          nextSound.play();
-          SpinSoundManager.currentIndex = (SpinSoundManager.currentIndex + 1) % 2;
-        }
-      }, (currentSound.duration * 1000) - 50);
+      audio.loop = true;
+      SpinSoundManager.currentSound = audio;
     }
   },
-  stop: () => {
-    SpinSoundManager.sounds.forEach(sound => {
-      if (sound) {
-        sound.pause();
-        sound.currentTime = 0;
+  
+  play: () => {
+    if (SpinSoundManager.currentSound) {
+      // Ensure any existing fade interval is cleared
+      if (SpinSoundManager.fadeInterval) {
+        clearInterval(SpinSoundManager.fadeInterval);
+        SpinSoundManager.fadeInterval = null;
       }
-    });
+      
+      // Reset the sound completely
+      SpinSoundManager.currentSound.pause();
+      SpinSoundManager.currentSound.currentTime = 0;
+      SpinSoundManager.currentSound.volume = SOUND_VOLUMES.SPIN;
+      
+      // Start playing
+      SpinSoundManager.currentSound.play().catch(error => {
+        console.warn('Error playing spin sound:', error);
+      });
+    }
+  },
+  
+  stop: () => {
+    if (SpinSoundManager.currentSound) {
+      // Clear any existing fade interval
+      if (SpinSoundManager.fadeInterval) {
+        clearInterval(SpinSoundManager.fadeInterval);
+      }
+      
+      // Start new fade out
+      SpinSoundManager.fadeInterval = setInterval(() => {
+        if (SpinSoundManager.currentSound) {
+          if (SpinSoundManager.currentSound.volume > 0.1) {
+            SpinSoundManager.currentSound.volume -= 0.1;
+          } else {
+            SpinSoundManager.currentSound.pause();
+            SpinSoundManager.currentSound.volume = SOUND_VOLUMES.SPIN; // Reset volume
+            if (SpinSoundManager.fadeInterval) {
+              clearInterval(SpinSoundManager.fadeInterval);
+              SpinSoundManager.fadeInterval = null;
+            }
+          }
+        }
+      }, 50);
+    }
   }
 };
+
+const bounce = keyframes`
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-10px) rotate(180deg); }
+`;
+
+const glow = keyframes`
+  0%, 100% { filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.6)); }
+  50% { filter: drop-shadow(0 0 15px rgba(255, 215, 0, 0.8)); }
+`;
 
 const SlotMachine: React.FC = () => {
   const [isClient, setIsClient] = useState(false);
@@ -162,11 +196,39 @@ const SlotMachine: React.FC = () => {
   const audioRefs = useRef<{ [key: string]: HTMLAudioElement }>({});
   const bgMusicRef = useRef<HTMLAudioElement | null>(null);
   const [showPaytable, setShowPaytable] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsClient(true);
     const savedMuted = localStorage.getItem('slotMachineMuted');
     setIsMuted(savedMuted ? JSON.parse(savedMuted) : true);
+
+    // Simulate loading of assets
+    const loadAssets = async () => {
+      try {
+        // Preload all audio
+        await Promise.all(
+          Object.values(SOUNDS).map(src => {
+            return new Promise((resolve, reject) => {
+              const audio = new Audio(src);
+              audio.addEventListener('canplaythrough', resolve);
+              audio.addEventListener('error', reject);
+              audio.load();
+            });
+          })
+        );
+
+        // Add a minimum loading time to prevent flash
+        await new Promise(resolve => setTimeout(resolve, 1000));
+        
+        setIsLoading(false);
+      } catch (error) {
+        console.warn('Error preloading assets:', error);
+        setIsLoading(false);
+      }
+    };
+
+    loadAssets();
   }, []);
 
   useEffect(() => {
@@ -265,12 +327,9 @@ const SlotMachine: React.FC = () => {
       setLastWin(winResult);
     } else {
       const nw = checkAllNearWins(finalGrid, WIN_PATTERNS);
-      console.log('Near wins detected:', nw);
       if (nw.length > 0) {
-        console.log('Setting near wins state');
         setNearWins(nw);
         setShowNearWins(true);
-        playSound('NEAR_WIN');
       }
     }
   };
@@ -278,6 +337,7 @@ const SlotMachine: React.FC = () => {
   const spin = async () => {
     if (spinning || credits < bet) return;
 
+    stopSpinSound();
     setSpinning(true);
     setLastWin(null);
     playSound('SPIN');
@@ -338,7 +398,7 @@ const SlotMachine: React.FC = () => {
     }
 
     setSpinning(false);
-    const winResult = checkWinPatterns(finalGrid);
+    const winResult = checkWinPatterns(finalGrid, bet);
     handleWinResult(winResult, finalGrid);
   };
 
@@ -366,6 +426,10 @@ const SlotMachine: React.FC = () => {
       {isMuted ? <VolumeOffIcon /> : <VolumeUpIcon />}
     </IconButton>
   );
+
+  if (isLoading || !isClient) {
+    return <PreLoader />;
+  }
 
   return (
     <Box
@@ -402,10 +466,28 @@ const SlotMachine: React.FC = () => {
                 color: '#ffd700',
                 textShadow: '2px 2px 4px rgba(0,0,0,0.5)',
                 fontFamily: '"Press Start 2P", cursive',
-                mb: 2
+                mb: 2,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                gap: 2
               }}
             >
-              <CasinoIcon sx={{ mr: 2, fontSize: 40 }} />
+              <CasinoIcon 
+                sx={{ 
+                  fontSize: 40,
+                  animation: `${bounce} 32s ease-in-out infinite, ${glow} 2s ease-in-out infinite`,
+                  transformOrigin: 'center',
+                  color: '#ffd700',
+                  '&:hover': {
+                    animationPlayState: 'paused',
+                    filter: 'drop-shadow(0 0 20px rgba(255, 215, 0, 0.9))',
+                    cursor: 'pointer',
+                    transform: 'scale(1.1)',
+                    transition: 'transform 0.2s ease-in-out'
+                  }
+                }} 
+              />
               Vegas Slots
             </Typography>
             <Typography 

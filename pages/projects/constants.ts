@@ -30,57 +30,23 @@ export interface Symbol {
   ] as const;
   
   export const WIN_PATTERNS = [
-
-    { pattern: [[0, 1], [1, 1], [2, 1]], multiplier: 2, name: 'Column Match' }, // Vertical win
-
-    { pattern: [[0, 0], [1, 1], [2, 2]], multiplier: 3, name: 'Mini V' }, // New smaller pattern
-    {
-      pattern: [[0,0], [0,1], [0,2], [0,3], [0,4]],
-      multiplier: 5,
-      name: 'Top Line'
-    },
-    {
-      pattern: [[2,0], [2,1], [2,2], [2,3], [2,4]],
-      multiplier: 5,
-      name: 'Bottom Line'
-    },
-    {
-      pattern: [[1,0], [1,1], [1,2], [1,3], [1,4]],
-      multiplier: 10,
-      name: 'Middle Line'
-    },
-    { pattern: [[2, 0], [1, 1], [0, 2], [1, 3], [2, 4]], multiplier: 12, name: 'Zigzag' }, // Engaging mid-range win
-
-    {
-      pattern: [[0,0], [1,1], [2,2], [1,3], [0,4]],
-      multiplier: 15,
-      name: 'V Pattern'
-    },
-    {
-      pattern: [[2,0], [1,1], [0,2], [1,3], [2,4]],
-      multiplier: 15,
-      name: 'Inverted V'
-    },
-    {
-      pattern: [[0,0], [0,1], [0,2], [1,2], [2,2]],
-      multiplier: 20,
-      name: 'L Pattern'
-    },
-    {
-      pattern: [[0,0], [1,0], [2,0], [1,1], [0,2]],
-      multiplier: 25,
-      name: 'Z Pattern'
-    },
-    {
-      pattern: [[0,0], [1,0], [2,0], [2,1], [2,2]],
-      multiplier: 30,
-      name: 'Reverse L'
-    },
-    {
-      pattern: [[0,0], [0,1], [1,1], [2,1], [2,2]],
-      multiplier: 35,
-      name: 'Lightning'
-    },
+    { pattern: [[0, 0], [0, 1], [0, 2]], multiplier: 2, name: 'Top Row Mini' },
+    { pattern: [[2, 2], [2, 3], [2, 4]], multiplier: 2, name: 'Bottom Row Mini' },
+    { pattern: [[0, 2], [1, 2], [2, 2]], multiplier: 3, name: 'Middle Column Mini' },
+  
+    { pattern: [[0, 0], [0, 1], [0, 2], [0, 3], [0, 4]], multiplier: 5, name: 'Top Line' },
+    { pattern: [[2, 0], [2, 1], [2, 2], [2, 3], [2, 4]], multiplier: 5, name: 'Bottom Line' },
+    { pattern: [[1, 0], [1, 1], [1, 2], [1, 3], [1, 4]], multiplier: 10, name: 'Middle Line' },
+  
+    { pattern: [[0, 0], [1, 1], [2, 2]], multiplier: 5, name: 'Mini V' },
+    { pattern: [[2, 0], [1, 1], [0, 2], [1, 3], [2, 4]], multiplier: 10, name: 'Zigzag' },
+    { pattern: [[0, 0], [1, 1], [2, 2], [1, 3], [0, 4]], multiplier: 15, name: 'V Pattern' },
+    { pattern: [[2, 0], [1, 1], [0, 2], [1, 3], [2, 4]], multiplier: 15, name: 'Inverted V' },
+  
+    { pattern: [[0, 0], [0, 1], [0, 2], [1, 2], [2, 2]], multiplier: 20, name: 'L Pattern' },
+    { pattern: [[0, 0], [1, 0], [2, 0], [1, 1], [0, 2]], multiplier: 25, name: 'Z Pattern' },
+    { pattern: [[0, 0], [1, 0], [2, 0], [2, 1], [2, 2]], multiplier: 20, name: 'Reverse L' },
+    { pattern: [[0, 0], [0, 1], [1, 1], [2, 1], [2, 2]], multiplier: 25, name: 'Lightning' },
   ] as const;
   
   export const REEL_COUNT = 5;
