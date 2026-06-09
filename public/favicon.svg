@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
+  <title>Kai signature mark</title>
+  <rect width="128" height="128" rx="22" fill="#ffffff"/>
+  <g fill="none" stroke="#050505" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 88 C27 69 30 43 39 23" stroke-width="7.5"/>
+    <path d="M67 27 C56 39 45 51 34 60 C49 62 64 76 75 94" stroke-width="7.5"/>
+    <path d="M88 61 C82 53 67 55 63 69 C59 84 75 91 85 75 C87 84 92 88 99 82" stroke-width="6.5"/>
+    <path d="M109 61 C104 73 102 83 105 88 C108 93 115 86 118 80" stroke-width="6.5"/>
+  </g>
+  <circle cx="113" cy="45" r="4.5" fill="#050505"/>
+</svg>

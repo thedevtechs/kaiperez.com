@@ -1,6 +1,6 @@
 # Kai Perez Next.js Site
 
-Converted from the provided standalone HTML into a Next.js App Router project.
+Small Next.js App Router site for Kai Perez.
 
 ## Run locally
 
@@ -20,6 +20,8 @@ npm start
 
 ## Structure
 
-- `app/KaiSite.jsx` contains the React component logic.
-- `app/globals.css` contains the extracted site styles and local font references.
-- `public/assets` contains extracted local font assets.
+- `app/page.jsx` renders the page and JSON-LD.
+- `app/components` contains focused page components.
+- `app/lib/content.js` contains editable site copy and section data.
+- `app/globals.css` contains base styles and tokens.
+- `app/styles/site.css` contains page-specific styling.
