@@ -56,7 +56,7 @@ export default function VoicesSection() {
       <div className="sec-head">
         <span className="sec-eyebrow mono">02 - Reference themes</span>
         <h2 className="sec-title">
-          Why senior teams <span className="mut">call Kai.</span>
+          Why teams <span className="mut">call Kai.</span>
         </h2>
         <div className="carousel-controls">
           <button className="carousel-button" type="button" aria-label="Previous testimonials" onClick={() => move(-1)}>
