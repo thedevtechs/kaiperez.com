@@ -6,7 +6,7 @@ export default function WorkSection() {
       <div className="sec-head">
         <span className="sec-eyebrow mono">01 - Representative engagements</span>
         <h2 className="sec-title">
-          Technical judgment <span className="mut">under real pressure.</span>
+          Senior technical judgment <span className="mut">under real pressure.</span>
         </h2>
       </div>
 

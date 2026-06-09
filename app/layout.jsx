@@ -1,6 +1,9 @@
 import "./globals.css";
 import "./styles/site.css";
+import Script from "next/script";
 import { absoluteUrl, siteConfig } from "./seo";
+
+const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -64,7 +67,25 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en-US">
-      <body suppressHydrationWarning>{children}</body>
+      <body suppressHydrationWarning>
+        {gaMeasurementId ? (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){window.dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', ${JSON.stringify(gaMeasurementId)});
+              `}
+            </Script>
+          </>
+        ) : null}
+        {children}
+      </body>
     </html>
   );
 }
