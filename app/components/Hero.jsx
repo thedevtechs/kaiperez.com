@@ -78,7 +78,7 @@ export default function Hero() {
       </section>
 
       <a className="scrollcue mono" href="#work">
-        Scroll for proof
+        Selected Project & Outcomes
         <span className="ar">v</span>
       </a>
     </main>
