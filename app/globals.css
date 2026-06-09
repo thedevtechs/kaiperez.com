@@ -55,6 +55,7 @@ a {
 
 .mono {
   font-family: "SFMono-Regular", Consolas, "Liberation Mono", ui-monospace, monospace;
+  margin-top: 4px;
 }
 
 #work {

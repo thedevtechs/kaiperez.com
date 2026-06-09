@@ -2,7 +2,7 @@ export const email = "kaiperez@gmail.com";
 
 export const hero = {
   eyebrow: "Executive judgment / technical depth / operating taste",
-  title: "Senior technical operator for",
+  title: "Technical operator for",
   titleAccent: "expensive ambiguity.",
   lede:
     "Kai Perez is the person founders want in the room when product, AI, commerce, infrastructure, and growth are all tangled together. He brings executive judgment, technical depth, and the willingness to own the hard next move.",
