@@ -19,7 +19,7 @@ function QuoteCard({ reference }) {
         <span className="avatar mono">{reference.id}</span>
         <span>
           <span className="nm">{reference.scope}</span>
-          <span className="rl">Anonymized pattern from senior engagements</span>
+          <span className="rl">{reference.context}</span>
         </span>
       </figcaption>
     </figure>
@@ -54,9 +54,9 @@ export default function VoicesSection() {
       onMouseLeave={() => setPaused(false)}
     >
       <div className="sec-head">
-        <span className="sec-eyebrow mono">02 - Reference themes</span>
+        <span className="sec-eyebrow mono">04 - What people notice</span>
         <h2 className="sec-title">
-          Why teams <span className="mut">call Kai.</span>
+          Why busy teams <span className="mut">call Kai.</span>
         </h2>
         <div className="carousel-controls">
           <button className="carousel-button" type="button" aria-label="Previous testimonials" onClick={() => move(-1)}>

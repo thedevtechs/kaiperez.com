@@ -1,11 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">
-  <title>Kai signature mark</title>
-  <rect width="128" height="128" rx="22" fill="#ffffff"/>
-  <g fill="none" stroke="#050505" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M30 88 C27 69 30 43 39 23" stroke-width="7.5"/>
-    <path d="M67 27 C56 39 45 51 34 60 C49 62 64 76 75 94" stroke-width="7.5"/>
-    <path d="M88 61 C82 53 67 55 63 69 C59 84 75 91 85 75 C87 84 92 88 99 82" stroke-width="6.5"/>
-    <path d="M109 61 C104 73 102 83 105 88 C108 93 115 86 118 80" stroke-width="6.5"/>
-  </g>
-  <circle cx="113" cy="45" r="4.5" fill="#050505"/>
+  <title>Kai Perez monogram</title>
+  <defs>
+    <linearGradient id="mark-bg" x1="22" y1="16" x2="106" y2="112" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="0.58" stop-color="#edf4ff"/>
+      <stop offset="1" stop-color="#e8fbf5"/>
+    </linearGradient>
+  </defs>
+  <rect x="8" y="8" width="112" height="112" rx="24" fill="#ffffff"/>
+  <rect x="10" y="10" width="108" height="108" rx="22" fill="url(#mark-bg)" stroke="#b8c6d9" stroke-width="4"/>
+  <text
+    x="64"
+    y="78"
+    fill="#315cf6"
+    font-family="Inter, Arial, Helvetica, sans-serif"
+    font-size="44"
+    font-weight="750"
+    text-anchor="middle">KP</text>
 </svg>

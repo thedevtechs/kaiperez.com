@@ -1,9 +1,7 @@
 import "./globals.css";
 import "./styles/site.css";
-import Script from "next/script";
+import GoogleAnalytics from "./components/GoogleAnalytics";
 import { absoluteUrl, siteConfig } from "./seo";
-
-const gaMeasurementId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim();
 
 export const metadata = {
   metadataBase: new URL(siteConfig.url),
@@ -15,11 +13,12 @@ export const metadata = {
   description: siteConfig.description,
   icons: {
     icon: [
-      { url: "/favicon.svg?v=3", type: "image/svg+xml" },
+      { url: "/favicon.svg?v=5", type: "image/svg+xml" },
+      { url: "/favicon.png?v=5", type: "image/png", sizes: "128x128" },
       { url: "/icon.svg", type: "image/svg+xml", sizes: "any" },
     ],
-    shortcut: [{ url: "/favicon.svg?v=3", type: "image/svg+xml" }],
-    apple: [{ url: "/favicon.svg?v=3", type: "image/svg+xml" }],
+    shortcut: [{ url: "/favicon.svg?v=5", type: "image/svg+xml" }],
+    apple: [{ url: "/apple-touch-icon.png?v=5", type: "image/png", sizes: "180x180" }],
   },
   keywords: siteConfig.keywords,
   authors: [{ name: siteConfig.name, url: siteConfig.url }],
@@ -68,22 +67,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en-US">
       <body suppressHydrationWarning>
-        {gaMeasurementId ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${gaMeasurementId}`}
-              strategy="afterInteractive"
-            />
-            <Script id="google-analytics" strategy="afterInteractive">
-              {`
-                window.dataLayer = window.dataLayer || [];
-                function gtag(){window.dataLayer.push(arguments);}
-                gtag('js', new Date());
-                gtag('config', ${JSON.stringify(gaMeasurementId)});
-              `}
-            </Script>
-          </>
-        ) : null}
+        <GoogleAnalytics />
         {children}
       </body>
     </html>

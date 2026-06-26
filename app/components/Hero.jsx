@@ -33,6 +33,11 @@ export default function Hero() {
           {hero.title} <em>{hero.titleAccent}</em>
         </h1>
         <p className="lede">{hero.lede}</p>
+        <div className="hero-notes" aria-label="Kai working style">
+          {hero.notes.map((note) => (
+            <span key={note}>{note}</span>
+          ))}
+        </div>
 
         <div className="panel" key={current.key}>
           <div className="swap">
@@ -53,7 +58,7 @@ export default function Hero() {
         </div>
 
         <div className="ctas">
-          <a className="btn primary" href="#work">See his work</a>
+          <a className="btn primary" href="#work">See proof</a>
           <EmailButton />
         </div>
       </section>
@@ -78,7 +83,7 @@ export default function Hero() {
       </section>
 
       <a className="scrollcue mono" href="#work">
-        Selected Project & Outcomes
+        Scroll for proof
         <span className="ar">v</span>
       </a>
     </main>
