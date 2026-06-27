@@ -1,4 +1,5 @@
 export const email = "kaiperez@gmail.com";
+export const meetingUrl = "https://meetings.hubspot.com/kaiperez";
 
 export const hero = {
   eyebrow: "Systems brain / brand taste / steady execution",
@@ -7,6 +8,20 @@ export const hero = {
   lede:
     "For founder-led businesses where the real operation is better than the website, storefront, workflow, or brand around it. Kai sees the whole knot, makes the next move obvious, and ships the thing with taste.",
   notes: ["No vendor fog", "Brand-aware build", "Systems that survive launch"],
+  focus: [
+    {
+      label: "Brand + build",
+      text: "Positioning, site, storefront, assets, and execution in one lane.",
+    },
+    {
+      label: "Systems cleanup",
+      text: "Workflows, codebases, platforms, tracking, cloud, and handoffs.",
+    },
+    {
+      label: "After launch",
+      text: "Maintenance and improvement so the work keeps compounding.",
+    },
+  ],
 };
 
 export const capabilities = [
@@ -52,12 +67,12 @@ export const capabilities = [
   },
   {
     key: "ai",
-    short: "AI",
-    category: "AI Workflows",
-    tagline: "Puts AI where it actually saves time.",
+    short: "Automation",
+    category: "Workflow Automation",
+    tagline: "Automates the repeatable parts.",
     description:
-      "Kai finds the places AI can save time without making the work weird: intake, review, writing, routing, summaries, and follow-up with humans still in control.",
-    proof: "AI tied to real work, not a demo reel.",
+      "Kai finds the places automation can save time without making the work weird: intake, review, routing, summaries, and follow-up with humans still in control.",
+    proof: "Automation tied to real work, not a demo reel.",
     shape: "corkscrew",
   },
   {
@@ -86,9 +101,8 @@ export const proofStrip = {
   title: "Trust signals",
   items: [
     "Live public projects",
-    "Private ops systems",
-    "Measured cleanup work",
-    "Brand plus build execution",
+    "Private systems work",
+    "Measured cleanup",
     "Support after launch",
   ],
 };
@@ -197,54 +211,54 @@ export const projects = [
   {
     name: "Tripletto",
     url: "https://tripletto.app/",
-    tag: "AI travel product",
+    tag: "Travel planning system",
     outcome:
-      "Turned a loose AI travel idea into a usable product with shareable itineraries, clearer trip planning, and a path to paid tiers.",
+      "Turned a loose travel-planning idea into a usable itinerary system with shareable trips, clearer routing, and a path to paid tiers.",
     summary:
-      "AI itinerary builder with routes, hotel context, saved plans, and cleaner trip planning.",
+      "Itinerary planning system with routes, hotel context, saved plans, and cleaner trip decisions.",
     before:
-      "The idea could have stayed a prompt demo: interesting AI output, but no clear product flow, saved state, trip structure, or reason to come back.",
+      "The idea could have stayed a clever planning demo without a clear product flow, saved state, trip structure, or reason to come back.",
     kai:
-      "Shaped the product strategy, itinerary workflow, UX decisions, pricing direction, and launch surface so the AI felt like a travel tool instead of a trick.",
+      "Shaped the product strategy, itinerary workflow, UX decisions, pricing direction, and launch surface so the tool felt useful before it felt technical.",
     evidence:
       "Live public product with itinerary generation, trip context, saved plans, and a real product surface buyers can inspect.",
     changed: [
       "Turned trip planning into a guided flow people can save, revise, and share",
-      "Put AI in the helpful moments: route shape, context, and trip decisions",
+      "Put generated route context in the moments where travelers actually need help",
       "Gave the product clearer positioning, pricing logic, and launch direction",
     ],
     proves: [
-      "Shape a fuzzy AI idea into something people can actually use",
+      "Shape a fuzzy product idea into something people can actually use",
       "Design the product flow, pricing structure, and launch surface",
       "Make the experience feel helpful before it feels technical",
     ],
-    tags: ["AI workflow", "Product UX", "Pricing", "Travel"],
+    tags: ["Travel", "Product UX", "Planning workflow", "Pricing"],
   },
   {
-    name: "gotmilk.mx",
+    name: "Milk Ice Cream Parlor",
     url: "https://gotmilk.mx/",
-    tag: "Local commerce system",
+    tag: "Ice cream parlor brand",
     outcome:
-      "Made weekly local ordering easier to understand, easier to buy from, and easier to operate behind the scenes.",
+      "Gave a playful ice cream parlor a clearer digital home that makes the brand, product experience, and path to buy easier to understand.",
     summary:
-      "Weekly drop storefront with delivery rules, bundles, merch, and brand direction.",
+      "Brand-forward storefront for Milk Ice Cream Parlor with menu context, product personality, and local commerce structure.",
     before:
-      "The business needed more than a cute storefront. Customers had to understand the drop, delivery rules, bundles, and brand quickly enough to order.",
+      "The business needed the digital side to feel as specific as the physical parlor, not like a generic food site with products dropped into a template.",
     kai:
-      "Built the ordering path around the real operation: offer clarity, brand feel, bundles, delivery details, checkout, and asset direction.",
+      "Shaped the brand expression, site structure, product presentation, asset direction, and storefront path around how people discover, crave, and decide to buy.",
     evidence:
-      "Live commerce site with a visible weekly drop model, product bundles, delivery context, and a brand that feels specific rather than generic.",
+      "Live public site at gotmilk.mx with a distinct parlor identity, product/menu context, and a storefront experience that feels local and ownable.",
     changed: [
-      "Made the weekly drop easier to understand before people reached checkout",
-      "Connected bundles, delivery rules, merch, brand tone, and storefront structure",
+      "Made the parlor feel more ownable online instead of relying on generic food-commerce patterns",
+      "Connected product presentation, brand tone, asset direction, and storefront structure",
       "Kept the buying path simple without flattening the personality of the business",
     ],
     proves: [
-      "Turn a real local operation into a simple ordering experience",
-      "Connect brand, copy, bundles, delivery rules, and checkout",
-      "Make the storefront charming without losing the operational details",
+      "Turn a local food brand into a digital experience people immediately understand",
+      "Connect brand, copy, product presentation, and commerce structure",
+      "Make a storefront feel charming without losing the operational details",
     ],
-    tags: ["Commerce", "Brand", "Ordering", "Local ops"],
+    tags: ["Brand", "Food & beverage", "Parlor", "Storefront"],
   },
   {
     name: "Custom PBX System",
@@ -302,31 +316,31 @@ export const projects = [
     subject: "Project inquiry: Shopify Revenue Cleanup",
   },
   {
-    name: "AI Intake Desk",
-    tag: "AI workflow",
+    name: "Intake Automation Desk",
+    tag: "Intake automation",
     outcome:
-      "Turned messy intake into a clearer queue, with AI summaries, review prompts, and handoffs people could trust.",
+      "Turned messy intake into a clearer queue with summaries, review prompts, routing rules, and handoffs people could trust.",
     summary:
-      "Workflow layer for forms, emails, documents, summaries, review queues, and handoff.",
+      "Workflow automation layer for forms, emails, documents, summaries, review queues, and handoff.",
     before:
-      "Requests arrived through too many channels, review quality depended on individual memory, and the team did not trust AI enough to let it run unattended.",
+      "Requests arrived through too many channels, review quality depended on individual memory, and managers could not see what was stuck.",
     kai:
-      "Put AI in the assistive layer: summarize, route, flag exceptions, and prepare handoffs while keeping human review in control.",
+      "Put automation in the assistive layer: summarize, route, flag exceptions, and prepare handoffs while keeping human review in control.",
     evidence:
-      "Representative workflow pattern for intake teams that need speed without losing judgment, escalation, or review quality.",
+      "Representative workflow pattern for intake teams that need speed without losing judgment, escalation paths, or review quality.",
     changed: [
       "Turned scattered requests into a queue the team could actually manage",
-      "Used AI for summaries and review prompts without removing human judgment",
+      "Used automation for summaries and review prompts without removing human judgment",
       "Created clearer handoffs for exceptions, confidence checks, and next steps",
     ],
     proves: [
-      "Use AI where it saves time without removing human judgment",
+      "Automate repeatable intake work without removing human judgment",
       "Design review flows for exceptions, confidence, and handoff",
       "Turn scattered intake into work the team can actually manage",
     ],
-    tags: ["AI", "Intake", "Review", "Workflow"],
-    cta: "Ask about AI workflows",
-    subject: "Project inquiry: AI Intake Desk",
+    tags: ["Automation", "Intake", "Review", "Workflow"],
+    cta: "Ask about automation",
+    subject: "Project inquiry: Intake Automation Desk",
   },
 ];
 
@@ -335,7 +349,7 @@ export const about = {
   eyebrow: "About Kai",
   title: "Easy to work with. Hard to stump.",
   lede:
-    "I help founder-led businesses turn messy digital problems into things that work: brand direction, websites, storefronts, AI workflows, AWS setups, Linux environments, codebases, analytics, and the handoffs in between.",
+    "I help founder-led businesses turn messy digital problems into things that work: brand direction, websites, storefronts, workflow automations, AWS setups, Linux environments, codebases, analytics, and the handoffs in between.",
   body: [
     "Most people bring me in when the business is real, the digital side is lagging, and nobody wants another vendor who only understands one slice of the problem. I am comfortable moving between the code, the customer experience, and the day-to-day workflow without making the work feel heavier than it needs to be.",
     "My style is practical, curious, and direct. I like clean decisions, useful taste, fast loops, and systems that keep working after the launch. The goal is not to make everything feel more technical. The goal is to make the next move obvious and get it shipped with care.",
@@ -344,7 +358,7 @@ export const about = {
   signals: [
     {
       label: "Technical range",
-      text: "Architecture, Linux, codebases, Shopify, automation, analytics, and AI workflows without losing the business context.",
+      text: "Architecture, Linux, codebases, Shopify, automation, analytics, and workflow systems without losing the business context.",
     },
     {
       label: "Taste and follow-through",
@@ -375,14 +389,14 @@ export const caseStudies = [
     note: "Eight-week measurement window / LCP 3.8s to 1.5s",
   },
   {
-    tag: "AI Workflows / Systems",
+    tag: "Intake Automation / Systems",
     name: "Regulated intake team",
     sector: "Insurance operations / document workflow",
     problem:
-      "The team wanted AI help, but the work involved judgment, exceptions, and review quality. The real issue was not the model; it was where AI belonged in the workflow.",
+      "The team needed faster intake without losing judgment, exception handling, or review quality. The real issue was the workflow, not the tool.",
     built: [
       "Mapped the intake workflow and risk points",
-      "Defined where LLM assistance actually belonged",
+      "Defined where automation actually belonged",
       "Protected the human review loop",
       "Added escalation logic for low-confidence outputs",
       "Gave managers clearer visibility into throughput",

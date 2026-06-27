@@ -1,8 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { capabilities, hero } from "../lib/content";
-import EmailButton from "./EmailButton";
+import { capabilities, hero, meetingUrl } from "../lib/content";
 import ToolWheel from "./ToolWheel";
 
 const intervalMs = 4200;
@@ -33,59 +32,28 @@ export default function Hero() {
           {hero.title} <em>{hero.titleAccent}</em>
         </h1>
         <p className="lede">{hero.lede}</p>
-        <div className="hero-notes" aria-label="Kai working style">
-          {hero.notes.map((note) => (
-            <span key={note}>{note}</span>
+        <div className="hero-focus-list" aria-label="Kai working range">
+          {hero.focus.map((item) => (
+            <div className="hero-focus-item" key={item.label}>
+              <span className="mono">{item.label}</span>
+              <p>{item.text}</p>
+            </div>
           ))}
         </div>
 
-        <div className="panel" key={current.key}>
-          <div className="swap">
-            <div className="panel-head">
-              <span className="idx mono">{String(active + 1).padStart(2, "0")} / 0{capabilities.length}</span>
-              <span className="cat mono">{current.category}</span>
-            </div>
-            <h2 className="tagline">{current.tagline}</h2>
-            <p className="desc">{current.description}</p>
-            <div className="proofrow">
-              <div className="proof">
-                <span className="pip" />
-                {current.proof}
-              </div>
-              <a className="casestudy" href="#work">View case study</a>
-            </div>
-          </div>
-        </div>
-
         <div className="ctas">
-          <a className="btn primary" href="#work">See proof</a>
-          <EmailButton />
+          <a className="btn primary" href={meetingUrl} target="_blank" rel="noreferrer">Book a call</a>
+          <a className="btn ghost" href="#packages">Ways to work</a>
         </div>
       </section>
 
       <section className="stage">
         <ToolWheel active={active} onSelect={setActive} />
-        <div className="chips">
-          {capabilities.map((capability, index) => (
-            <button
-              key={capability.key}
-              className={`chip${index === active ? " on" : ""}${index === active && !paused ? " timing" : ""}`}
-              style={{ "--dur": `${intervalMs}ms` }}
-              type="button"
-              onClick={() => setActive(index)}
-            >
-              <span className="num mono">{String(index + 1).padStart(2, "0")}</span>
-              {capability.short}
-              <span className="fill" key={`${active}-${index}`} />
-            </button>
-          ))}
+        <div className="stage-caption" key={current.key}>
+          <span className="mono">{current.short}</span>
+          <strong>{current.tagline}</strong>
         </div>
       </section>
-
-      <a className="scrollcue mono" href="#work">
-        Scroll for proof
-        <span className="ar">v</span>
-      </a>
     </main>
   );
 }

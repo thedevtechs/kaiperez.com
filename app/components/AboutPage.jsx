@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { about, email } from "../lib/content";
+import { about, meetingUrl } from "../lib/content";
 import Closing from "./Closing";
 import Header from "./Header";
 
@@ -22,8 +22,8 @@ export default function AboutPage() {
               ))}
             </div>
             <div className="ctas">
-              <a className="btn primary" href={`mailto:${email}?subject=Working%20with%20Kai`}>
-                Start a conversation
+              <a className="btn primary" href={meetingUrl} target="_blank" rel="noreferrer">
+                Book a call
               </a>
               <a className="btn ghost" href="/#projects">
                 See built work

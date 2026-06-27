@@ -1,3 +1,5 @@
+import { meetingUrl } from "../lib/content";
+
 export default function Header() {
   return (
     <header className="topbar">
@@ -13,10 +15,12 @@ export default function Header() {
         <a href="/#projects">Proof</a>
         <a href="/about">About</a>
       </nav>
-      <div className="status mono">
-        <span className="dot" />
-        Selective projects
-      </div>
+      <a className="nav-cta" href={meetingUrl} target="_blank" rel="noreferrer">
+        Book a call
+      </a>
+      <a className="mobile-meeting-cta" href={meetingUrl} target="_blank" rel="noreferrer">
+        Book a call
+      </a>
     </header>
   );
 }

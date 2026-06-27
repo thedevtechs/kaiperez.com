@@ -1,4 +1,4 @@
-import { email } from "../lib/content";
+import { meetingUrl } from "../lib/content";
 import EmailButton from "./EmailButton";
 
 export default function Closing() {
@@ -13,8 +13,8 @@ export default function Closing() {
         move shipped.
       </p>
       <div className="ctas">
-        <a className="btn primary" href={`mailto:${email}?subject=Let's%20build%20something`}>
-          Start a conversation
+        <a className="btn primary" href={meetingUrl} target="_blank" rel="noreferrer">
+          Book a call
         </a>
         <EmailButton />
       </div>

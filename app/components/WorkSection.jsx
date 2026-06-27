@@ -4,9 +4,9 @@ export default function WorkSection() {
   return (
     <section className="section results-section" id="work">
       <div className="sec-head">
-        <span className="sec-eyebrow mono">03 - Representative outcomes</span>
+        <span className="sec-eyebrow mono">Representative outcomes</span>
         <h2 className="sec-title">
-          The fix, the move, <span className="mut">and the signal.</span>
+          The kind of movement <span className="mut">clients hire for.</span>
         </h2>
       </div>
 
@@ -22,18 +22,8 @@ export default function WorkSection() {
               <span className="lbl mono">{study.label}</span>
             </div>
             <h3>{study.name}</h3>
-            <div className="result-block">
-              <span className="result-label mono">Before</span>
-              <p>{study.problem}</p>
-            </div>
-            <div className="result-block">
-              <span className="result-label mono">What Kai changed</span>
-              <ul className="built">
-                {study.built.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
-            </div>
+            <p>{study.problem}</p>
+            <p className="result-move">{study.built[0]}</p>
             <div className="result-note mono">{study.note}</div>
           </article>
         ))}

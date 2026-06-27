@@ -12,7 +12,7 @@ export const siteConfig = {
   description:
     "Kai Perez helps founder-led businesses sharpen the brand, build the site or storefront, and fix the digital systems that keep the real business from showing up clearly online.",
   ogImageAlt:
-    "Kai Perez, technical operator for brand, websites, commerce, AI workflows, internal tools, analytics, and infrastructure.",
+    "Kai Perez, technical operator for brand, websites, commerce, workflow automation, internal tools, analytics, and infrastructure.",
   keywords: [
     "Kai Perez",
     "technical operator",
@@ -20,7 +20,7 @@ export const siteConfig = {
     "digital systems consultant",
     "brand and website consultant",
     "product operations consultant",
-    "AI workflow automation",
+    "workflow automation consultant",
     "commerce systems consultant",
     "AWS infrastructure consultant",
     "website and Shopify consultant",
@@ -70,7 +70,7 @@ export function getProfileJsonLd() {
         knowsAbout: [
           "Product planning and execution",
           "Technical systems architecture",
-          "AI workflow operations",
+          "Workflow automation operations",
           "Commerce systems and Shopify operations",
           "AWS and Linux infrastructure",
           "Growth tracking and analytics",
