@@ -4,14 +4,14 @@ import { absoluteUrl, siteConfig } from "../seo";
 export const metadata = {
   title: "About Kai Perez",
   description:
-    "Meet Kai Perez, a technical operator helping founder-led businesses turn messy digital problems into things that work.",
+    "Meet Kai Perez, a founder-operator creating magnetic digital experiences for ecommerce brands, storefronts, systems, and launches.",
   alternates: {
     canonical: "/about",
   },
   openGraph: {
     title: "About Kai Perez",
     description:
-      "A practical technical operator for websites, commerce, AI workflows, infrastructure, codebases, analytics, and brand execution.",
+      "A magnetic founder-operator for ecommerce brands, websites, storefronts, workflow automation, infrastructure, analytics, and brand execution.",
     url: absoluteUrl("/about"),
     siteName: siteConfig.name,
     images: [

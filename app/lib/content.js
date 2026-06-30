@@ -2,26 +2,35 @@ export const email = "kaiperez@gmail.com";
 export const meetingUrl = "https://meetings.hubspot.com/kaiperez";
 
 export const hero = {
-  eyebrow: "Systems brain / brand taste / steady execution",
+  eyebrow: "For founder-led ecommerce brands with taste",
   title: "Make the digital side",
-  titleAccent: "feel less duct-taped.",
+  titleAccent: "feel like the main event.",
   lede:
-    "For founder-led businesses where the real operation is better than the website, storefront, workflow, or brand around it. Kai sees the whole knot, makes the next move obvious, and ships the thing with taste.",
-  notes: ["No vendor fog", "Brand-aware build", "Systems that survive launch"],
+    "Kai builds digital experiences for brands that should feel magnetic the second people land: storefronts, brand worlds, content, tracking, follow-up, and the backstage systems that keep the magic from falling apart.",
+  notes: ["Digital experiences", "Brand-aware build", "Systems that survive launch"],
   focus: [
     {
-      label: "Brand + build",
-      text: "Positioning, site, storefront, assets, and execution in one lane.",
+      label: "Feel wanted",
+      text: "Storefronts, product pages, brand moments, and content that make people lean in.",
     },
     {
-      label: "Systems cleanup",
-      text: "Workflows, codebases, platforms, tracking, cloud, and handoffs.",
+      label: "Sell smoother",
+      text: "Shopify, checkout, tracking, email/SMS, and buying paths cleaned up around real revenue.",
     },
     {
-      label: "After launch",
-      text: "Maintenance and improvement so the work keeps compounding.",
+      label: "Run cleaner",
+      text: "Automation, cloud, code, forms, PBX, and handoffs handled without killing the charm.",
     },
   ],
+};
+
+export const heroAuthority = {
+  portrait: "/kai-arms-crossed.png",
+  name: "Kai Perez",
+  location: "Founder-operator / Los Angeles",
+  line:
+    "The person you want in the room when the brand needs taste, the build needs range, and the experience needs a little magic.",
+  chips: ["Digital experiences", "Shopify", "Brand worlds", "Systems"],
 };
 
 export const capabilities = [
@@ -98,19 +107,178 @@ export const capabilities = [
 ];
 
 export const proofStrip = {
-  title: "Trust signals",
+  title: "Operator range",
   items: [
-    "Live public projects",
-    "Private systems work",
-    "Measured cleanup",
-    "Support after launch",
+    "Brand and positioning",
+    "Shopify and storefronts",
+    "Workflow automation",
+    "AWS, Linux, and codebases",
+    "Analytics and tracking",
+    "Product UX and launch",
   ],
 };
+
+export const credibilitySection = {
+  eyebrow: "Receipts",
+  title: "The work should feel inspectable, not inflated.",
+  lede:
+    "Live brands where possible, private systems where needed, and the patterns references should be able to confirm.",
+};
+
+export const clientLogoFallbacks = [
+  { name: "Milk", detail: "Commerce" },
+  { name: "Tripletto", detail: "Product" },
+  { name: "Seyko Studios", detail: "B2B intelligence" },
+  { name: "PBX Automation", detail: "Voice ops" },
+  { name: "Intake Desk", detail: "Workflow" },
+  { name: "Shopify Cleanup", detail: "Revenue path" },
+  { name: "Lead Systems", detail: "Sales ops" },
+  { name: "AWS / Linux", detail: "Infrastructure" },
+  { name: "Analytics Repair", detail: "Tracking" },
+  { name: "Brand Buildout", detail: "Launch" },
+  { name: "Ordering Flow", detail: "Commerce ops" },
+  { name: "Automation Layer", detail: "Operations" },
+];
+
+export const auditLead = {
+  eyebrow: "Project inquiry",
+  title: "Tell me what needs fixing.",
+  lede:
+    "For founder-led ecommerce brands that need the site, storefront, brand, tracking, or follow-up to work better. Send the context and Kai can point you toward the right next move.",
+  bullets: [
+    "Shopify, site, or storefront cleanup",
+    "Brand, buildout, or conversion work",
+    "Tracking, systems, and follow-up",
+  ],
+  cta: "Send inquiry",
+  subject: "Service inquiry",
+};
+
+export const namedProofProjects = [
+  {
+    id: "milk",
+    eyebrow: "Live commerce system",
+    name: "Milk Ice Cream Parlor",
+    url: "https://gotmilk.mx/",
+    cta: "View gotmilk.mx",
+    tag: "Commerce experience",
+    title: "A parlor brand turned into a digital experience people remember.",
+    lede:
+      "Milk needed to feel like more than a menu online. The work was to turn a playful food brand into a digital experience with appetite, polish, ordering clarity, and enough personality to feel like the place before someone ever walks in.",
+    outcome:
+      "Shaped the brand expression, product presentation, storefront structure, menu context, and ordering path so the digital side felt charming, ownable, and still easy to buy from.",
+    proofPoints: [
+      {
+        label: "Atmosphere online",
+        text: "Turned a physical parlor feeling into a web experience with color, voice, product rhythm, and a little theatrical pull.",
+      },
+      {
+        label: "Buying path",
+        text: "Kept product discovery, menu context, and ordering clear so the charm did not get in the way of the sale.",
+      },
+      {
+        label: "Digital experience",
+        text: "Connected brand, copy, assets, storefront structure, and the customer journey into one memorable surface.",
+      },
+    ],
+    whyItMatters:
+      "For a founder with a $1M-$5M brand, this is the difference between arranging pages and making the digital side feel like the business people already love.",
+  },
+  {
+    id: "pbx",
+    eyebrow: "Call workflow system",
+    name: "Custom PBX System",
+    url: meetingUrl,
+    cta: "Talk systems",
+    tag: "Voice ops automation",
+    title: "Call flow, agent context, and follow-up brought into one working rhythm.",
+    lede:
+      "The work was not to install a phone tool and call it done. It was to design the agent workflow around live calls, routing, prompts, handoffs, and the follow-up work that actually keeps customers moving.",
+    outcome:
+      "Built a more useful call-operation layer so agents had cleaner context, managers had better visibility, and the business could train and improve the workflow instead of chasing scattered notes.",
+    proofPoints: [
+      {
+        label: "Agent workflow",
+        text: "Put routing, customer context, prompts, and follow-up tasks closer to the moment calls were happening.",
+      },
+      {
+        label: "Operational clarity",
+        text: "Made call handling easier to train, review, and improve without depending on memory or scattered notes.",
+      },
+      {
+        label: "Automation fit",
+        text: "Used automation to support the human workflow instead of replacing the judgment people still needed.",
+      },
+    ],
+    whyItMatters:
+      "This is the kind of behind-the-scenes system that makes a business feel sharper to customers because the team finally has the right information at the right time.",
+  },
+  {
+    id: "tripletto",
+    eyebrow: "Product build",
+    name: "Tripletto",
+    url: "https://tripletto.app/",
+    cta: "View tripletto.app",
+    tag: "Product from zero",
+    title: "A travel-planning idea turned into a usable itinerary product.",
+    lede:
+      "Tripletto started as a product idea that needed shape: the workflow, saved plans, trip context, pricing logic, and launch surface all had to feel useful before the technology became the story.",
+    outcome:
+      "Created a clearer itinerary product with guided planning, shareable trip structure, route context, hotel context, and a path toward paid tiers.",
+    proofPoints: [
+      {
+        label: "Product shape",
+        text: "Turned a loose planning concept into a flow people can save, revise, and understand quickly.",
+      },
+      {
+        label: "Experience logic",
+        text: "Put generated route and trip context where travelers actually need decision support.",
+      },
+      {
+        label: "Launch surface",
+        text: "Connected UX, positioning, pricing direction, and execution into one inspectable product.",
+      },
+    ],
+    whyItMatters:
+      "It shows the range: not just fixing existing systems, but creating a product surface from zero that feels useful, ownable, and real.",
+  },
+  {
+    id: "intake",
+    eyebrow: "Intake automation",
+    name: "Intake Automation Desk",
+    url: meetingUrl,
+    cta: "Talk automation",
+    tag: "Intake automation",
+    title: "Scattered requests turned into a queue people could actually manage.",
+    lede:
+      "The team did not need automation theater. They needed cleaner intake, summaries, routing, review prompts, exception handling, and handoffs that made the work easier without removing human judgment.",
+    outcome:
+      "Designed an assistive workflow layer that helped people move faster while preserving review quality, escalation paths, and visibility into what was stuck.",
+    proofPoints: [
+      {
+        label: "Cleaner intake",
+        text: "Turned requests from too many channels into a more manageable review queue.",
+      },
+      {
+        label: "Human control",
+        text: "Used summaries, prompts, and routing while keeping real judgment in the loop.",
+      },
+      {
+        label: "Better handoffs",
+        text: "Clarified exceptions, confidence checks, next steps, and manager visibility.",
+      },
+    ],
+    whyItMatters:
+      "For businesses with messy service operations, this is where technology starts saving real time instead of becoming one more thing the team has to babysit.",
+  },
+];
+
+export const namedProof = namedProofProjects[0];
 
 export const packages = [
   {
     name: "Brand + Systems Audit",
-    range: "$1.5k-$3.5k",
+    range: "$3.5k-$6.5k",
     eyebrow: "Diagnostic",
     path: "Diagnose",
     pathTitle: "Find the drag",
@@ -129,12 +297,13 @@ export const packages = [
       "Prioritized action list with plain-English fixes",
       "Audit credit available toward a follow-on sprint or build",
     ],
+    rangeNote: "Price moves with the number of channels, systems, and decision-makers that need to be inspected.",
     cta: "Book an audit",
     subject: "Package inquiry: Brand + Systems Audit",
   },
   {
     name: "Stuck-to-Shipped Sprint",
-    range: "$4.5k-$9.5k",
+    range: "$6.5k-$14k",
     eyebrow: "Focused execution",
     path: "Ship",
     pathTitle: "Unstick the next move",
@@ -153,17 +322,18 @@ export const packages = [
       "Implementation notes and owner handoff",
       "Best fit after a Brand + Systems Audit or clear existing problem",
     ],
+    rangeNote: "Price depends on how many pages, tools, integrations, or handoffs the fix needs to touch.",
     cta: "Ship the fix",
     subject: "Package inquiry: Stuck-to-Shipped Sprint",
   },
   {
     name: "Brand + Digital Buildout",
-    range: "$12k-$32k",
+    range: "$18k-$45k",
     eyebrow: "Ground-up build",
     featured: true,
     path: "Build",
     pathTitle: "Make it feel real",
-    pathOutcome: "Create the brand, site, storefront, funnel, or workflow the business should already have.",
+    pathOutcome: "Create the brand, site, storefront, funnel, or digital experience the business should already have.",
     board: {
       problem: "The business is stronger than the brand, website, storefront, or workflow people see.",
       move: "Shape the offer, design the system, build the experience, and launch it cleanly.",
@@ -171,19 +341,20 @@ export const packages = [
     },
     animation: "build",
     summary:
-      "A full brand, site, storefront, or digital build for businesses that need the outside to finally match the quality of the real-world business.",
+      "A full brand, site, storefront, or digital experience for businesses that need the outside to finally feel as magnetic as the real-world brand.",
     includes: [
-      "Brand direction, offer clarity, website, storefront, service funnel, or ordering experience",
-      "Copy structure, visual system, asset direction, and analytics",
+      "Brand direction, offer clarity, website, storefront, service funnel, or digital experience",
+      "Copy structure, visual system, asset direction, interactive moments, and analytics",
       "Launch execution with clean handoff and tracking",
       "Three months of post-launch support included",
     ],
+    rangeNote: "Price scales with brand depth, asset needs, interactive detail, storefront complexity, tracking, and launch support.",
     cta: "Scope a buildout",
     subject: "Package inquiry: Brand + Digital Buildout",
   },
   {
     name: "Operator Care Plan",
-    range: "$1.5k-$4k/mo",
+    range: "$2.5k-$6k/mo",
     eyebrow: "Ongoing support",
     path: "Run",
     pathTitle: "Keep it tuned",
@@ -202,158 +373,36 @@ export const packages = [
       "Light automations, platform decisions, and systems cleanup",
       "A steady technical partner in the loop without hiring a full team",
     ],
+    rangeNote: "Three-month minimum. Price depends on cadence, responsibility, and whether Kai is maintaining, improving, or actively operating the stack.",
     cta: "Discuss care",
     subject: "Package inquiry: Operator Care Plan",
-  },
-];
-
-export const projects = [
-  {
-    name: "Tripletto",
-    url: "https://tripletto.app/",
-    tag: "Travel planning system",
-    outcome:
-      "Turned a loose travel-planning idea into a usable itinerary system with shareable trips, clearer routing, and a path to paid tiers.",
-    summary:
-      "Itinerary planning system with routes, hotel context, saved plans, and cleaner trip decisions.",
-    before:
-      "The idea could have stayed a clever planning demo without a clear product flow, saved state, trip structure, or reason to come back.",
-    kai:
-      "Shaped the product strategy, itinerary workflow, UX decisions, pricing direction, and launch surface so the tool felt useful before it felt technical.",
-    evidence:
-      "Live public product with itinerary generation, trip context, saved plans, and a real product surface buyers can inspect.",
-    changed: [
-      "Turned trip planning into a guided flow people can save, revise, and share",
-      "Put generated route context in the moments where travelers actually need help",
-      "Gave the product clearer positioning, pricing logic, and launch direction",
-    ],
-    proves: [
-      "Shape a fuzzy product idea into something people can actually use",
-      "Design the product flow, pricing structure, and launch surface",
-      "Make the experience feel helpful before it feels technical",
-    ],
-    tags: ["Travel", "Product UX", "Planning workflow", "Pricing"],
-  },
-  {
-    name: "Milk Ice Cream Parlor",
-    url: "https://gotmilk.mx/",
-    tag: "Ice cream parlor brand",
-    outcome:
-      "Gave a playful ice cream parlor a clearer digital home that makes the brand, product experience, and path to buy easier to understand.",
-    summary:
-      "Brand-forward storefront for Milk Ice Cream Parlor with menu context, product personality, and local commerce structure.",
-    before:
-      "The business needed the digital side to feel as specific as the physical parlor, not like a generic food site with products dropped into a template.",
-    kai:
-      "Shaped the brand expression, site structure, product presentation, asset direction, and storefront path around how people discover, crave, and decide to buy.",
-    evidence:
-      "Live public site at gotmilk.mx with a distinct parlor identity, product/menu context, and a storefront experience that feels local and ownable.",
-    changed: [
-      "Made the parlor feel more ownable online instead of relying on generic food-commerce patterns",
-      "Connected product presentation, brand tone, asset direction, and storefront structure",
-      "Kept the buying path simple without flattening the personality of the business",
-    ],
-    proves: [
-      "Turn a local food brand into a digital experience people immediately understand",
-      "Connect brand, copy, product presentation, and commerce structure",
-      "Make a storefront feel charming without losing the operational details",
-    ],
-    tags: ["Brand", "Food & beverage", "Parlor", "Storefront"],
-  },
-  {
-    name: "Custom PBX System",
-    tag: "Voice ops automation",
-    wide: true,
-    outcome:
-      "Reduced call chaos by giving agents cleaner routing, follow-up prompts, and customer context in the same workflow.",
-    summary:
-      "Phone routing and agent workflow built around live calls, follow-ups, and task handoffs.",
-    before:
-      "Agents were handling live calls with too much context scattered across notes, routing rules, and follow-up tasks.",
-    kai:
-      "Designed the PBX workflow around how agents actually work: call routing, customer context, prompts, handoffs, and follow-up visibility.",
-    evidence:
-      "Private operations build that connected phone behavior to agent workflow, making calls easier to route, train, and audit.",
-    changed: [
-      "Brought routing, customer context, follow-up prompts, and tasks into one flow",
-      "Reduced the number of places agents had to check while calls were moving",
-      "Made call operations easier to train, review, and improve over time",
-    ],
-    proves: [
-      "Build around how agents actually answer, route, and follow up",
-      "Connect call handling to tasks instead of scattered notes",
-      "Make phone operations easier to see, train, and improve",
-    ],
-    tags: ["PBX", "Agent workflows", "Automation", "Operations"],
-    cta: "Ask about systems work",
-    subject: "Project inquiry: Custom PBX System",
-  },
-  {
-    name: "Shopify Revenue Cleanup",
-    tag: "Commerce cleanup",
-    outcome:
-      "Helped a real ecommerce business see what was dragging revenue: slow mobile pages, extra apps, shaky tracking, and checkout friction.",
-    summary:
-      "Focused cleanup across speed, app overlap, tracking trust, and checkout friction.",
-    before:
-      "Revenue questions were getting mixed with cosmetic opinions. Speed, app sprawl, tracking, and checkout friction were all tangled together.",
-    kai:
-      "Separated revenue-impacting fixes from nice-to-have polish, then cleaned up the storefront path without putting daily operations at risk.",
-    evidence:
-      "Representative commerce cleanup pattern tied to faster pages, cleaner tracking, fewer app conflicts, and safer release decisions.",
-    changed: [
-      "Separated revenue-impacting fixes from cosmetic wish-list work",
-      "Cleaned up app overlap, scripts, tracking gaps, and mobile friction",
-      "Left the team with a safer path for changes after the cleanup",
-    ],
-    proves: [
-      "Find the friction that affects revenue, not just polish",
-      "Clean up Shopify and app sprawl without breaking daily operations",
-      "Leave the team with clearer tracking and a safer release path",
-    ],
-    tags: ["Shopify", "Tracking", "Speed", "Checkout"],
-    cta: "Ask about commerce cleanup",
-    subject: "Project inquiry: Shopify Revenue Cleanup",
-  },
-  {
-    name: "Intake Automation Desk",
-    tag: "Intake automation",
-    outcome:
-      "Turned messy intake into a clearer queue with summaries, review prompts, routing rules, and handoffs people could trust.",
-    summary:
-      "Workflow automation layer for forms, emails, documents, summaries, review queues, and handoff.",
-    before:
-      "Requests arrived through too many channels, review quality depended on individual memory, and managers could not see what was stuck.",
-    kai:
-      "Put automation in the assistive layer: summarize, route, flag exceptions, and prepare handoffs while keeping human review in control.",
-    evidence:
-      "Representative workflow pattern for intake teams that need speed without losing judgment, escalation paths, or review quality.",
-    changed: [
-      "Turned scattered requests into a queue the team could actually manage",
-      "Used automation for summaries and review prompts without removing human judgment",
-      "Created clearer handoffs for exceptions, confidence checks, and next steps",
-    ],
-    proves: [
-      "Automate repeatable intake work without removing human judgment",
-      "Design review flows for exceptions, confidence, and handoff",
-      "Turn scattered intake into work the team can actually manage",
-    ],
-    tags: ["Automation", "Intake", "Review", "Workflow"],
-    cta: "Ask about automation",
-    subject: "Project inquiry: Intake Automation Desk",
   },
 ];
 
 export const about = {
   portrait: "/kai-arms-crossed.png",
   eyebrow: "About Kai",
-  title: "Easy to work with. Hard to stump.",
+  title: "A founder who still likes building the thing.",
   lede:
-    "I help founder-led businesses turn messy digital problems into things that work: brand direction, websites, storefronts, workflow automations, AWS setups, Linux environments, codebases, analytics, and the handoffs in between.",
+    "I am not a freelance dev trying to sound strategic. I am a founder-operator who takes on select client work because I like turning messy digital problems into things that actually run.",
   body: [
-    "Most people bring me in when the business is real, the digital side is lagging, and nobody wants another vendor who only understands one slice of the problem. I am comfortable moving between the code, the customer experience, and the day-to-day workflow without making the work feel heavier than it needs to be.",
-    "My style is practical, curious, and direct. I like clean decisions, useful taste, fast loops, and systems that keep working after the launch. The goal is not to make everything feel more technical. The goal is to make the next move obvious and get it shipped with care.",
-    "Away from the screen, I am usually traveling with my wife, hanging near the beach, or tinkering on something around the house. Same wiring, different setting: notice what is off, make it better, leave it feeling easy.",
+    "I have spent 11+ years moving between product, infrastructure, commerce, brand, automation, growth, and the awkward handoffs where good ideas usually slow down. That range matters because most digital problems are not just design problems or code problems. They are business problems wearing a few different outfits.",
+    "I build my own things and help bring other brands to life too: Tripletto, a travel-planning product tested in the wild; Milk, a parlor brand turned into a more memorable digital experience; Seyko Studios, a B2B intelligence studio; plus internal systems like PBX workflows, lead pipelines, and itinerary engines. Client work benefits from that owner brain. I know what it feels like when the system has to make money, hold up, and still feel special.",
+    "My style is practical, curious, and a little cinematic. I like clean decisions, useful taste, fast loops, and systems that keep working after launch. Away from the screen, I am usually traveling with my wife, hanging near the beach, or tinkering on something around the house. Same wiring, different setting: notice what is off, make it better, leave it feeling easy.",
+  ],
+  receipts: [
+    {
+      label: "Founder range",
+      text: "Tripletto, Milk, Seyko Studios, client systems, and internal tools across product, commerce, brand, and operations.",
+    },
+    {
+      label: "Built by hand",
+      text: "PBX workflows, lead pipelines with deduplication, itinerary generation, Shopify cleanup, AWS/Linux setups, and launch surfaces.",
+    },
+    {
+      label: "Owner judgment",
+      text: "Comfortable cutting overbuilt ideas, making tradeoffs, and keeping the work tied to revenue, trust, and how the team actually runs.",
+    },
   ],
   signals: [
     {
@@ -426,34 +475,34 @@ export const caseStudies = [
 export const references = [
   {
     id: "01",
-    theme: "He makes the next step obvious.",
+    theme: "Decision quality",
     quote:
-      "We had the problem, the tools, and the opinions. Kai turned it into a short list of decisions and moved the work forward.",
-    scope: "Founder, commerce brand",
-    context: "Private client, paraphrased",
+      "The messy thing gets narrowed into decisions people can make, tradeoffs they understand, and next moves that do not sit around.",
+    scope: "Commerce founder",
+    context: "Reference available by request",
   },
   {
     id: "02",
-    theme: "He keeps the work moving.",
+    theme: "Execution without ceremony",
     quote:
-      "Kai skipped the big technical ceremony, named the risk, fixed the flow, and left us with something easier to run.",
-    scope: "Operations lead, service team",
-    context: "Private client, paraphrased",
+      "The work keeps moving without turning every fix into a committee, and the final system is easier to run than what it replaced.",
+    scope: "Service operations",
+    context: "Reference available by request",
   },
   {
     id: "03",
-    theme: "He gets why the fix matters.",
+    theme: "Business context",
     quote:
-      "The useful part was that he connected the technical decision to the business decision. It was not just what to build, but why that move mattered.",
+      "Technical choices stay attached to revenue, trust, customer experience, and team time instead of floating above the business.",
     scope: "Product founder",
-    context: "Private client, paraphrased",
+    context: "Reference available by request",
   },
   {
     id: "04",
-    theme: "He leaves the work easier to run.",
+    theme: "Clean handoff",
     quote:
-      "After the handoff, we were not dependent on a mystery setup. The priorities, tracking, and next steps were clear.",
+      "The team knows what changed, what to watch, and how to keep improving after the work ships.",
     scope: "Agency partner",
-    context: "Private partner, paraphrased",
+    context: "Reference available by request",
   },
 ];

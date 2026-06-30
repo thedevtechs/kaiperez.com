@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "logos:optimize": "node scripts/optimize-client-logos.mjs",
+    "build": "npm run logos:optimize && next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
     "next": "15.3.4",
     "react": "19.0.0",
-    "react-dom": "19.0.0"
-  },
-  "devDependencies": {}
+    "react-dom": "19.0.0",
+    "sharp": "^0.35.2"
+  }
 }

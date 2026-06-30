@@ -35,12 +35,12 @@ export async function GET() {
               background: "#ffffff",
             }}
           >
-            K
+            KP
           </div>
           <div style={{ display: "flex", flexDirection: "column", gap: 8 }}>
             <div style={{ fontSize: 34, fontWeight: 700 }}>{siteConfig.name}</div>
             <div style={{ fontSize: 24, color: "#667085" }}>
-              Systems brain / brand taste / steady execution
+              Founder-operator for ecommerce brands
             </div>
           </div>
         </div>
@@ -55,7 +55,7 @@ export async function GET() {
               letterSpacing: "-0.02em",
             }}
           >
-            Make the digital side feel less duct-taped.
+            Make the digital side feel like the main event.
           </div>
           <div
             style={{
@@ -65,9 +65,9 @@ export async function GET() {
               color: "#315cf6",
             }}
           >
-            <span>No vendor fog</span>
+            <span>Digital experiences</span>
             <span>·</span>
-            <span>Brand-aware build</span>
+            <span>Shopify systems</span>
             <span>·</span>
             <span>Systems that survive launch</span>
           </div>

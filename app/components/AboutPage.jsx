@@ -21,6 +21,14 @@ export default function AboutPage() {
                 <p key={paragraph}>{paragraph}</p>
               ))}
             </div>
+            <div className="about-receipts" aria-label="Founder receipts">
+              {about.receipts.map((receipt) => (
+                <article key={receipt.label}>
+                  <span className="mono">{receipt.label}</span>
+                  <p>{receipt.text}</p>
+                </article>
+              ))}
+            </div>
             <div className="ctas">
               <a className="btn primary" href={meetingUrl} target="_blank" rel="noreferrer">
                 Book a call
@@ -40,7 +48,7 @@ export default function AboutPage() {
               priority
               sizes="(max-width: 920px) 82vw, 34vw"
             />
-            <figcaption className="mono">Technical operator / Los Angeles</figcaption>
+            <figcaption className="mono">Founder-operator / Los Angeles</figcaption>
           </figure>
         </section>
 

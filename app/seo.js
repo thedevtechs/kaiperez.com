@@ -8,11 +8,11 @@ export const siteConfig = {
   name: "Kai Perez",
   email: "kaiperez@gmail.com",
   url: cleanSiteUrl(process.env.NEXT_PUBLIC_SITE_URL),
-  title: "Kai Perez | Make the Digital Side Feel Less Duct-Taped",
+  title: "Kai Perez | Make the Digital Side Feel Like the Main Event",
   description:
-    "Kai Perez helps founder-led businesses sharpen the brand, build the site or storefront, and fix the digital systems that keep the real business from showing up clearly online.",
+    "Kai Perez creates magnetic digital experiences for founder-led ecommerce brands, from brand worlds and storefronts to Shopify systems, tracking, follow-up, and launch support.",
   ogImageAlt:
-    "Kai Perez, technical operator for brand, websites, commerce, workflow automation, internal tools, analytics, and infrastructure.",
+    "Kai Perez, founder-operator for ecommerce brands, digital experiences, Shopify systems, brand worlds, analytics, and infrastructure.",
   keywords: [
     "Kai Perez",
     "technical operator",
@@ -64,9 +64,9 @@ export function getProfileJsonLd() {
         name: siteConfig.name,
         url: siteConfig.url,
         email: `mailto:${siteConfig.email}`,
-        jobTitle: "Technical Operator",
+        jobTitle: "Founder-Operator",
         description:
-          "Technical operator helping founder-led businesses sharpen the brand, build websites and storefronts, and fix the digital systems around real operations.",
+          "Founder-operator creating magnetic digital experiences for founder-led ecommerce brands across brand, storefronts, Shopify systems, tracking, follow-up, and operations.",
         knowsAbout: [
           "Product planning and execution",
           "Technical systems architecture",
@@ -83,7 +83,7 @@ export function getProfileJsonLd() {
             priceSpecification: {
               "@type": "PriceSpecification",
               priceCurrency: "USD",
-              description: "$1.5k-$3.5k",
+              description: "$3.5k-$6.5k",
             },
             itemOffered: {
               "@type": "Service",
@@ -99,7 +99,7 @@ export function getProfileJsonLd() {
             priceSpecification: {
               "@type": "PriceSpecification",
               priceCurrency: "USD",
-              description: "$4.5k-$9.5k",
+              description: "$6.5k-$14k",
             },
             itemOffered: {
               "@type": "Service",
@@ -115,14 +115,14 @@ export function getProfileJsonLd() {
             priceSpecification: {
               "@type": "PriceSpecification",
               priceCurrency: "USD",
-              description: "$12k-$32k",
+              description: "$18k-$45k",
             },
             itemOffered: {
               "@type": "Service",
               name: "Brand + Digital Buildout",
-              serviceType: "Brand, website, product, and commerce buildout",
+              serviceType: "Brand, website, commerce, and digital experience buildout",
               description:
-                "Brand direction, website, storefront, service funnel, or ordering experience with launch execution and three months of post-launch support.",
+                "Brand direction, website, storefront, commerce experience, or ordering path with launch execution and three months of post-launch support.",
             },
           },
           {
@@ -131,7 +131,7 @@ export function getProfileJsonLd() {
             priceSpecification: {
               "@type": "PriceSpecification",
               priceCurrency: "USD",
-              description: "$1.5k-$4k/mo",
+              description: "$2.5k-$6k/mo",
             },
             itemOffered: {
               "@type": "Service",

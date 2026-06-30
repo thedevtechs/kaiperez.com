@@ -7,12 +7,13 @@ export default function Header() {
         <div className="monogram">KP</div>
         <div className="who">
           <b>Kai Perez</b>
-          <span className="mono">Technical Operator</span>
+          <span className="mono">Founder-Operator</span>
         </div>
       </a>
       <nav className="topnav" aria-label="Primary navigation">
+        <a href="/#inquiry">Start a project</a>
+        <a href="/#work">Proof</a>
         <a href="/#packages">Ways in</a>
-        <a href="/#projects">Proof</a>
         <a href="/about">About</a>
       </nav>
       <a className="nav-cta" href={meetingUrl} target="_blank" rel="noreferrer">
