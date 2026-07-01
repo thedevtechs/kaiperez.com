@@ -1071,6 +1071,176 @@ em {
   to { transform: scaleX(1); }
 }
 
+.creative-showcase-section {
+  padding-top: clamp(2.4rem, 6vh, 4.8rem);
+  padding-bottom: clamp(2.85rem, 7vh, 5.5rem);
+}
+
+.creative-showcase-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 0.58fr);
+  gap: clamp(1.35rem, 4vw, 3rem);
+  align-items: center;
+}
+
+.creative-preview {
+  position: relative;
+  display: block;
+  min-width: 0;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border: 1px solid var(--line-strong);
+  border-radius: 8px;
+  background: #08111c;
+  box-shadow: var(--shadow);
+  isolation: isolate;
+}
+
+.creative-preview img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.01);
+  transition: transform 720ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.creative-preview::after {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(180deg, rgb(8 17 28 / 0.06), rgb(8 17 28 / 0.7)),
+    linear-gradient(90deg, rgb(var(--accent-rgb) / 0.22), transparent 42%),
+    linear-gradient(315deg, rgb(var(--energy-rgb) / 0.18), transparent 34%);
+  content: "";
+}
+
+.creative-preview:hover img {
+  transform: scale(1.055);
+}
+
+.creative-preview-chrome {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 2;
+  display: flex;
+  gap: 0.35rem;
+  padding: 0.4rem;
+  border: 1px solid rgb(255 255 255 / 0.18);
+  border-radius: 8px;
+  background: rgb(8 17 28 / 0.42);
+  backdrop-filter: blur(14px);
+}
+
+.creative-preview-chrome span {
+  width: 0.48rem;
+  height: 0.48rem;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 0.74);
+}
+
+.creative-preview-chrome span:nth-child(2) {
+  background: rgb(var(--fresh-rgb) / 0.9);
+}
+
+.creative-preview-chrome span:nth-child(3) {
+  background: rgb(var(--energy-rgb) / 0.9);
+}
+
+.creative-preview-title {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+  z-index: 2;
+  display: grid;
+  gap: 0.35rem;
+  color: #fff;
+}
+
+.creative-preview-title span {
+  color: rgb(255 255 255 / 0.76);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.creative-preview-title strong {
+  font-size: clamp(2.4rem, 7vw, 5rem);
+  font-weight: 650;
+  line-height: 0.92;
+  text-shadow: 0 1.2rem 2rem rgb(0 0 0 / 0.34);
+}
+
+.creative-showcase-copy {
+  min-width: 0;
+}
+
+.creative-showcase-copy h2 {
+  max-width: 16ch;
+  margin: 0.65rem 0 0.85rem;
+  font-size: clamp(1.85rem, 3.6vw, 3rem);
+  font-weight: 720;
+  line-height: 1.04;
+}
+
+.creative-showcase-copy p {
+  margin: 0;
+  color: var(--muted-strong);
+  font-size: 0.96rem;
+  line-height: 1.62;
+}
+
+.creative-showcase-notes {
+  display: grid;
+  gap: 0.55rem;
+  margin: 1.25rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.creative-showcase-notes li {
+  display: flex;
+  gap: 0.6rem;
+  color: var(--muted-strong);
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.42;
+}
+
+.creative-showcase-notes li::before {
+  width: 0.38rem;
+  height: 0.38rem;
+  flex: none;
+  margin-top: 0.43rem;
+  border-radius: 999px;
+  background: var(--energy);
+  content: "";
+}
+
+.creative-showcase-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.55rem;
+  width: fit-content;
+  margin-top: 1.35rem;
+  padding: 0.68rem 0.95rem;
+  border-radius: 8px;
+  color: var(--accent-ink);
+  background: linear-gradient(135deg, var(--accent), var(--fresh));
+  font-size: 0.88rem;
+  font-weight: 740;
+  box-shadow: 0 1rem 2rem -1.35rem rgb(var(--accent-rgb) / 0.52);
+}
+
+.creative-showcase-link:hover {
+  transform: translateY(-1px);
+}
+
 .audit-card {
   display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(18rem, 0.72fr);
@@ -2364,6 +2534,7 @@ em {
 
   .hero-focus-list,
   .credibility-head,
+  .creative-showcase-shell,
   .named-proof-card,
   .named-proof-grid,
   .audit-card,
@@ -2444,6 +2615,14 @@ em {
   }
 
   .credibility-head p {
+    max-width: 62ch;
+  }
+
+  .creative-preview {
+    aspect-ratio: 16 / 11;
+  }
+
+  .creative-showcase-copy {
     max-width: 62ch;
   }
 
@@ -2587,6 +2766,18 @@ em {
 
   .closing h2 {
     font-size: 2.35rem;
+  }
+
+  .creative-preview {
+    aspect-ratio: 4 / 3;
+  }
+
+  .creative-preview-title strong {
+    font-size: 2.45rem;
+  }
+
+  .creative-showcase-link {
+    width: 100%;
   }
 }
 

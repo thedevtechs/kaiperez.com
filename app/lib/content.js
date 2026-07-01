@@ -275,6 +275,20 @@ export const namedProofProjects = [
 
 export const namedProof = namedProofProjects[0];
 
+export const creativeShowcase = {
+  eyebrow: "Creative range",
+  name: "Seychelles",
+  tag: "Luxury travel concept",
+  title: "A cinematic landing page built to feel like arrival.",
+  lede:
+    "A standalone HTML/CSS/JS concept for a private jet charter experience: scroll-driven porthole reveal, island storytelling, modal details, and a booking flow shaped around atmosphere instead of a generic travel template.",
+  image: "/showcase/seychelles/assets/images/seychelles-hero-aerial.jpg",
+  imageAlt: "Aerial turquoise water and islands from the Seychelles landing page concept.",
+  url: "/showcase/seychelles/index.html",
+  cta: "Open the live concept",
+  notes: ["Scroll-led hero", "Luxury art direction", "Responsive interaction"],
+};
+
 export const packages = [
   {
     name: "Brand + Systems Audit",

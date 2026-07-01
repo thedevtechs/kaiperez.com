@@ -2,6 +2,7 @@
 // import AuditCaptureSection from "./AuditCaptureSection";
 import Closing from "./Closing";
 import CredibilitySection from "./CredibilitySection";
+import CreativeShowcaseSection from "./CreativeShowcaseSection";
 import Header from "./Header";
 import Hero from "./Hero";
 import NamedProofSection from "./NamedProofSection";
@@ -16,6 +17,7 @@ export default function HomePage() {
       <Hero />
       <ProofStrip />
       <NamedProofSection />
+      <CreativeShowcaseSection />
       {/* <AuditCaptureSection /> */}
       <WorkSection />
       <PackagesSection />
